@@ -559,6 +559,7 @@ class BaseDatos
         return $arreglo;
     }
 
+    
     /**************************************/
     /*             SELECCIONES            */
     /**************************************/
@@ -568,13 +569,47 @@ class BaseDatos
 
     //Seleccionar Especifico
 
-    public function seleccionarAdmin($username)
-    {
+    public function seleccionarAdmin($username){
         $resultadoAlumno = mysqli_query($this->conexion, "select * from administrador where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo;
     }
 
+    public function seleccionarDocumentoAdmin($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select documentoAdmin from administrador where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarNombreAdmin($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select nombre from administrador where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarApellidoAdmin($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select apellido from administrador where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+    
+    public function seleccionarFechaNacAdmin($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select fechaNacimiento from administrador where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarTelefonoAdmin($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select telefono from administrador where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarCorreoAdmin($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select correo from administrador where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }  
 
     public function seleccionarAlumno($username)
     {
@@ -583,9 +618,81 @@ class BaseDatos
         return $arreglo;
     }
 
+    public function seleccionarDocumentoAlumno($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select documentoAlumno from alumno where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarNombreAlumno($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select nombre from alumno where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarApellidoAlumno($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select apellido from alumno where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarFechaNacAlumno($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select fechaNacimiento from alumno where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarTelefonoAlumno($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select telefono from alumno where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarCorreoAlumno($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select correo from alumno where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
     public function seleccionarInstructor($username)
     {
         $resultadoAlumno = mysqli_query($this->conexion, "select * from instructor where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarDocumentoInstructor($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select documentoInstructor from instructor where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarNombreInstructor($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select nombre from instructor where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarApellidoInstructor($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select apellido from instructor where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarFechaNacInstructor($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select fechaNacimiento from instructor where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarTelefonoInstructor($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select telefono from instructor where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarCorreoInstructor($username){
+        $resultadoAlumno = mysqli_query($this->conexion, "select correo from instructor where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo;
     }

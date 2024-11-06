@@ -99,7 +99,13 @@
     
     <div class="container">
 
-                        <h1>Usuario: <?php echo $_SESSION['usuario'] ?> </h1>   
+                        <h1>Documento: <?php echo $_SESSION['documento'] ?> </h1>   
+                        <h1>Usuario: <?php echo $_SESSION['usuario'] ?> </h1>
+                        <h1>Nombre: <?php echo $_SESSION['nombre'] ?> </h1>
+                        <h1>Apellido: <?php echo $_SESSION['apellido'] ?> </h1>   
+                        <h1>Fecha Nacimiento: <?php echo $_SESSION['fechaNac'] ?> </h1>   
+                        <h1>Correo: <?php echo $_SESSION['correo'] ?> </h1>   
+                        <h1>Telefono: <?php echo $_SESSION['telefono'] ?> </h1>   
 
 
 </body>

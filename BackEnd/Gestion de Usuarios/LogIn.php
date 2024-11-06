@@ -7,6 +7,9 @@ require_once 'Controlador.php';
 session_start();
 $controla = new Controlador();
 
+
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recaptchaSecret = '6LeyN3YqAAAAAPbSQGlAc8VE90YF7r1pyCuZn6Hw'; 
     $recaptchaResponse = $_POST['g-recaptcha-response'];
@@ -30,6 +33,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $permiso = $usuario[0]['permisos'];
 
         if ($username == "admin" && $password == "admin") {
+            $documento = "Usuario Hardcodeado";
+            $nombre = "Usuario";
+            $apellido = "Administrativo";
+            $fechaNac = "0-0-0";
+            $correo = "diamondglorydevelopment2@gmail.com";
+            $telefono = "094970276";
+
+            $_SESSION['documento'] = $documento;
+            $_SESSION['nombre'] = $nombre;
+            $_SESSION['apellido'] = $apellido;
+            $_SESSION['fechaNac'] = $fechaNac;
+            $_SESSION['correo'] = $correo;
+            $_SESSION['telefono'] = $telefono;
             $_SESSION['usuario'] = $username;
             $_SESSION['permisos'] = 4;
             if ($recordar) {
@@ -44,6 +60,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($controla->logIn($username, $password) == 1) {
             // Autenticación exitosa
             if ($permiso == "owner") {
+
+                $documento = $controla->seleccionarDocumentoAdmin($username);
+                $nombre = $controla->seleccionarNombreAdmin($username);
+                $apellido = $controla->seleccionarApellidoAdmin($username);
+                $fechaNac = $controla->seleccionarFechaNacAdmin($username);
+                $correo = $controla->seleccionarCorreoAdmin($username);
+                $telefono = $controla->seleccionarTelefonoAdmin($username);
+
+                $_SESSION['documento'] = $documento;
+                $_SESSION['nombre'] = $nombre;
+                $_SESSION['apellido'] = $apellido;
+                $_SESSION['fechaNac'] = $fechaNac;
+                $_SESSION['correo'] = $correo;
+                $_SESSION['telefono'] = $telefono;
+                
                 $_SESSION['usuario'] = $username;
                 $_SESSION['permisos'] = 4;
                 if ($recordar) {
@@ -56,8 +87,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header('Location: ../../Frontend/html/ownerView/spanish/ownerIndex.html.php');
 
             } elseif ($permiso == "usuario") {
+                $documento = $controla->seleccionarDocumentoAlumno($username);
+                $nombre = $controla->seleccionarNombreAlumno($username);
+                $apellido = $controla->seleccionarApellidoAlumno($username);
+                $fechaNac = $controla->seleccionarFechaNacAlumno($username);
+                $correo = $controla->seleccionarCorreoAlumno($username);
+                $telefono = $controla->seleccionarTelefonoAlumno($username);
+
                 $_SESSION['usuario'] = $username;
                 $_SESSION['permisos'] = 1;
+                $_SESSION['documento'] = $documento;
+                $_SESSION['nombre'] = $nombre;
+                $_SESSION['apellido'] = $apellido;
+                $_SESSION['fechaNac'] = $fechaNac;
+                $_SESSION['correo'] = $correo;
+                $_SESSION['telefono'] = $telefono;
+                
                 if ($recordar) {
                     setcookie('username', $username, time() + (86400 * 30), "/"); // 30 días
                     setcookie('password', $contrasena, time() + (86400 * 30), "/"); // 30 días
@@ -68,6 +113,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header('Location: ../../Frontend/html/studView/spanish/studIndex.html.php');
 
             } elseif ($permiso == "instructor") {
+                $documento = $controla->seleccionarDocumentoInstructor($username);
+                $nombre = $controla->seleccionarNombreInstructor($username);
+                $apellido = $controla->seleccionarApellidoInstructor($username);
+                $fechaNac = $controla->seleccionarFechaNacInstructor($username);
+                $correo = $controla->seleccionarCorreoInstructor($username);
+                $telefono = $controla->seleccionarTelefonoInstructor($username);
+
+                $_SESSION['documento'] = $documento;
+                $_SESSION['nombre'] = $nombre;
+                $_SESSION['apellido'] = $apellido;
+                $_SESSION['fechaNac'] = $fechaNac;
+                $_SESSION['correo'] = $correo;
+                $_SESSION['telefono'] = $telefono;
+                
+                
                 $_SESSION['usuario'] = $username;
                 $_SESSION['permisos'] = 2;
                 if ($recordar) {
@@ -80,8 +140,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header('Location: ../../Frontend/html/instView/spanish/instIndex.html.php');
 
             } elseif ($permiso == "admin") {
+                $documento = $controla->seleccionarDocumentoAdmin($username);
+                $nombre = $controla->seleccionarNombreAdmin($username);
+                $apellido = $controla->seleccionarApellidoAdmin($username);
+                $fechaNac = $controla->seleccionarFechaNacAdmin($username);
+                $correo = $controla->seleccionarCorreoAdmin($username);
+                $telefono = $controla->seleccionarTelefonoAdmin($username);
+
+                $_SESSION['documento'] = $documento;
+                $_SESSION['nombre'] = $nombre;
+                $_SESSION['apellido'] = $apellido;
+                $_SESSION['fechaNac'] = $fechaNac;
+                $_SESSION['correo'] = $correo;
+                $_SESSION['telefono'] = $telefono;
                 $_SESSION['usuario'] = $username;
                 $_SESSION['permisos'] = 3;
+
                 if ($recordar) {
                     setcookie('username', $username, time() + (86400 * 30), "/"); // 30 días
                     setcookie('password', $contrasena, time() + (86400 * 30), "/"); // 30 días

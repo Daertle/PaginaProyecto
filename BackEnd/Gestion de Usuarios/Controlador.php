@@ -186,13 +186,85 @@ class Controlador{
         return $this->base->seleccionarAlumno($username);
     }
 
+    public function seleccionarDocumentoAlumno(String $username){
+        return $this->base->seleccionarDocumentoAlumno($username);
+    }
+
+    public function seleccionarNombreAlumno(String $username){
+        return $this->base->seleccionarNombreAlumno($username);
+    }
+
+    public function seleccionarApellidoAlumno(String $username){
+        return $this->base->seleccionarApellidoAlumno($username);
+    }
+    public function seleccionarFechaNacAlumno(String $username){
+        return $this->base->seleccionarFechaNacAlumno($username);
+    }
+
+    public function seleccionarTelefonoAlumno(String $username){
+        return $this->base->seleccionarTelefonoAlumno($username);
+    }
+
+    public function seleccionarCorreoAlumno(String $username){
+        return $this->base->seleccionarCorreoAlumno($username);
+    }
+
     public function seleccionarInstructor(String $username){
         return $this->base->seleccionarInstructor($username);
+    }
+
+    public function seleccionarDocumentoInstructor(String $username){
+        return $this->base->seleccionarDocumentoInstructor($username);
+    }
+
+    public function seleccionarNombreInstructor(String $username){
+        return $this->base->seleccionarNombreInstructor($username);
+    }
+
+    public function seleccionarApellidoInstructor(String $username){    
+        return $this->base->seleccionarApellidoInstructor($username);
+    }
+
+    public function seleccionarFechaNacInstructor(String $username){
+        return $this->base->seleccionarFechaNacInstructor($username);
+    }
+
+    public function seleccionarCorreoInstructor(String $username){
+        return $this->base->seleccionarCorreoInstructor($username);
+    }
+
+    public function seleccionarTelefonoInstructor(String $username){
+        return $this->base->seleccionarTelefonoInstructor($username);
     }
 
     public function seleccionarAdministrador(String $username){
         return $this->base->seleccionarAdmin($username);
     }
+
+    public function seleccionarDocumentoAdmin(String $username){
+        return $this->base->seleccionarDocumentoAdmin($username);
+    }
+
+    public function seleccionarNombreAdmin(String $username){
+        return $this->base->seleccionarNombreAdmin($username);
+    }
+
+    public function seleccionarApellidoAdmin(String $username){    
+        return $this->base->seleccionarApellidoAdmin($username);
+    }
+
+    public function seleccionarFechaNacAdmin(String $username){
+        return $this->base->seleccionarFechaNacAdmin($username);
+    }
+
+    public function seleccionarCorreoAdmin(String $username){
+        return $this->base->seleccionarCorreoAdmin($username);
+    }
+
+    public function seleccionarTelefonoAdmin(String $username){
+        return $this->base->seleccionarTelefonoAdmin($username);
+    }
+
     
 
     /* Traer Tabla Usuarios*/
