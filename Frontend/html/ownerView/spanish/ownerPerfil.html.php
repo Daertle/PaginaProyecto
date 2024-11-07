@@ -107,7 +107,6 @@
                         <h1>Correo: <?php echo $_SESSION['correo'] ?> </h1>   
                         <h1>Telefono: <?php echo $_SESSION['telefono'] ?> </h1>   
 
-
 </body>
 
 <script>

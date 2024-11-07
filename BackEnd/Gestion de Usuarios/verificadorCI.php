@@ -3,6 +3,10 @@
 $cedula = $_POST['cedula'];
 $comprobante;
 
+if ($cedula == '11111111') {
+    $comprobante = false;
+} else {	
+
 $cedula_array = str_split($cedula);
 
 $a = $cedula_array[0]*2;
@@ -23,5 +27,5 @@ if ($verificador == $h) {
 } else {
     $comprobante = false;    
 }
-
+}
 echo json_encode($comprobante);

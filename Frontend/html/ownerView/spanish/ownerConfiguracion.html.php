@@ -96,10 +96,31 @@
 
     <div class="adminCont">
 
-        <a href="ownerLandingSpanish.html.php"> Volver </a>
+    <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Dato a Modificar</span>
+                                </div>
+                                <div class="form-group">
+                                    <select id="txtDato" name="txtDato" class="form-control" placeholder="Dato a Editar">
+                                        <option value="nombre"> Nombre </option>
+                                        <option value="apellido"> Apellido </option>
+                                        <option value="fechaNacimiento"> Fecha Nacimiento </option>
+                                        <option value="telefono"> Telefono </option>
+                                        <option value="correo"> Correo Electronico </option>
+                                        <option value="username"> Username </option>
+                                        <option value="passwrd"> Password </option>
+                                        <option value="permisos"> Permisos </option>
+                                    </select>
+                                </div>
+                                
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Nuevo Dato</span>
+                                </div>
+                                <input type="text" id="txtNuevo" class="form-control" placeholder="nuevo dato" aria-describedby="basic-addon1">
+                            </div>
 
-        <h1> Owner Configuracion </h1>
-
+                            </div>  
 
     </div>
 
