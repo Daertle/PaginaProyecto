@@ -154,6 +154,9 @@ class Controlador{
         $this->base->modificarCurso($codigoClase, $dato, $nuevo);
     }
 
+    public function modificarClaseFecha($usuario, $fecha, $hora){
+        $this->base->modificarCursoFecha($usuario, $fecha, $hora);
+    }
 
     /********************************/
     /*           LOG IN             */

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         events: 'listCalendarEvents.php', // Cargar eventos desde el archivo PHP
     });
+
     calendar.render();
 
     const modal = document.getElementById('eventModal');
@@ -49,6 +51,22 @@ document.addEventListener('DOMContentLoaded', function () {
         const eventDate = document.getElementById('eventDate').value;
         const eventTime = document.getElementById('eventTime').value;
 
+		$.ajax({
+			url: '../../../../BackEnd/Gestion de Usuarios/calendarioFechas.php',
+			method: 'POST',
+			data: {
+                usuario: $_SESSION['usuario'],
+				fecha: eventDate, 
+                hora: eventTime,
+			},
+			success: function (respuesta) {
+				console.log(respuesta);
+			},
+			error: function (respuesta) {
+				console.log(respuesta);
+			},
+		});
+	
         // Crear un nuevo evento
         calendar.addEvent({
             title: 'Nuevo Evento',

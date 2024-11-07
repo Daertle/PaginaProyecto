@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documento</title>
+
   <style>
     .modal {
       position: fixed;
@@ -62,8 +63,8 @@
     </div>
   </div>
 
-  <script src="dist/index.global.min.js"></script>
-  <script src="core/locales/es.global.min.js"></script>
+  <script src="../../ownerView/spanish/dist/index.global.min.js"></script>
+  <script src="../../ownerView/spanish/core/locales/es.global.min.js"></script>
   <script src="../../../js/calendar.js"></script>
 
 </body>

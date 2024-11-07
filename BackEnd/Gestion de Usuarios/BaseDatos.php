@@ -510,6 +510,19 @@ class BaseDatos
         }
     }
 
+    public function modificarCursoFecha($usuario, $fecha, $hora){
+        $consulta = "SELECT alumno.documentoAlumno FROM alumno WHERE alumno.username = '$usuario'";        
+        $documentoAlumno = mysqli_query($this->conexion, $consulta);
+        $consulta = "SELECT curso.codigo FROM curso, alumno
+        WHERE curso.fecha = 0000-00-00
+        AND curso.documentoAlumno = alumno.documentoAlumno
+        AND alumno.documentoAlumno = '$documentoAlumno'
+        LIMIT 1";
+        $codigoClase = mysqli_query($this->conexion, $consulta);
+        $modificar = "UPDATE curso SET fecha = '$fecha', hora = '$hora' WHERE codigo = '$codigoClase'";
+        mysqli_query($this->conexion, $modificar);        
+    }
+
 
 
     /**************************************/

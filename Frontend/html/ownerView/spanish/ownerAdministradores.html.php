@@ -363,6 +363,7 @@ td{
         <a href="ownerCursos.html.php"> Clases </a>
         <a href="ownerVehiculos.html.php"> Vehiculos </a>
         <a href="ownerPF.html.php"> Preguntas Test </a>
+        <a href="ownerCalendario.html.php"> Registro de Clases </a>
 
     </div>
 

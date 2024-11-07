@@ -4,17 +4,62 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxury Driving</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../../../css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
+
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<style>
+
+    #calendar{
+        max-height: 700px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .modal {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+  </head>
 
 <body class="body2">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
@@ -73,7 +118,7 @@
     </nav>
 
     <div class="sidebar">
-        <a class="active" href="ownerPerfil.html.php"> Inicio </a>
+        <a href="ownerPerfil.html.php"> Inicio </a>
         <a href="ownerConfiguracion.html.php"> Configuracion </a>
 
         <button class="dropdown-sidebar" onclick="dropdownSidebar()">
@@ -89,26 +134,32 @@
         <a href="ownerCursos.html.php"> Clases </a>
         <a href="ownerVehiculos.html.php"> Vehiculos </a>
         <a href="ownerPF.html.php"> Preguntas Test </a>
-        <a href="ownerCalendario.html.php"> Registro de Clases </a>
+        <a class="active" href="ownerCalendario.html.php"> Registro de Clases </a>
 
     </div>
 
 
-    <div class="adminCont">
+  <div class="adminCont">
 
-    <h1> Datos del Usuario </h1>
-    
-    <div class="container">
+    <h3>Título de la página</h3>
+    <div id='calendar'></div>
 
-                        <h1>Documento: <?php echo $_SESSION['documento'] ?> </h1>   
-                        <h1>Usuario: <?php echo $_SESSION['usuario'] ?> </h1>
-                        <h1>Nombre: <?php echo $_SESSION['nombre'] ?> </h1>
-                        <h1>Apellido: <?php echo $_SESSION['apellido'] ?> </h1>   
-                        <h1>Fecha Nacimiento: <?php echo $_SESSION['fechaNac'] ?> </h1>   
-                        <h1>Correo: <?php echo $_SESSION['correo'] ?> </h1>   
-                        <h1>Telefono: <?php echo $_SESSION['telefono'] ?> </h1>   
+    <!-- Modal -->
+    <div id="eventModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Detalles del Evento</h2>
+            <form id="eventForm">
+                <input type="date" id="eventDate" required class="hidden">
+                <label for="eventTime">Hora:</label>
+                <input type="time" id="eventTime" required>
+                <br>
+                <button type="submit" onclick="modificarCurso()">Guardar Evento</button>
+            </form>
+        </div>
+    </div>
 
-</body>
+</div>
 
 <script>
     var dropdown = document.getElementsByClassName("dropdown-sidebar");
@@ -123,14 +174,14 @@
         }
     }
 
-    var dropdown = document.getElementsByClassName("dropdown-sidebar");
     for (var i = 0; i < dropdown.length; i++) {
         dropdown[i].addEventListener("click", dropdownSidebar);
     }
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-
-</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="dist/index.global.min.js"></script>
+<script src="core/locales/es-us.global.min.js"></script>
+<script type="text/javascript" src="../../../js/calendar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">    </script>
+    
