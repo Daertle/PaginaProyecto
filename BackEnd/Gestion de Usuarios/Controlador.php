@@ -159,6 +159,32 @@ class Controlador{
     }
 
     /********************************/
+    /*          AUTOTEST           */
+    /********************************/
+
+    public function obtenerPreguntas($limite = 30) {
+        $preguntas = $this->base->traerPreguntas($limite);
+        $preguntasConOpciones = [];
+
+
+        while ($pregunta = $preguntas->fetch_assoc()) {
+            $id_pregunta = $pregunta['id_pregunta'];
+            $opciones = $this->base->traerOpciones($id_pregunta);
+            $pregunta['opciones'] = $opciones;
+            $preguntasConOpciones[] = $pregunta;
+        }
+
+
+        return $preguntasConOpciones;
+    }
+
+
+    public function obtenerRespuestaCorrecta($id_pregunta) {
+        return $this->base->traerRespuestaCorrecta($id_pregunta);
+    }
+
+
+    /********************************/
     /*           LOG IN             */
     /********************************/
 

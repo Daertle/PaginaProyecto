@@ -523,6 +523,41 @@ class BaseDatos
         mysqli_query($this->conexion, $modificar);        
     }
 
+    /******************************************/
+    /* PREGUNTAS AUTOTEST TEORICO DE MANEJO  */
+    /******************************************/
+
+    Public function traerPreguntas($limite = 30) {
+        if ($this->conexion->connect_error) die("Error de conexión: " . $this->conexion->connect_error);
+
+
+        $sql_preguntas = "SELECT * FROM preguntas ORDER BY RAND() LIMIT $limite";
+        return $this->conexion->query($sql_preguntas);
+    }
+
+
+    public function traerOpciones($id_pregunta) {
+        $sql_opciones = "SELECT * FROM opciones WHERE id_pregunta = $id_pregunta ORDER BY RAND()";
+        $result_opciones = $this->conexion->query($sql_opciones);
+        $opciones = [];
+
+
+        while ($opcion = $result_opciones->fetch_assoc()) {
+            $opciones[] = $opcion;
+        }
+
+
+        return $opciones;
+    }
+
+
+    public function traerRespuestaCorrecta($id_pregunta) {
+        $sql = "SELECT respuesta_correcta FROM preguntas WHERE id_pregunta = $id_pregunta";
+        $resultado = $this->conexion->query($sql)->fetch_assoc();
+        return $resultado['respuesta_correcta'];
+    }
+
+
 
 
     /**************************************/
