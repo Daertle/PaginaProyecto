@@ -99,4 +99,5 @@ function generar_password()
     return $password;
 }
 
+header('Location: ../Frontend/html/guestView/spanish/login.html.php');
 ?>

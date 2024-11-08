@@ -182,3 +182,20 @@ function agregarInstructor() {
         },
     });
 }
+
+function verificarCedula() {
+	let verifico = false;
+
+	$.ajax({
+		url: '../../../../BackEnd/Gestion de Usuarios/verificadorCI.php',
+		method: 'POST',
+		data: {
+			cedula: $('#txtNuevoDocumento').val()
+		},
+		success: function (response) {
+			verifico = response;
+		},
+		async: false
+	});
+	return verifico;
+}

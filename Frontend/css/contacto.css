@@ -31,9 +31,17 @@
     padding: 40px;
     transform-style: preserve-3d;
     perspective: 1000px;
-    width: 1000px;
-    height: 500px;
-}
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    min-height: 500px;
+  }
+  
+  @media (max-width: 768px) {
+    .container1 {
+      padding: 20px;
+    }
+  }
 
 /* Navbar styles */
 .navbar {
