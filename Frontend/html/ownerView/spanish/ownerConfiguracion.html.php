@@ -1,26 +1,57 @@
 <?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos4.php'; ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxury Driving</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../../../css/side.css" />
-    <link rel="stylesheet" href="../../../css/tabla.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Credenciales</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/side.css">
+    <style>
+        .credential-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .credential-label {
+            width: 200px;
+            font-weight: bold;
+        }
+        .credential-value {
+            flex-grow: 1;
+            margin-right: 1rem;
+        }
+        .edit-buttons {
+            width: 100px;
+        }
+        .password-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+    </style>
 </head>
-
-<body class="body2">
-<nav id="sidebar">
+<body>
+    <nav id="sidebar">
     <ul>
       <li>
         <span class="logo">Administrador</span>
@@ -28,7 +59,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"/></svg>
         </button>
       </li>
-      <li>
+      <li >
         <a href="ownerPerfil.html.php">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -55,7 +86,7 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li  ><a href="ownerAlumnos.html.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+            <li><a href="ownerAlumnos.html.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
   <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
 </svg>Alumnos</a></li>
             <li><a href="ownerInstructores.html.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
@@ -95,7 +126,6 @@
 </svg><span>Preguntas Test</span>
         </a>
       </li>
-
       <li>
         <a href="ownerCalendario.html.php">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4-week" viewBox="0 0 16 16">
@@ -105,6 +135,7 @@
           <span> Calendario </span>
         </a>
       </li>
+
 
       <li>
         <a href="ownerSubirPDF.html.php">
@@ -124,66 +155,165 @@
       </li>
     </ul>
   </nav>
+    <div class="container mt-5">
+        <h2 class="mb-4">Editar Credenciales</h2>
+       
+        <div class="card">
+            <div class="card-body">
+                <!-- Nombre -->
+                <div class="credential-row">
+                    <div class="credential-label">Nombre:</div>
+                    <div class="credential-value" id="nombreValue">Juan Pérez</div>
+                    <div class="edit-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="iniciarEdicion('nombre')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                    </div>
+                </div>
 
 
-    <div class="adminCont">
+                <!-- Apellido -->
+                <div class="credential-row">
+                    <div class="credential-label">Apellido:</div>
+                    <div class="credential-value" id="apellidoValue">González</div>
+                    <div class="edit-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="iniciarEdicion('apellido')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                    </div>
+                </div>
 
-    <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Dato a Modificar</span>
-                                </div>
-                                <div class="form-group">
-                                    <select id="txtDato" name="txtDato" class="form-control" placeholder="Dato a Editar">
-                                        <option value="nombre"> Nombre </option>
-                                        <option value="apellido"> Apellido </option>
-                                        <option value="fechaNacimiento"> Fecha Nacimiento </option>
-                                        <option value="telefono"> Telefono </option>
-                                        <option value="correo"> Correo Electronico </option>
-                                        <option value="username"> Username </option>
-                                        <option value="passwrd"> Password </option>
-                                        <option value="permisos"> Permisos </option>
-                                    </select>
-                                </div>
-                                
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Nuevo Dato</span>
-                                </div>
-                                <input type="text" id="txtNuevo" class="form-control" placeholder="nuevo dato" aria-describedby="basic-addon1">
-                            </div>
 
-                            </div>  
+                <!-- Email -->
+                <div class="credential-row">
+                    <div class="credential-label">Email:</div>
+                    <div class="credential-value" id="emailValue">juan@example.com</div>
+                    <div class="edit-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="iniciarEdicion('email')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                    </div>
+                </div>
 
+
+                <!-- Telefono -->
+                <div class="credential-row">
+                    <div class="credential-label">Teléfono:</div>
+                    <div class="credential-value" id="telefonoValue">+598 99123456</div>
+                    <div class="edit-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="iniciarEdicion('telefono')">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
 
-  
+    <!-- Modal de Verificacion de Contrasenia -->
+    <div id="passwordModal" class="password-modal">
+        <div class="modal-content">
+            <h4>Verificar Contraseña</h4>
+            <p>Por favor, ingrese su contraseña actual para continuar:</p>
+            <div class="form-group">
+                <input type="password" class="form-control" id="passwordVerification">
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-primary" onclick="verificarPassword()">Verificar</button>
+                <button class="btn btn-secondary ms-2" onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
 
-</body>
 
-<script>
-    var dropdown = document.getElementsByClassName("dropdown-sidebar");
-    var i;
+    <!-- Modal de Edicion -->
+    <div id="editModal" class="password-modal">
+        <div class="modal-content">
+            <h4>Editar Campo</h4>
+            <div class="form-group">
+                <label>Nuevo valor:</label>
+                <input type="text" class="form-control" id="newValue">
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-primary" onclick="guardarCambios()">Guardar</button>
+                <button class="btn btn-secondary ms-2" onclick="cerrarEditModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
 
-    function dropdownSidebar() {
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-        } else {
-            dropdownContent.style.display = "block";
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let campoActual = '';
+        let passwordCorrecta = 'admin123'; // En produccion, esto se verificaría contra la base de datos
+
+
+        function iniciarEdicion(campo) {
+            campoActual = campo;
+            document.getElementById('passwordModal').style.display = 'block';
         }
-    }
 
-    var dropdown = document.getElementsByClassName("dropdown-sidebar");
-    for (var i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", dropdownSidebar);
-    }
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-<script src="../../js/script.js"></script>
-<script src="../../../js/side.js"></script>
+        function cerrarModal() {
+            document.getElementById('passwordModal').style.display = 'none';
+            document.getElementById('passwordVerification').value = '';
+        }
+
+
+        function cerrarEditModal() {
+            document.getElementById('editModal').style.display = 'none';
+            document.getElementById('newValue').value = '';
+        }
+
+
+        function verificarPassword() {
+            let password = document.getElementById('passwordVerification').value;
+           
+            if (password === passwordCorrecta) {
+                cerrarModal();
+                mostrarModalEdicion();
+            } else {
+                alert('Contraseña incorrecta');
+            }
+        }
+
+
+        function mostrarModalEdicion() {
+            document.getElementById('editModal').style.display = 'block';
+            document.getElementById('newValue').value = document.getElementById(campoActual + 'Value').innerText;
+        }
+
+
+        function guardarCambios() {
+            let nuevoValor = document.getElementById('newValue').value;
+           
+            // Aquí iria la llamada AJAX para guardar en la base de datos
+            $.ajax({
+                url: '../../../../BackEnd/Gestion de Usuarios/modificarCredenciales.php',
+                method: 'POST',
+                data: {
+                    campo: campoActual,
+                    valor: nuevoValor
+                },
+                success: function(response) {
+                    document.getElementById(campoActual + 'Value').innerText = nuevoValor;
+                    cerrarEditModal();
+                },
+                error: function(error) {
+                    alert('Error al guardar los cambios');
+                }
+            });
+        }
+
+
+        // Cerrar modals al hacer clic aafuera
+        window.onclick = function(event) {
+            if (event.target.className === 'password-modal') {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="../../../js/side.js"></script>
+</body>
 </html>

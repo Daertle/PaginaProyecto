@@ -16,11 +16,15 @@ $preguntas = $controlador->obtenerPreguntas();
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/autotest.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 <body class="body2">
   <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
     <div class="container">
-      <a href="../../../../index.html.php">
+      <a href="studIndex.html.php">
         <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar5"
@@ -31,51 +35,47 @@ $preguntas = $controlador->obtenerPreguntas();
       <div class="collapse navbar-collapse" id="navbar5">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a href="guestNosotros.html.php" class="nav-link">Nosotros</a>
+            <a href="studNosotros.html.php" class="nav-link">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a href="guestFlota.html.php" class="nav-link">Flota</a>
+            <a href="studFlota.html.php" class="nav-link">Flota</a>
           </li>
           <li class="nav-item">
-            <a href="guestClases.html.php" class="nav-link">Clases</a>
+            <a href="studClases.html.php" class="nav-link">Clases</a>
           </li>
           <li class="nav-item">
-            <a href="guestContacto.html.php" class="nav-link">Contacto</a>
+            <a href="studContacto.html.php" class="nav-link">Contacto</a>
           </li>
           <li class="nav-item">
-            <a href="guestChoferes.html.php" class="nav-link">Choferes</a>
+            <a href="studChoferes.html.php" class="nav-link">Choferes</a>
           </li>
           <li class="nav-item">
-            <a href="guestTests.html.php" class="nav-link">Tests</a>
+            <a href="studTests.html.php" class="nav-link">Tests</a>
           </li>
           <li class="nav-item">
-            <a href="guestRequisitos.html.php" class="nav-link">Requisitos</a>
+            <a href="studRequisitos.html.php" class="nav-link">Requisitos</a>
           </li>
-          
+
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="guestLandingSpanish.html.php">Español</a></li>
-              <li><a class="dropdown-item" href="../english/guestLandingEnglish.html.php">Inglés</a></li>
-              <li><a class="dropdown-item" href="../english/guestLandingArabic.html.php">Árabe</a></li>
+              <li><a class="dropdown-item" href="../spanish/studIndex.html.php">Español</a></li>
+              <li><a class="dropdown-item" href="../english/studIndex">Inglés</a></li>
+              <li><a class="dropdown-item" href="../arabe/studIndex">Árabe</a></li>
             </ul>
           </li>
+
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="login.html.php">Log In</a></li>
-              <li><a class="dropdown-item" href="../english/guestLandingEnglish.html.php">Inglés</a></li>
-              <li><a class="dropdown-item" href="../english/guestLandingArabic.html.php">Árabe</a></li>
+              <li><a class="dropdown-item" href="../../../../BackEnd/Gestion de Usuarios/logOut.php">Log Out</a></li>
+              <li><a class="dropdown-item" href="../../studView/spanish/studPerfil.html.php">Perfil</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <br>
-  <br>
-  <br>
-  <br>
   
   <div class="test-container">
       <h1>Test de Conducción Teórico</h1>
@@ -110,5 +110,7 @@ $preguntas = $controlador->obtenerPreguntas();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../../js/manejoAutoTest.js"></script>
   <script> 
+
+  </script>
 </body>
 </html>
