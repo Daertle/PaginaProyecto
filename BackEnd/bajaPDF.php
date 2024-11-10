@@ -4,3 +4,5 @@ $controla = new Controlador();
 $id = $_POST['dato'];  
 
 $controla->bajaPDF($id)
+
+?>
