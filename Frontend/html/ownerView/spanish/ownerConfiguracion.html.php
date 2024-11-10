@@ -115,7 +115,7 @@ $datosUsuario = $controla->seleccionarUsuario($usuario);
     }
 
     .modal-content {
-      background-color: #fefefe;
+      background-color: #0f0f0f;
       margin: 15% auto;
       /* Centrar verticalmente */
       padding: 20px;
@@ -124,6 +124,16 @@ $datosUsuario = $controla->seleccionarUsuario($usuario);
       /* Ancho del modal */
       max-width: 500px;
       /* Ancho máximo del modal */
+    }
+
+    input#passwordVerification.form-control {
+        background-color: #11121a;
+        color: #e6e6ef;
+        }
+
+    button.btn.btn-primary {
+        background-color: #222533;
+        border-color: #000000;
     }
   </style>
   </head>
