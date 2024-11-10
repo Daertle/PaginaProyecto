@@ -1,4 +1,5 @@
 datosPDF = []; //Array global para guardar los datos de los PDFs
+agregarPDF();
 
 async function traerPDF() {
     const response = await fetch('../../../../BackEnd/Gestion de Usuarios/listarPDFs.php'
@@ -22,7 +23,7 @@ traerPDF().then(dato => {
 function filaNueva(infoPDF, pos) {
 
     var fila = "<tr id=" + pos + ">"
-        + "<td>" + "<a href='../../../../Backend/" + infoPDF.rutaArchivo +"'>" + infoPDF.rutaArchivo + "</a>" + "</td>"
+        + "<td>" + "<a href='../../../../Backend/" + infoPDF.rutaArchivo +"' target='BLANK'>" + infoPDF.rutaArchivo + "</a>" + "</td>"
         + "<td>"
         + "<button type='button' id=" + pos + " onclick='eliminar(this.id)' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-trash'></i> </button>"
         + "</td></tr>";
@@ -65,15 +66,15 @@ function agregarPDF() {
 function eliminar(pos) {
     if (confirm('¿Está seguro de que desea eliminar este pdf?')) {
         $.ajax({
-            url: '../../../../BackEnd/bajaPDF.php',
+            url: '../../../../BackEnd/Gestion de Usuarios/bajaPDF.php',
             method: 'POST',
             data: {
-                dato: datosPDF[pos].id_pdf
+                dato: datosPDF[pos].id
             },
             success: function (respuesta) {
                 console.log(respuesta);
 
-                traerPreguntas().then(dato => {
+                traerPDF().then(dato => {
                     // Clear the table first
                     $("#tablaPDF").find("tr:gt(0)").remove();
                     datosPDF = dato;
