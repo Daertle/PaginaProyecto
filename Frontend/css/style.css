@@ -214,6 +214,8 @@ html, .body2 {
     box-shadow: 0 0 0 rgba(255, 255, 255, 0.5);
 }
 
+
+
 .navbar-nav .nav-item .nav-link:hover::after,
 .navbar-nav .nav-item .nav-link.active::after {
     transform: scaleX(1);
@@ -258,11 +260,11 @@ html, .body2 {
 
 @media (max-width: 576px) {
     .carousel-item {
-        height: 50vh;
+        height: 100vh;
     }
 
     .carousel-item img {
-        height: 50vh;
+        height: 100vh;
     }
 
     .carousel-caption {

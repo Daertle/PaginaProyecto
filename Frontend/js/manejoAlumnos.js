@@ -194,3 +194,46 @@ function verificarCedula() {
 	});
 	return verifico;
 }
+
+// Función para mostrar/ocultar el campo de texto en el modal de modificar
+function mostrarCampoTexto() {
+    var datoCambiado = document.getElementById("txtDato").value;
+    var campoTextoContainer = document.getElementById("campoTextoContainer");
+
+    if (datoCambiado === "fechaNacimiento" || datoCambiado === "categoriaLibreta") {
+        campoTextoContainer.style.display = "none";
+    } else {
+        campoTextoContainer.style.display = "block";
+    }
+}
+
+// Función para mostrar/ocultar el campo de fecha de nacimiento en el modal de modificar
+function mostrarCampoFechaNacimiento() {
+    var datoCambiado = document.getElementById("txtDato").value;
+    var fechaNacimientoInput = document.getElementById("fechaNacimientoContainer");
+
+    if (datoCambiado === "fechaNacimiento") {
+        fechaNacimientoInput.style.display = "block";
+    } else {
+        fechaNacimientoInput.style.display = "none";
+    }
+}
+
+// Función para mostrar/ocultar el campo de categoría de libreta en el modal de modificar
+function mostrarCampoCategoria() {
+    var datoCambiado = document.getElementById("txtDato").value;
+    var categoriaLibretaContainer = document.getElementById("categoriaLibretaContainer");
+
+    if (datoCambiado === "categoriaLibreta") {
+        categoriaLibretaContainer.style.display = "block";
+    } else {
+        categoriaLibretaContainer.style.display = "none";
+    }
+}
+
+// Event listener para el campo txtDato
+document.getElementById("txtDato").addEventListener("change", function() {
+    mostrarCampoTexto();
+    mostrarCampoFechaNacimiento();
+    mostrarCampoCategoria();
+});

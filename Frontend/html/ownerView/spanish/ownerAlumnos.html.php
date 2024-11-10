@@ -20,7 +20,7 @@
 </head>
 
 <body class="body2">
-<nav id="sidebar">
+<nav id="sidebar" class="close">
     <ul>
       <li>
         <span class="logo">Administrador</span>
@@ -125,213 +125,270 @@
     </ul>
   </nav>
     <div class="adminCont">
+    <div class="adminCont">
 
-        <body>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-body d-flex justify-content-between align-items-center">
-                                    <h2 class="card-title text-uppercase mb-0">ALUMNOS</h2>
-                                    <button type="button" class="btn btn-primary" onclick="mostrarModalAgregar()">
-                                        <i class="fas fa-plus"></i> Añadir Alumno
-                                    </button>
-                                </div>
 
-                                <!-- MODAL DE AÑADIR USUARIO -->
-                                <div id="addModal" class="modal" tabindex="-1">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Añadir nuevo alumno</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModalAgregar()">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
 
-                                            <div class="modal-body">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Documento</span>
-                                                    </div>
-                                                    <input type="text" id="txtNuevoDocumento" class="form-control" placeholder="Número de documento">
-                                                </div>
 
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Username</span>
-                                                    </div>
-                                                    <input type="text" id="txtNuevoUsername" class="form-control" placeholder="Username">
-                                                </div>
-
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Nombre</span>
-                                                    </div>
-                                                    <input type="text" id="txtNuevoNombre" class="form-control" placeholder="Nombre">
-                                                </div>
-
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Apellido</span>
-                                                    </div>
-                                                    <input type="text" id="txtNuevoApellido" class="form-control" placeholder="Apellido">
-                                                </div>
-
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Fecha Nacimiento</span>
-                                                    </div>
-                                                    <input type="date" id="txtNuevaFechaNacimiento" class="form-control">
-                                                </div>
-
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Teléfono</span>
-                                                    </div>
-                                                    <input type="tel" id="txtNuevoTelefono" class="form-control" placeholder="Teléfono">
-                                                </div>
-
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Correo</span>
-                                                    </div>
-                                                    <input type="email" id="txtNuevoCorreo" class="form-control" placeholder="Correo electrónico">
-                                                </div>
-
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Contraseña</span>
-                                                    </div>
-                                                    <input type="password" id="txtNuevaPassword" class="form-control" placeholder="Contraseña">
-                                                </div>
-
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Categoría Libreta</span>
-                                                    </div>
-                                                    <div>
-                                                        <label for="txtNuevoA"> Categoría Libreta A </label>
-                                                        <input type="checkbox" name="txtNuevoA" id="txtNuevoA">
-                                                        <br>
-                                                        <label for="txtNuevoB"> Categoría Libreta B </label>
-                                                        <input type="checkbox" name="txtNuevoB" id="txtNuevoB">
-                                                        <br>
-                                                        <label for="txtNuevoC"> Categoría Libreta C </label>
-                                                        <input type="checkbox" name="txtNuevoC" id="txtNuevoC">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalAgregar()">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" onclick="agregarAlumno()">Guardar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="table-responsive">
-                                <table id="tablaPersonas" class="table no-wrap user-table mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Documento</th>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Username</th>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Nombre</th>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Apellido</th>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Fecha Nacimiento</th>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Telefono</th>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Correo</th>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Fecha Inscripcion</th>
-                                            <th scope="col" class="border-0 text-uppercase font-medium">Estado Teorico</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MODAL DE MODIFCACIONES -->
-            <div id="modifModal" class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modificar usuario</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
-                                <span aria-hidden="true">&times;</span>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <h2 class="card-title text-uppercase mb-0">ALUMNOS</h2>
+                            <button type="button" class="btn btn-primary" onclick="mostrarModalAgregar()">
+                                <i class="fas fa-plus"></i> Añadir Alumno
                             </button>
                         </div>
 
-                        <div class="modal-body">
-                            <input type="hidden" id="txtID">
 
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Dato a Modificar</span>
-                                </div>
-                                <div class="form-group">
-                                    <select id="txtDato" name="txtDato" class="form-control" placeholder="Dato a Editar">
-                                        <option value="nombre"> Nombre </option>
-                                        <option value="apellido"> Apellido </option>
-                                        <option value="fechaNacimiento"> Fecha Nacimiento </option>
-                                        <option value="telefono"> Telefono </option>
-                                        <option value="correo"> Correo Electronico </option>
-                                        <option value="username"> Username </option>
-                                        <option value="passwrd"> Password </option>
-                                        <option value="permisos"> Permisos </option>
-                                        <option value="fechaInscripcion"> Fecha Inscripcion </option>
-                                        <option value="estadoTeorico"> Estado Teorico </option>
-                                        <option value="categoriaClase"> Categoria Clase </option>
-                                    </select>
-                                </div>
 
-                            </div>
 
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Nuevo Dato</span>
-                                </div>
-                                <input type="text" id="txtNuevo" class="form-control" placeholder="nuevo dato" aria-describedby="basic-addon1">
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Categoria Libreta</span>
-                                </div>
-                                <!-- Categoria Libreta -->
-                                <div class>
-                                    <label for="txtA"> Categoria Libreta A </label>
-                                    <input type="checkbox" name="txtA" id="txtA">
-                                    <br>
-                                    <label for="txtB"> Categoria Libreta B </label>
-                                    <input type="checkbox" name="txtB" id="txtB">
-                                    <br>
-                                    <label for="txtC"> Categoria Libreta C </label>
-                                    <input type="checkbox" name="txtC" id="txtC">
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
-                            <div id="btnGuardarCont"></div>
-                            <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
-                        </div>
+                        <div id="addModal" class="modal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Agregar Nuevo Alumno</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModalAgregar()">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form>
+  <div class="form-group">
+    <label for="txtNuevoDocumento">Documento</label>
+    <input type="text" class="form-control" id="txtNuevoDocumento" placeholder="Número de documento">
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="txtNuevoUsername">Username</label>
+    <input type="text" class="form-control" id="txtNuevoUsername" placeholder="Username">
+  </div><br>
+  <div class="form-group">
+    <label for="txtNuevoNombre">Nombre</label>
+    <input type="text" class="form-control" id="txtNuevoNombre" placeholder="Nombre">
+  </div><br>
+  <div class="form-group">
+    <label for="txtNuevoApellido">Apellido</label>
+    <input type="text" class="form-control" id="txtNuevoApellido" placeholder="Apellido">
+  </div><br>
+  <div class="form-group">
+    <label for="txtNuevaFechaNacimiento">Fecha Nacimiento</label>
+    <input type="date" class="form-control" id="txtNuevaFechaNacimiento">
+  </div><br>
+  <div class="form-group">
+    <label for="txtNuevoTelefono">Teléfono</label>
+    <input type="tel" class="form-control" id="txtNuevoTelefono" placeholder="Teléfono">
+  </div><br>
+  <div class="form-group">
+    <label for="txtNuevoCorreo">Correo</label>
+    <input type="email" class="form-control" id="txtNuevoCorreo" placeholder="Correo electrónico">
+  </div><br>
+  <div class="form-group">
+    <label for="txtNuevaPassword">Contraseña</label>
+    <input type="password" class="form-control" id="txtNuevaPassword" placeholder="Contraseña">
+  </div><br>
+  <div class="form-group">
+    <label>Categoría Libreta</label>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="txtNuevoA">
+      <label class="form-check-label" for="txtNuevoA">Categoría Libreta A</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="txtNuevoB">
+      <label class="form-check-label" for="txtNuevoB">Categoría Libreta B</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="txtNuevoC">
+      <label class="form-check-label" for="txtNuevoC">Categoría Libreta C</label>
+    </div>
+  </div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalAgregar()">Cerrar</button>
+<button type="button" class="btn btn-primary" onclick="agregarAlumno()">Guardar</button>
+</div>
+</div>
+</div>
+</div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="tablaPersonas" class="table no-wrap user-table mb-0">
+                            <thead>
+                               
+                                <tr>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Documento</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Username</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Nombre</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Apellido</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Fecha Nacimiento</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Telefono</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Correo</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Fecha Inscripcion</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Estado Teorico</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
-
+        </div>
     </div>
 
 
+
+
+    <!-- MODAL DE MODIFCACIONES -->
+    <div id="modifModal" class="modal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Modificar usuario</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<input type="hidden" id="txtID">
+<div class="form-group">
+  <label for="txtDato">Dato a Modificar</label>
+  <select id="txtDato" name="txtDato" class="form-control" onchange="mostrarCampoTexto(); mostrarCampoFechaNacimiento(); mostrarCampoCategoria();">
+    <option value="nombre">Nombre</option>
+    <option value="apellido">Apellido</option>
+    <option value="fechaNacimiento">Fecha Nacimiento</option>
+    <option value="telefono">Teléfono</option>
+    <option value="correo">Correo Electrónico</option>
+    <option value="username">Username</option>
+    <option value="password">Contraseña</option>
+    <option value="estadoTeorico">Estado Teórico</option>
+    <option value="categoriaLibreta">Categoría Libreta</option>
+  </select>
+</div>
+
+
+<div class="form-group" id="campoTextoContainer" style="display: none;">
+  <label for="txtNuevo">Nuevo Dato</label>
+  <input type="text" id="txtNuevo" class="form-control" placeholder="Nuevo dato">
+</div>
+
+
+<div class="form-group" id="fechaNacimientoContainer" style="display: none;">
+  <label for="txtNuevaFechaNacimiento">Fecha Nacimiento</label>
+  <input type="date" id="txtNuevaFechaNacimiento" class="form-control">
+</div>
+
+
+<div class="form-group" id="categoriaLibretaContainer" style="display: none;">
+  <label>Categoría Libreta</label>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="txtA">
+    <label class="form-check-label" for="txtA">Categoría Libreta A</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="txtB">
+    <label class="form-check-label" for="txtB">Categoría Libreta B</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="txtC">
+    <label class="form-check-label" for="txtC">Categoría Libreta C</label>
+  </div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
+<button type="button" class="btn btn-primary" id="btnGuardar" onclick="guardarCambios()">Guardar</button>
+</div>
+</div>
+</div>
+</div>
+                
+            </div>
+        </div>
     </div>
 
-    <div class="row">
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<div class="row">
+
+
+
+
+
+
+
 
 </body>
+
+
+
+
+<script>
+var dropdown = document.getElementsByClassName("dropdown-sidebar");
+var i;
+
+
+
+
+function dropdownSidebar() {
+var dropdownContent = this.nextElementSibling;
+if (dropdownContent.style.display === "block") {
+    dropdownContent.style.display = "none";
+} else {
+    dropdownContent.style.display = "block";
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+var dropdown = document.getElementsByClassName("dropdown-sidebar");
+for (var i = 0; i < dropdown.length; i++) {
+dropdown[i].addEventListener("click", dropdownSidebar);
+}
+</script>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../js/manejoAlumnos.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+crossorigin="anonymous"></script>
 
 <script>
     var dropdown = document.getElementsByClassName("dropdown-sidebar");
