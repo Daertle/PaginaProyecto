@@ -1,84 +1,72 @@
-document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
             start: 'prev,next',
-            center: '',
-            end: 'title'
+            center: 'title',
+            end: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
         initialView: 'dayGridMonth',
         locale: 'es',
         selectable: true,
         selectMirror: true,
-        dayMaxEvents: true,
+        themeSystem: 'standard',
 
-        dateClick: function (info) {
-            abrirModal(info); // Abrir modal al hacer clic en una fecha
-            document.getElementById('eventDate').value = info.dateStr;
+        dateClick: function(info) {
+            abrirModal(info);
+            document.getElementById('fecha').value = info.dateStr;
         },
-        eventClick: function (info) {
-            abrirModal(info.event); // Abrir modal al hacer clic en un evento
-        },
-        eventDrop: function (info) {
-            console.log(info);
-        },
-        events: 'listCalendarEvents.php', // Cargar eventos desde el archivo PHP
+
+        events: '../../../../BackEnd/Gestion%20de%20Usuarios/listarClasesCalendario.php'
+        
     });
 
     calendar.render();
 
     const modal = document.getElementById('eventModal');
-    const closeBtn = modal.querySelector('.close');
+    const closeBtn = modal.querySelector('.custom-close');
     const eventForm = document.getElementById('eventForm');
 
     function abrirModal(event) {
-        modal.classList.remove('hidden');
+        modal.classList.remove('custom-hidden');
     }
 
     function cerrarModal() {
-        modal.classList.add("hidden");
+        modal.classList.add('custom-hidden');
     }
 
-    closeBtn.addEventListener("click", cerrarModal);
+    closeBtn.addEventListener('click', cerrarModal);
 
-    eventForm.addEventListener('submit', guardarEvento);
-
-    function guardarEvento(event) {
-        event.preventDefault(); // Evita que se recargue la página
-
-        // Obtener los valores del formulario
-        const eventDate = document.getElementById('eventDate').value;
-        const eventTime = document.getElementById('eventTime').value;
-
-		$.ajax({
-			url: '../../../../BackEnd/Gestion de Usuarios/calendarioFechas.php',
-			method: 'POST',
-			data: {
-                usuario: $_SESSION['usuario'],
-				fecha: eventDate, 
-                hora: eventTime,
-			},
-			success: function (respuesta) {
-				console.log(respuesta);
-			},
-			error: function (respuesta) {
-				console.log(respuesta);
-			},
-		});
-	
-        // Crear un nuevo evento
-        calendar.addEvent({
-            title: 'Nuevo Evento',
-            start: `${eventDate}T${eventTime}:00`,
-            allDay: false
+    eventForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const fecha = document.getElementById('fecha').value;
+        const hora = document.getElementById('hora').value;
+        
+        $.ajax({
+            url: '../../../../BackEnd/Gestion%20de%20Usuarios/calendarioFechas.php',
+            method: 'POST',
+            data: {
+                fecha: fecha,
+                hora: hora
+            },
+            success: function(response) {
+                calendar.addEvent({
+                    title: 'Clase agendada',
+                    start: `${fecha}T${hora}:00`,
+                    allDay: false,
+                    color: 'green'
+                });
+                cerrarModal();
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+                alert('Error al guardar la clase. Por favor, intente nuevamente.');
+            }
         });
+    });
 
-        // Cerrar el modal
-        cerrarModal();
-    }
-
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             cerrarModal();
         }
