@@ -54,7 +54,7 @@ class BaseDatos
         $permisos = $usuario->getPermisos();
         $fechaIns = $usuario->getFechaIns();
 
-        $insertar = "insert into alumno values('$documento','$nombre','$apellido','$fechaNac','$telefono','$correo','$username','$password','$estadoTeorico','$permisos', '$fechaIns', 1)";
+        $insertar = "insert into alumno values('$documento','$nombre','$apellido','$fechaNac','$telefono','$correo','$username','$password','$estadoTeorico','$permisos', '$fechaIns', 1, DEFAULT)";
         return mysqli_query($this->conexion, $insertar);
     }
 
@@ -510,17 +510,15 @@ class BaseDatos
         }
     }
 
-    public function modificarCursoFecha($usuario, $fecha, $hora){
-        $consulta = "SELECT alumno.documentoAlumno FROM alumno WHERE alumno.username = '$usuario'";        
-        $documentoAlumno = mysqli_query($this->conexion, $consulta);
-        $consulta = "SELECT curso.codigo FROM curso, alumno
-        WHERE curso.fecha = 0000-00-00
-        AND curso.documentoAlumno = alumno.documentoAlumno
-        AND alumno.documentoAlumno = '$documentoAlumno'
-        LIMIT 1";
-        $codigoClase = mysqli_query($this->conexion, $consulta);
-        $modificar = "UPDATE curso SET fecha = '$fecha', hora = '$hora' WHERE codigo = '$codigoClase'";
-        mysqli_query($this->conexion, $modificar);        
+    public function modificarCursoFecha($usuario, $fecha, $hora)
+    {
+        $usuario = mysqli_real_escape_string($this->conexion, $usuario);
+
+        $query = "UPDATE curso SET fecha = '$fecha', hora = '$hora' 
+                  WHERE documentoAlumno = (SELECT documentoAlumno FROM alumno 
+                  WHERE username = '$usuario') AND fecha = '0000-00-00' LIMIT 1";
+
+        mysqli_query($this->conexion, $query);
     }
 
     /******************************************/
@@ -805,4 +803,81 @@ class BaseDatos
     }
 
     /********************************************************************************/
-}
+
+    public function seleccionarAlumnoPorDocumento($documento) {
+        $consulta = "SELECT * FROM alumno WHERE documentoAlumno = '$documento'";
+        $resultado = mysqli_query($this->conexion, $consulta);
+        return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+    }
+
+
+    public function seleccionarInstructorPorDocumento($documento) {
+        $consulta = "SELECT * FROM instructor WHERE documentoInstructor = '$documento'";
+        $resultado = mysqli_query($this->conexion, $consulta);
+        return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+    }
+
+
+    public function seleccionarAdministradorPorDocumento($documento) {
+        $consulta = "SELECT * FROM administrador WHERE documentoAdmin = '$documento'";
+        $resultado = mysqli_query($this->conexion, $consulta);
+        return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+    }
+
+    public function seleccionarPDF() {
+        $resultado = mysqli_query($this->conexion, "SELECT * FROM pdfDocumentos");
+        $arreglo = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+public function seleccionarCursoUsuario($usuario)
+    {
+        $usuario = mysqli_real_escape_string($this->conexion, $usuario);
+        $resultadocursos = mysqli_query($this->conexion, "SELECT fecha, hora 
+            FROM curso 
+            WHERE documentoAlumno = (
+                SELECT documentoAlumno 
+                FROM alumno 
+                WHERE username = '$usuario'
+            )");
+
+        $arreglo = mysqli_fetch_all($resultadocursos, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarFotoPerfil($usuario)
+    {
+        $usuario = mysqli_real_escape_string($this->conexion, $usuario);
+        $rutaFoto = mysqli_query($this->conexion, "SELECT profileImage 
+            FROM alumno 
+            WHERE username = '$usuario'");
+
+        $arreglo = mysqli_fetch_row($rutaFoto);
+        return $arreglo;
+
+    }
+
+
+
+    public function modificarFotoPerfil($usuario, $nuevo)
+    {
+        $usuario = mysqli_real_escape_string($this->conexion, $usuario);
+        $query = "UPDATE Alumno SET profileImage = '$nuevo' WHERE username = '$usuario'";
+
+        mysqli_query($this->conexion, $query);
+    }
+
+   public function eliminarPDF($codigoPDF)
+    {
+        $eliminar = "delete from pdfDocumentos where id = '$codigoPDF'";
+        return mysqli_query($this->conexion, $eliminar);
+    }
+
+    public function ingresarPDF($rutaArchivo)
+        {
+            $insertar = "INSERT INTO pdfDocumentos (rutaArchivo) VALUES ('$rutaArchivo')";
+            return mysqli_query($this->conexion, $insertar);
+        }
+    }
+
+    

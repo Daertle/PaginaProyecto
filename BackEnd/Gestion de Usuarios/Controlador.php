@@ -7,7 +7,8 @@ require_once 'Vehiculo.php';
 require_once 'BaseDatos.php';
 require_once 'Curso.php';
 
-class Controlador{
+class Controlador
+{
 
     private $base;
 
@@ -66,13 +67,15 @@ class Controlador{
 
     public function altaPregunta(string $pregunta, string $respuesta, array $opciones)
     {
-        
-        $this->base->ingresarPregunta($pregunta, $respuesta
-     );
-        $this->base->ingresarOpciones($pregunta , $opciones);
+
+        $this->base->ingresarPregunta(
+            $pregunta,
+            $respuesta
+        );
+        $this->base->ingresarOpciones($pregunta, $opciones);
     }
 
-    
+
 
     /********************************/
     /*           BAJAS              */
@@ -110,7 +113,6 @@ class Controlador{
     public function bajaCurso(String $codigoClase)
     {
         $this->base->eliminarCurso($codigoClase);
-        
     }
 
     public function bajaPregunta(String $codigoPregunta)
@@ -154,7 +156,8 @@ class Controlador{
         $this->base->modificarCurso($codigoClase, $dato, $nuevo);
     }
 
-    public function modificarClaseFecha($usuario, $fecha, $hora){
+    public function modificarClaseFecha($usuario, $fecha, $hora)
+    {
         $this->base->modificarCursoFecha($usuario, $fecha, $hora);
     }
 
@@ -162,7 +165,8 @@ class Controlador{
     /*          AUTOTEST           */
     /********************************/
 
-    public function obtenerPreguntas($limite = 30) {
+    public function obtenerPreguntas($limite = 30)
+    {
         $preguntas = $this->base->traerPreguntas($limite);
         $preguntasConOpciones = [];
 
@@ -179,7 +183,8 @@ class Controlador{
     }
 
 
-    public function obtenerRespuestaCorrecta($id_pregunta) {
+    public function obtenerRespuestaCorrecta($id_pregunta)
+    {
         return $this->base->traerRespuestaCorrecta($id_pregunta);
     }
 
@@ -211,90 +216,111 @@ class Controlador{
 
     /* Traer Usuarios Especificos */
 
-    public function seleccionarAlumo(String $username){
+    public function seleccionarAlumo(String $username)
+    {
         return $this->base->seleccionarAlumno($username);
     }
 
-    public function seleccionarDocumentoAlumno(String $username){
+    public function seleccionarDocumentoAlumno(String $username)
+    {
         return $this->base->seleccionarDocumentoAlumno($username);
     }
 
-    public function seleccionarNombreAlumno(String $username){
+    public function seleccionarNombreAlumno(String $username)
+    {
         return $this->base->seleccionarNombreAlumno($username);
     }
 
-    public function seleccionarApellidoAlumno(String $username){
+    public function seleccionarApellidoAlumno(String $username)
+    {
         return $this->base->seleccionarApellidoAlumno($username);
     }
-    public function seleccionarFechaNacAlumno(String $username){
+    public function seleccionarFechaNacAlumno(String $username)
+    {
         return $this->base->seleccionarFechaNacAlumno($username);
     }
 
-    public function seleccionarTelefonoAlumno(String $username){
+    public function seleccionarTelefonoAlumno(String $username)
+    {
         return $this->base->seleccionarTelefonoAlumno($username);
     }
 
-    public function seleccionarCorreoAlumno(String $username){
+    public function seleccionarCorreoAlumno(String $username)
+    {
         return $this->base->seleccionarCorreoAlumno($username);
     }
 
-    public function seleccionarInstructor(String $username){
+    public function seleccionarInstructor(String $username)
+    {
         return $this->base->seleccionarInstructor($username);
     }
 
-    public function seleccionarDocumentoInstructor(String $username){
+    public function seleccionarDocumentoInstructor(String $username)
+    {
         return $this->base->seleccionarDocumentoInstructor($username);
     }
 
-    public function seleccionarNombreInstructor(String $username){
+    public function seleccionarNombreInstructor(String $username)
+    {
         return $this->base->seleccionarNombreInstructor($username);
     }
 
-    public function seleccionarApellidoInstructor(String $username){    
+    public function seleccionarApellidoInstructor(String $username)
+    {
         return $this->base->seleccionarApellidoInstructor($username);
     }
 
-    public function seleccionarFechaNacInstructor(String $username){
+    public function seleccionarFechaNacInstructor(String $username)
+    {
         return $this->base->seleccionarFechaNacInstructor($username);
     }
 
-    public function seleccionarCorreoInstructor(String $username){
+    public function seleccionarCorreoInstructor(String $username)
+    {
         return $this->base->seleccionarCorreoInstructor($username);
     }
 
-    public function seleccionarTelefonoInstructor(String $username){
+    public function seleccionarTelefonoInstructor(String $username)
+    {
         return $this->base->seleccionarTelefonoInstructor($username);
     }
 
-    public function seleccionarAdministrador(String $username){
+    public function seleccionarAdministrador(String $username)
+    {
         return $this->base->seleccionarAdmin($username);
     }
 
-    public function seleccionarDocumentoAdmin(String $username){
+    public function seleccionarDocumentoAdmin(String $username)
+    {
         return $this->base->seleccionarDocumentoAdmin($username);
     }
 
-    public function seleccionarNombreAdmin(String $username){
+    public function seleccionarNombreAdmin(String $username)
+    {
         return $this->base->seleccionarNombreAdmin($username);
     }
 
-    public function seleccionarApellidoAdmin(String $username){    
+    public function seleccionarApellidoAdmin(String $username)
+    {
         return $this->base->seleccionarApellidoAdmin($username);
     }
 
-    public function seleccionarFechaNacAdmin(String $username){
+    public function seleccionarFechaNacAdmin(String $username)
+    {
         return $this->base->seleccionarFechaNacAdmin($username);
     }
 
-    public function seleccionarCorreoAdmin(String $username){
+    public function seleccionarCorreoAdmin(String $username)
+    {
         return $this->base->seleccionarCorreoAdmin($username);
     }
 
-    public function seleccionarTelefonoAdmin(String $username){
+    public function seleccionarTelefonoAdmin(String $username)
+    {
         return $this->base->seleccionarTelefonoAdmin($username);
     }
 
-    
+
 
     /* Traer Tabla Usuarios*/
 
@@ -343,10 +369,118 @@ class Controlador{
     }
 
     /* Traer Tabla Preguntas */
-                                                                                                                                                                                                  
+
     public function traerTablaPreguntas()
     {
         return $this->base->seleccionarPreguntas();
     }
-   
+
+
+
+    /**************/
+    /*credenciales*/
+    /**************/
+
+
+    public function esAlumno($documento)
+    {
+        return  $this->base->seleccionarAlumnoPorDocumento($documento);
+    }
+
+
+    public function esInstructor($documento)
+    {
+        return $this->base->seleccionarInstructorPorDocumento($documento);
+    }
+
+
+    public function esAdministrador($documento)
+    {
+        return  $this->base->seleccionarAdministradorPorDocumento($documento);
+    }
+
+
+    /* Traer Usuario */
+
+    public function seleccionarUsuario($username)
+    {
+        $usuario = $this->seleccionarAlumo($username);
+        if (!empty($usuario)) {
+            return $usuario[0];
+        }
+
+
+        $usuario = $this->seleccionarInstructor($username);
+        if (!empty($usuario)) {
+            return $usuario[0];
+        }
+
+
+        $usuario = $this->seleccionarAdministrador($username);
+        if (!empty($usuario)) {
+            return $usuario[0];
+        }
+
+
+        return null;
+    }
+
+
+    public function seleccionarDocumentoUsuario($username)
+    {
+        $documento = $this->seleccionarDocumentoAlumno($username);
+        if (!empty($documento)) {
+            return $documento[0]['documentoAlumno'];
+        }
+
+
+        $documento = $this->seleccionarDocumentoInstructor($username);
+        if (!empty($documento)) {
+            return $documento[0]['documentoInstructor'];
+        }
+
+
+        $documento = $this->seleccionarDocumentoAdmin($username);
+        if (!empty($documento)) {
+            return $documento[0]['documentoAdmin'];
+        }
+
+
+        return null;
+    }
+
+
+
+
+    public function modificarProfilePhoto($usuario, $rutaDestino)
+    {
+        $this->base->modificarFotoPerfil($usuario, $rutaDestino);
+    }
+
+    public function altaPDF($rutaArchivo)
+    {
+        $this->base->ingresarPDF($rutaArchivo);
+    }
+
+    public function bajaPDF($codigoPDF)
+    {
+        $this->base->eliminarPDF($codigoPDF);
+    }
+
+    public function seleccionarPerfilPhoto($usuario)
+    {
+        return $this->base->seleccionarFotoPerfil($usuario);
+    }
+
+    public function traerCursoUsuario($usuario)
+    {
+        return $this->base->seleccionarCursoUsuario($usuario);
+    }
+
+    /* Traer Tabla PDF */
+
+    public function traerTablaPDF()
+    {
+        return $this->base->seleccionarPDF();
+    }
 }

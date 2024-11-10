@@ -79,7 +79,7 @@ main p {
   max-width: 900px;
   margin: 2rem auto;
   background-color: var(--hover-clr);
-  border-radius: 1rem;
+    border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;

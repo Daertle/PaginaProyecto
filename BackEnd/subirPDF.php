@@ -1,6 +1,7 @@
 <?php
-
-$tamanio = 1000;
+require_once 'Gestion de Usuarios/Controlador.php';
+$controla = new Controlador();
+$tamanio = 3000;
 
 if (isset($_FILES['documento']) && $_FILES['documento']['type'] == 'application/pdf') {
 
@@ -16,6 +17,7 @@ if (isset($_FILES['documento']) && $_FILES['documento']['type'] == 'application/
     } else {
         if ($_FILES['documento']['size'] < ($tamanio * 1024)) {
             move_uploaded_file($_FILES['documento']['tmp_name'], $rutaDestino);
+            $controla -> altaPDF($rutaDestino);
             echo '
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 El documento se ha guardado correctamente.

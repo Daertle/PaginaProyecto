@@ -17,6 +17,63 @@
   <link rel="stylesheet" href="Frontend/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="../../../css/style.css">
+
+    <style>
+        /* Media queries para responsividad */
+        @media (max-width: 992px) {
+    .contentNos {
+        padding: 0 4%;
+        gap: 30px;
+    }
+
+    .text-content {
+        max-width: 55%;
+    }
+
+    .imgNos {
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contentNos {
+        flex-direction: column;
+        padding: 0 5%;
+    }
+
+    .text-content {
+        max-width: 100%;
+        order: 1;
+    }
+
+    .imgNos {
+        max-width: 100%;
+        margin: 20px 0;
+        order: 2;
+        object-fit: cover;
+    }
+
+    .titulo {
+        font-size: 2rem;
+        margin: 100px 5% 40px 5%;
+        text-align: center; /* Cambiado de 'left' a 'center' */
+    }
+
+    .Subtitulo {
+        font-size: 1.8rem;
+    }
+
+    .info {
+        font-size: 0.95rem;
+    }
+}
+
+.imgNos {
+    height: auto;
+    object-fit: cover;
+}
+
+    </style>
 </head>
 
 <body class="body2">
