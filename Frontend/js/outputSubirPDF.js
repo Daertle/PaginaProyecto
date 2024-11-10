@@ -1,7 +1,7 @@
 datosPDF = []; //Array global para guardar los datos de los PDFs
 
 async function traerPDF() {
-    const response = await fetch('../../../../BackEnd/Gestion de Usuarios/listarPDF.php'
+    const response = await fetch('../../../../BackEnd/Gestion de Usuarios/listarPDFs.php'
         , {
             method: 'GET',
         });
@@ -22,7 +22,7 @@ traerPDF().then(dato => {
 function filaNueva(infoPDF, pos) {
 
     var fila = "<tr id=" + pos + ">"
-        + "<td>" + infoPDF.id_pdf + "</td>"
+        + "<td>" + "<a href='../../../../Backend/" + infoPDF.rutaArchivo +"'>" + infoPDF.rutaArchivo + "</a>" + "</td>"
         + "<td>"
         + "<button type='button' id=" + pos + " onclick='eliminar(this.id)' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-trash'></i> </button>"
         + "</td></tr>";
