@@ -6,63 +6,113 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Bebas Neue", sans-serif;
-      font-weight: 200;
-      font-style: normal;
-  }  
+    font-weight: 200;
+    font-style: normal;
+}
 
-  body {
+/* Base styles */
+body {
     font-family: Arial, sans-serif;
-  }
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-  .navbar-brand img {
-    max-width: 100%;
-    height: auto;
-  }
+/* Navbar styles */
+.navbar {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.9) !important;
+    transition: all 0.3s ease;
+}
 
-  .carousel,
+.navbar-brand img {
+    max-height: 50px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}  .carousel,
   .carousel-item,
   .carousel-item img {
     height: 100vh;
   }
 
-  .carousel-caption {
-    padding: 10px;
-    border-radius: 10px;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Liberation+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-  @media (max-width: 768px) {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar styles */
+.navbar {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.9) !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+    max-height: 50px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+    @media (max-width: 768px) {
 
 
-    .carousel-caption {
-      position: absolute;
-      bottom: 30vh;
-      left: 50%;
-      transform: translateX(-50%);
-      right: 10%;
+      .carousel-caption {
+        position: absolute;
+        bottom: 30vh;
+        left: 50%;
+        transform: translateX(-50%);
+        right: 10%;
+      }
+
+      .luxury-driving {
+        font-size: 3rem;
+      }
+
+      .text-primary2,
+      .text-primary1 {
+        font-size: 4rem;
+      }
+
     }
 
-    .luxury-driving {
-      font-size: 3rem;
-    }
+    @media (max-width: 576px) {
 
-    .text-primary2,
-    .text-primary1 {
-      font-size: 4rem;
-    }
+      .luxury-driving,
+      .text-primary2,
+      .text-primary1 {
+        font-size: 3rem;
+      }
 
-  }
-
-  @media (max-width: 576px) {
-
-    .luxury-driving,
-    .text-primary2,
-    .text-primary1 {
-      font-size: 3rem;
-    }
-
-    .carousel-caption {
-      bottom: 40vh;
-    }
+      .carousel-caption {
+        bottom: 40vh;
+      }
     
   }
 

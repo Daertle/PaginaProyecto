@@ -7,9 +7,6 @@ require_once 'Controlador.php';
 session_start();
 $controla = new Controlador();
 
-
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recaptchaSecret = '6LeyN3YqAAAAAPbSQGlAc8VE90YF7r1pyCuZn6Hw'; 
     $recaptchaResponse = $_POST['g-recaptcha-response'];
@@ -68,12 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $correo = $controla->seleccionarCorreoAdmin($username);
                 $telefono = $controla->seleccionarTelefonoAdmin($username);
 
-                $_SESSION['documento'] = $documento;
-                $_SESSION['nombre'] = $nombre;
-                $_SESSION['apellido'] = $apellido;
-                $_SESSION['fechaNac'] = $fechaNac;
-                $_SESSION['correo'] = $correo;
-                $_SESSION['telefono'] = $telefono;
+                $_SESSION['documento'] = json_encode($documento);
+                $_SESSION['nombre'] =  json_encode($nombre);
+                $_SESSION['apellido'] = json_encode($apellido);
+                $_SESSION['fechaNac'] = json_encode($fechaNac);
+                $_SESSION['correo'] = json_encode($correo);
+                $_SESSION['telefono'] = json_encode($telefono);
                 
                 $_SESSION['usuario'] = $username;
                 $_SESSION['permisos'] = 4;
@@ -96,12 +93,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $_SESSION['usuario'] = $username;
                 $_SESSION['permisos'] = 1;
-                $_SESSION['documento'] = $documento;
-                $_SESSION['nombre'] = $nombre;
-                $_SESSION['apellido'] = $apellido;
-                $_SESSION['fechaNac'] = $fechaNac;
-                $_SESSION['correo'] = $correo;
-                $_SESSION['telefono'] = $telefono;
+                $_SESSION['documento'] = json_encode($documento);
+                $_SESSION['nombre'] = json_encode($nombre);
+                $_SESSION['apellido'] = json_encode($apellido);
+                $_SESSION['fechaNac'] = json_encode($fechaNac);
+                $_SESSION['correo'] = json_encode($correo);
+                $_SESSION['telefono'] = json_encode($telefono);
                 
                 if ($recordar) {
                     setcookie('username', $username, time() + (86400 * 30), "/"); // 30 días
@@ -120,12 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $correo = $controla->seleccionarCorreoInstructor($username);
                 $telefono = $controla->seleccionarTelefonoInstructor($username);
 
-                $_SESSION['documento'] = $documento;
-                $_SESSION['nombre'] = $nombre;
-                $_SESSION['apellido'] = $apellido;
-                $_SESSION['fechaNac'] = $fechaNac;
-                $_SESSION['correo'] = $correo;
-                $_SESSION['telefono'] = $telefono;
+                $_SESSION['documento'] = json_encode($documento);
+                $_SESSION['nombre'] = json_encode($nombre);
+                $_SESSION['apellido'] = json_encode($apellido);
+                $_SESSION['fechaNac'] = json_encode($fechaNac);
+                $_SESSION['correo'] = json_encode($correo);
+                $_SESSION['telefono'] = json_encode($telefono);
                 
                 
                 $_SESSION['usuario'] = $username;
@@ -147,12 +144,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $correo = $controla->seleccionarCorreoAdmin($username);
                 $telefono = $controla->seleccionarTelefonoAdmin($username);
 
-                $_SESSION['documento'] = $documento;
-                $_SESSION['nombre'] = $nombre;
-                $_SESSION['apellido'] = $apellido;
-                $_SESSION['fechaNac'] = $fechaNac;
-                $_SESSION['correo'] = $correo;
-                $_SESSION['telefono'] = $telefono;
+                $_SESSION['documento'] = json_encode($documento);
+                $_SESSION['nombre'] = json_encode($nombre);
+                $_SESSION['apellido'] = json_encode($apellido);
+                $_SESSION['fechaNac'] = json_encode($fechaNac);
+                $_SESSION['correo'] = json_encode($correo);
+                $_SESSION['telefono'] = json_encode($telefono);
                 $_SESSION['usuario'] = $username;
                 $_SESSION['permisos'] = 3;
 
