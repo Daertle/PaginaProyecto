@@ -140,10 +140,10 @@
 
         <div class="footer-abajo d-flex justify-content-between align-items-center">
           <a href="#" class="footer-link">Servicios</a>
-          <a href="guestLandingSpanish.html" class="footer-logo">
+          <a href="index.html.php" class="footer-logo">
             <img src="Frontend/img/logo.png" alt="Logo" width="200" height="67">
           </a>
-          <a href="#" class="footer-link">Contactanos</a>
+          <a href="Frontend/html/guestView/spanish/guestContacto.html.php" class="footer-link">Contactanos</a>
         </div>
       </div>
     </div>

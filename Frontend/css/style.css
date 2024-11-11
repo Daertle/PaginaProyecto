@@ -532,7 +532,6 @@ footer .social-icons a {
     background-size: cover !important;
     padding-top: 100px;
   }
-
   
   .uno { 
     width: 420px; 
@@ -723,13 +722,14 @@ footer .social-icons a {
     background-color: #555;
     color: white;
   }
-  
+
   div.adminCont {
     margin-left: 230px;
     padding-top: 30px;
     height: 1000px;
   }
-  
+ 
+
   @media screen and (max-width: 700px) {
     .sidebar {
       width: 100%;
@@ -750,6 +750,50 @@ footer .social-icons a {
 .choferes-container {
     background-color: #141313;
     padding: 2rem 0;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-caption .text-primary1,
+.carousel-caption .text-primary2,
+.carousel-caption .luxury-driving {
+    font-size: 5rem; /* Ajusta el tamaño de fuente según sea necesario */
+}
+
+.carousel-caption .btn-info {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption .text-primary1,
+    .carousel-caption .text-primary2,
+    .carousel-caption .luxury-driving {
+        font-size: 3rem; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
+    }
+
+    .carousel-caption {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption .text-primary1,
+    .carousel-caption .text-primary2,
+    .carousel-caption .luxury-driving {
+        font-size: 3rem; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
+    }
+
+    .carousel-caption {
+        padding: 5px;
+    }
 }
 .chofer-card {
     background-color: #1e1e1e;

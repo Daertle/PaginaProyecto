@@ -72,11 +72,82 @@
     </div>
   </nav>
 
-  <h1> Index stud </h1>
+  <div id="carouselE" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselE" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselE" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselE" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../../img/home-2.jpg" class="d-block w-100" alt="" />
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <div class="text-center mb-3">
+            <span class="text-primary2">Academia</span>
+            <span class="text-primary1">de</span>
+            <span class="text-primary2">Choferes</span> <br>
+            <span class="luxury-driving">Luxury driving</span>
+          </div>
+          <a href="studContacto.html.php" class="btn btn-info">Más Información</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="../../../img/home-2.jpeg" class="d-block w-100" alt="" />
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <div class="text-center mb-3">
+            <span class="text-primary2">Academia</span>
+            <span class="text-primary1">de</span>
+            <span class="text-primary2">Choferes</span>
+            <span class="luxury-driving">Luxury driving</span>
+          </div>
+          <a href="studContacto.html" class="btn btn-info">Más Información</a>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="../../../img/home-3.jpeg" class="d-block w-100" alt="" />
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <div class="text-center mb-3">
+            <span class="text-primary2">Academia</span>
+            <span class="text-primary1">de</span>
+            <span class="text-primary2">Choferes</span>
+            <span class="luxury-driving">Luxury driving</span>
+          </div>
+          <a href="studContacto.html" class="btn btn-info">Más Información</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <ul class="ul1">
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+        </ul>
+        
+        <div class="footer-abajo">
+          <a href="#" class="footer-link">Servicios</a>
+          <a href="studIndex.html.php" class="footer-logo">
+            <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+          </a>
+          <a href="studContacto.html.php" class="footer-link">Contactanos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
   <script src="../../js/script.js"></script>
-
 </body>
+</html>
+

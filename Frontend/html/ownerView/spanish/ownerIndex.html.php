@@ -95,6 +95,8 @@
         </div>
       </div>
 
+owner
+
       <div class="carousel-item">
         <img src="../../../img/home-2.jpeg" class="d-block w-100" alt="" />
         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -104,7 +106,7 @@
             <span class="text-primary2">Choferes</span>
             <span class="luxury-driving">Luxury driving</span>
           </div>
-          <a href="guestContacto.html" class="btn btn-info">Más Información</a>
+          <a href="ownerContacto.html" class="btn btn-info">Más Información</a>
         </div>
       </div>
 
@@ -117,7 +119,7 @@
             <span class="text-primary2">Choferes</span>
             <span class="luxury-driving">Luxury driving</span>
           </div>
-          <a href="guestContacto.html" class="btn btn-info">Más Información</a>
+          <a href="ownerContacto.html" class="btn btn-info">Más Información</a>
         </div>
       </div>
     </div>
@@ -136,10 +138,10 @@
         
         <div class="footer-abajo">
           <a href="#" class="footer-link">Servicios</a>
-          <a href="guestLandingSpanish.html" class="footer-logo">
+          <a href="OwnerIndex.html.php" class="footer-logo">
             <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
           </a>
-          <a href="#" class="footer-link">Contactanos</a>
+          <a href="ownerContacto.html.php" class="footer-link">Contactanos</a>
         </div>
       </div>
     </div>
