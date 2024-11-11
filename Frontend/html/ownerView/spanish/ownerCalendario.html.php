@@ -15,57 +15,245 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="../../../css/side.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="../../../css/tabla.css" />
+
   <style>
-    /* Prefijo custom- para evitar confl4ictos */
-    .body3{
-    width: 80%;
-    height: 80%;
-    margin:auto;
-    background-color: #11121a;;
-    padding: 30px;
-    border-radius: 50px;
+     :root {
+    --sidebar-width: 280px;
+    --header-height: 60px;
+    --primary-color: #7289da;
+    --hover-color: #5869a7;
+    --bg-dark: #1a1a1a;
+    --bg-darker: #141414;
+    --text-color: #e4e4e4;
+    --border-color: #2d2d2d;
+    --card-bg: #232323;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    background: var(--bg-dark);
+    color: var(--text-color);
+}
+
+.logo {
+    color: var(--text-color);
+    font-size: 1.5em;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+}
+
+/* Main Content */
+.adminCont {
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+    transition: 0.3s;
+    min-height: 100vh;
+    background: var(--bg-dark);
+}
+
+.adminCont.expanded {
+    margin-left: 0;
+}
+
+.body3 {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+}
+
+/* Calendar Styles */
+#calendar {
+    max-width: 100%;
+    height: auto;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* Calendar specific overrides */
+.fc {
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.fc-theme-standard td, 
+.fc-theme-standard th {
+    border-color: var(--border-color);
+}
+
+.fc-theme-standard .fc-scrollgrid {
+    border-color: var(--border-color);
+}
+
+.fc-day-today {
+    background: rgba(114, 137, 218, 0.15) !important;
+}
+
+.fc-button-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.fc-button-primary:hover {
+    background-color: var(--hover-color) !important;
+}
+
+/* Modal Styles */
+.custom-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 2000;
+}
+
+.custom-modal.active {
+    display: block;
+}
+
+.custom-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.custom-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Form Styles */
+#eventForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#eventForm select,
+#eventForm input {
+    padding: 8px;
+    background: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+#eventForm button {
+    padding: 10px;
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#eventForm button:hover {
+    background: var(--hover-color);
+}
+
+/* Toggle Button */
+#toggle-sidebar {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1001;
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    #toggle-sidebar {
+        display: block;
     }
 
-    .custom-modal {
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
+    #sidebar {
+        margin-left: calc(var(--sidebar-width) * -1);
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    .adminCont {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .body3 {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .fc-toolbar.fc-header-toolbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .fc-toolbar-chunk {
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     .custom-modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 30%;
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .adminCont {
+        padding: 10px;
     }
 
-    .custom-close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
+    .body3 {
+        padding: 10px;
     }
 
-    .custom-close:hover,
-    .custom-close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
+    h3 {
+        font-size: 1.2em;
     }
 
-    .custom-hidden {
-      display: none;
+    .fc-toolbar-title {
+        font-size: 1.2em !important;
     }
-
-  </style>
-
+}
+    </style>
 </head>
 
 <body class="body2">
@@ -250,6 +438,45 @@
   </div>
 
   </div>
+  <script>
+        // Funcionalidad del sidebar responsive
+        document.getElementById('toggle-sidebar').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+
+        // Cerrar sidebar al hacer clic fuera en dispositivos móviles
+        document.addEventListener('click', function(e) {
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.getElementById('toggle-sidebar');
+            
+            if (window.innerWidth <= 1024) {
+                if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+        // Funcionalidad del submenú
+        function toggleSubMenu(element) {
+            const subMenu = element.nextElementSibling;
+            const allSubMenus = document.querySelectorAll('.sub-menu');
+            
+            allSubMenus.forEach(menu => {
+                if (menu !== subMenu) {
+                    menu.classList.remove('active');
+                }
+            });
+            
+            subMenu.classList.toggle('active');
+        }
+
+        // Ajustar vista en cambio de tamaño de ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        });
+    </script>
 
 <script>
   var dropdown = document.getElementsByClassName("dropdown-sidebar");

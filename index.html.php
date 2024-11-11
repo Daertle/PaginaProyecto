@@ -13,9 +13,9 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="frontend/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
- 
+
 <body class="body2">
   <div style="min-height: 100vh;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
@@ -57,20 +57,18 @@
                   class="bi bi-globe"></i></a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="index.html.php">Español</a></li>
-                <li><a class="dropdown-item"
-                    href="frontend/html/guestView/english/guestindex.html.php">Inglés</a></li>
-                <li><a class="dropdown-item"
-                    href="frontend/html/guestView/arabe/guestindex.html.php">Árabe</a></li>
+                <li><a class="dropdown-item" href="frontend/html/guestView/english/guestindex.html.php">Inglés</a></li>
+                <li><a class="dropdown-item" href="frontend/html/guestView/arabe/guestindex.html.php">Árabe</a></li>
               </ul>
             </li>
-          
+
             <li class="nav-item dropdown">
               <a href="frontend/html/guestView/spanish/login.html.php" class="nav-link dropdown-toggle"><i
                   class="bi bi-person-circle"></i></a>
             </li>
 
-              </ul>
-            </li>
+          </ul>
+          </li>
           </ul>
         </div>
       </div>
@@ -124,6 +122,11 @@
     </div>
   </div>
 
+  <a href="https://wa.me/59894970276?text=%20Quisiera%20más%20información%20sobre%20Luxury%20Driving"
+    class="whatsapp-float" target="_blank" aria-label="Enviar mensaje por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
