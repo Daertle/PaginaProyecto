@@ -805,8 +805,20 @@ class BaseDatos
     }
 
 
-
     // Seleccionar Tabla completa
+
+    public function seleccionarTablaCursoInstructor($usuario)
+    {
+        $resultadocursos = mysqli_query($this->conexion, "SELECT * FROM tablaclases WHERE documentoInstructor = (SELECT documentoInstructor FROM instructor WHERE username = '$usuario')");
+        $arreglo = mysqli_fetch_all($resultadocursos, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+    public function seleccionarTablaCursoAlumno($usuario){
+        $resultado = mysqli_query($this->conexion, "");
+        $arreglo = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+        return $arreglo;
+    }
 
     public function seleccionarPreguntas()
     {

@@ -503,4 +503,13 @@ class Controlador
         return $this->base->seleccionarPDF();
     }
 
+    public function CursosInstructor($usuario)
+    {
+        return $this->base->seleccionarTablaCursoInstructor($usuario);
+    }
+    
+    public function CursosAlumnos($usuario){
+        return $this->base->seleccionarTablaCursoAlumno($usuario);
+    }
+
 }
