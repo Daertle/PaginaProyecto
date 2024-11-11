@@ -334,6 +334,11 @@ class Controlador
         return $this->base->seleccionarTelefonoAdmin($username);
     }
 
+    public function seleccionarSumaPrecioCursosAnioActual()
+    {
+        $sumaPrecio = $this->base->seleccionarSumaPrecioCursosAnioActual();
+        return $sumaPrecio;
+    }
 
 
     /* Traer Tabla Usuarios*/
@@ -497,4 +502,5 @@ class Controlador
     {
         return $this->base->seleccionarPDF();
     }
+
 }

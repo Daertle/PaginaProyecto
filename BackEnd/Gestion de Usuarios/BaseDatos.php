@@ -159,25 +159,34 @@ class BaseDatos
         return mysqli_query($this->conexion, $insertar);
     }
 
-    public function ingresarPregunta($pregunta, $respuesta){
+    public function ingresarPregunta($pregunta, $respuesta)
+    {
         $insertar = "insert into preguntas values('','$pregunta','$respuesta')";
         return mysqli_query($this->conexion, $insertar);
     }
 
-    public function ingresarOpciones($pregunta, $opciones) {
+    public function ingresarOpciones($pregunta, $opciones)
+    {
         $consulta = "SELECT id_pregunta FROM preguntas WHERE pregunta = '$pregunta'";
         $resultado = mysqli_query($this->conexion, $consulta);
         $row = mysqli_fetch_assoc($resultado);
         $id_pregunta = $row['id_pregunta'];
-    
+
         var_dump($id_pregunta);
 
         for ($i = 0; $i < count($opciones); $i++) {
             $insertar = "INSERT INTO opciones VALUES ('$id_pregunta', '$opciones[$i]')";
             mysqli_query($this->conexion, $insertar);
         }
-    
+
         return $id_pregunta;
+    }
+
+    // Altas de PDF en Tablas
+    public function ingresarPDF($rutaArchivo)
+    {
+        $insertar = "INSERT INTO pdfDocumentos (rutaArchivo) VALUES ('$rutaArchivo')";
+        return mysqli_query($this->conexion, $insertar);
     }
 
     /**************************************/
@@ -248,6 +257,15 @@ class BaseDatos
         $eliminar = "delete from o nbpciones where id_pregunta = '$codigoPregunta'";
         mysqli_query($this->conexion, $eliminar);
     }
+
+    // Bajas de PDF en Tablas
+
+    public function eliminarPDF($codigoPDF)
+    {
+        $eliminar = "delete from pdfDocumentos where id = '$codigoPDF'";
+        return mysqli_query($this->conexion, $eliminar);
+    }
+
 
     /**************************************/
     /*           MODIFICACIONES           */
@@ -469,7 +487,7 @@ class BaseDatos
 
     public function modificarCurso($codigocurso, $dato, $nuevo)
     {
-        var_dump($dato);     
+        var_dump($dato);
         switch ($dato) {
             case 'documentoAlumno':
                 $modificar = "update curso set documentoAlumno = '$nuevo' where codigo = '$codigocurso'";
@@ -525,15 +543,18 @@ class BaseDatos
     /* PREGUNTAS AUTOTEST TEORICO DE MANEJO  */
     /******************************************/
 
-    Public function traerPreguntas($limite = 30) {
-        if ($this->conexion->connect_error) die("Error de conexión: " . $this->conexion->connect_error);
+    public function traerPreguntas($limite = 30)
+    {
+        if ($this->conexion->connect_error)
+            die("Error de conexión: " . $this->conexion->connect_error);
 
         $sql_preguntas = "SELECT * FROM preguntas ORDER BY RAND() LIMIT $limite";
         return $this->conexion->query($sql_preguntas);
     }
-    public function traerOpciones($id_pregunta) {
+    public function traerOpciones($id_pregunta)
+    {
         $sql_opciones = "SELECT * FROM opciones WHERE id_pregunta = $id_pregunta ORDER BY RAND()";
-            $result_opciones = $this->conexion->query($sql_opciones);
+        $result_opciones = $this->conexion->query($sql_opciones);
         $opciones = [];
 
 
@@ -545,7 +566,8 @@ class BaseDatos
         return $opciones;
     }
 
-    public function traerRespuestaCorrecta($id_pregunta) {
+    public function traerRespuestaCorrecta($id_pregunta)
+    {
         $sql = "SELECT respuesta_correcta FROM preguntas WHERE id_pregunta = $id_pregunta";
         $resultado = $this->conexion->query($sql)->fetch_assoc();
         return $resultado['respuesta_correcta'];
@@ -598,7 +620,7 @@ class BaseDatos
         return $arreglo;
     }
 
-    
+
     /**************************************/
     /*             SELECCIONES            */
     /**************************************/
@@ -608,86 +630,99 @@ class BaseDatos
 
     //Seleccionar Especifico
 
-    public function seleccionarAdmin($username){
+    public function seleccionarAdmin($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select * from administrador where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo;
     }
-    public function seleccionarDocumentoAdmin($username) {
+    public function seleccionarDocumentoAdmin($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select documentoAdmin from administrador where username = '$username' and activo = 1");
         $fila = mysqli_fetch_assoc($resultadoAlumno);
-        
+
         return $fila ? $fila['documentoAdmin'] : null;
     }
 
-    public function seleccionarNombreAdmin($username){
+    public function seleccionarNombreAdmin($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select nombre from administrador where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['nombre'] : null;
     }
 
-    public function seleccionarApellidoAdmin($username){
+    public function seleccionarApellidoAdmin($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select apellido from administrador where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
-        return $arreglo ? $arreglo[0]['apellido'] : null; 
+        return $arreglo ? $arreglo[0]['apellido'] : null;
     }
-    
-    public function seleccionarFechaNacAdmin($username){
+
+    public function seleccionarFechaNacAdmin($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select fechaNacimiento from administrador where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['fechaNacimiento'] : null;
     }
 
-    public function seleccionarTelefonoAdmin($username){
+    public function seleccionarTelefonoAdmin($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select telefono from administrador where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['telefono'] : null;
     }
 
-    public function seleccionarCorreoAdmin($username){
+    public function seleccionarCorreoAdmin($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select correo from administrador where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['correo'] : null;
-    }  
+    }
 
     public function seleccionarAlumno($username)
     {
         $resultadoAlumno = mysqli_query($this->conexion, "select * from alumno where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
-        return $arreglo ;
+        return $arreglo;
     }
 
-    public function seleccionarDocumentoAlumno($username) {
+    public function seleccionarDocumentoAlumno($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select documentoAlumno from alumno where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['documentoAlumno'] : null;
     }
 
-    public function seleccionarNombreAlumno($username){
+    public function seleccionarNombreAlumno($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select nombre from alumno where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['nombre'] : null;
     }
 
-    public function seleccionarApellidoAlumno($username) {
+    public function seleccionarApellidoAlumno($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select apellido from alumno where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['apellido'] : null;
     }
 
-    public function seleccionarFechaNacAlumno($username){
+    public function seleccionarFechaNacAlumno($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select fechaNacimiento from alumno where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['fechaNacimiento'] : null;
     }
 
-    public function seleccionarTelefonoAlumno($username) {
+    public function seleccionarTelefonoAlumno($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select telefono from alumno where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['telefono'] : null;
     }
 
-    public function seleccionarCorreoAlumno($username) {
+    public function seleccionarCorreoAlumno($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select correo from alumno where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['correo'] : null;
@@ -700,47 +735,82 @@ class BaseDatos
         return $arreglo;
     }
 
-    public function seleccionarDocumentoInstructor($username) {
+    public function seleccionarDocumentoInstructor($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select documentoInstructor from instructor where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['documentoInstructor'] : null;
     }
 
-    public function seleccionarNombreInstructor($username){
+    public function seleccionarNombreInstructor($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select nombre from instructor where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['nombre'] : null;
     }
 
-    public function seleccionarApellidoInstructor($username){
+    public function seleccionarApellidoInstructor($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select apellido from instructor where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['apellido'] : null;
     }
 
-    public function seleccionarFechaNacInstructor($username){
+    public function seleccionarFechaNacInstructor($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select fechaNacimiento from instructor where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['fechaNacimiento'] : null;
     }
 
-    public function seleccionarTelefonoInstructor($username){
+    public function seleccionarTelefonoInstructor($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select telefono from instructor where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['telefono'] : null;
     }
 
-    public function seleccionarCorreoInstructor($username){
+    public function seleccionarCorreoInstructor($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select correo from instructor where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo ? $arreglo[0]['correo'] : null;
     }
 
+    public function seleccionarCursoUsuario($usuario)
+    {
+        $usuario = mysqli_real_escape_string($this->conexion, $usuario);
+        $resultadocursos = mysqli_query($this->conexion, "SELECT fecha, hora 
+            FROM curso 
+            WHERE documentoAlumno = (
+                SELECT documentoAlumno 
+                FROM alumno 
+                WHERE username = '$usuario'
+            )");
+
+        $arreglo = mysqli_fetch_all($resultadocursos, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+
+    public function seleccionarSumaPrecioCursosAnioActual()
+    {
+        $resultado = mysqli_query($this->conexion, "SELECT SUM(c.precio) as sumaPrecio 
+              FROM curso c
+              JOIN alumno a ON c.documentoAlumno = a.documentoAlumno
+              WHERE YEAR(a.fechaInscripcion) = YEAR(CURDATE())");
+
+        $fila = mysqli_fetch_assoc($resultado);
+        return $fila ? $fila['sumaPrecio'] : null;
+    }
+
+
 
     // Seleccionar Tabla completa
 
-    public function seleccionarPreguntas(){
-        $resultado = mysqli_query($this->conexion,"SELECT * FROM TablaPreguntas");
+    public function seleccionarPreguntas()
+    {
+        $resultado = mysqli_query($this->conexion, "SELECT * FROM TablaPreguntas");
         $arreglo = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         return $arreglo;
     }
@@ -804,45 +874,52 @@ class BaseDatos
 
     /********************************************************************************/
 
-    public function seleccionarAlumnoPorDocumento($documento) {
+    public function seleccionarAlumnoPorDocumento($documento)
+    {
         $consulta = "SELECT * FROM alumno WHERE documentoAlumno = '$documento'";
         $resultado = mysqli_query($this->conexion, $consulta);
         return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
     }
 
 
-    public function seleccionarInstructorPorDocumento($documento) {
+    public function seleccionarInstructorPorDocumento($documento)
+    {
         $consulta = "SELECT * FROM instructor WHERE documentoInstructor = '$documento'";
         $resultado = mysqli_query($this->conexion, $consulta);
         return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
     }
 
 
-    public function seleccionarAdministradorPorDocumento($documento) {
+    public function seleccionarAdministradorPorDocumento($documento)
+    {
         $consulta = "SELECT * FROM administrador WHERE documentoAdmin = '$documento'";
         $resultado = mysqli_query($this->conexion, $consulta);
         return mysqli_fetch_all($resultado, MYSQLI_ASSOC);
     }
 
-    public function seleccionarPDF() {
+    public function seleccionarPDF()
+    {
         $resultado = mysqli_query($this->conexion, "SELECT * FROM pdfDocumentos");
         $arreglo = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         return $arreglo;
     }
 
 
-    public function seleccionarDocumentoInstructorArray($username) {
+    public function seleccionarDocumentoInstructorArray($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select documentoInstructor from instructor where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo;
     }
-    public function seleccionarDocumentoAlumnoArray($username) {
+    public function seleccionarDocumentoAlumnoArray($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select documentoAlumno from alumno where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo;
     }
 
-        public function seleccionarDocumentoAdminArray($username) {
+    public function seleccionarDocumentoAdminArray($username)
+    {
         $resultadoAlumno = mysqli_query($this->conexion, "select documentoAdmin from administrador where username = '$username' and activo = 1");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo;
@@ -852,54 +929,10 @@ class BaseDatos
 
     //////////////////////////////
 
-public function seleccionarCursoUsuario($usuario)
-    {
-        $usuario = mysqli_real_escape_string($this->conexion, $usuario);
-        $resultadocursos = mysqli_query($this->conexion, "SELECT fecha, hora 
-            FROM curso 
-            WHERE documentoAlumno = (
-                SELECT documentoAlumno 
-                FROM alumno 
-                WHERE username = '$usuario'
-            )");
-
-        $arreglo = mysqli_fetch_all($resultadocursos, MYSQLI_ASSOC);
-        return $arreglo;
-    }
-
-    public function seleccionarFotoPerfil($usuario)
-    {
-        $usuario = mysqli_real_escape_string($this->conexion, $usuario);
-        $rutaFoto = mysqli_query($this->conexion, "SELECT profileImage 
-            FROM alumno 
-            WHERE username = '$usuario'");
-
-        $arreglo = mysqli_fetch_row($rutaFoto);
-        return $arreglo;
-
-    }
 
 
 
-    public function modificarFotoPerfil($usuario, $nuevo)
-    {
-        $usuario = mysqli_real_escape_string($this->conexion, $usuario);
-        $query = "UPDATE Alumno SET profileImage = '$nuevo' WHERE username = '$usuario'";
 
-        mysqli_query($this->conexion, $query);
-    }
+}
+//seleecionar foto de cada user
 
-   public function eliminarPDF($codigoPDF)
-    {
-        $eliminar = "delete from pdfDocumentos where id = '$codigoPDF'";
-        return mysqli_query($this->conexion, $eliminar);
-    }
-
-    public function ingresarPDF($rutaArchivo)
-        {
-            $insertar = "INSERT INTO pdfDocumentos (rutaArchivo) VALUES ('$rutaArchivo')";
-            return mysqli_query($this->conexion, $insertar);
-        }
-    }
-
-    
