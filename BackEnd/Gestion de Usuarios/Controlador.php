@@ -225,6 +225,10 @@ class Controlador
     {
         return $this->base->seleccionarDocumentoAlumno($username);
     }
+    public function seleccionarDocumentoAlumnoArray(String $username)
+    {
+        return $this->base->seleccionarDocumentoAlumnoArray($username);
+    }
 
     public function seleccionarNombreAlumno(String $username)
     {
@@ -260,6 +264,11 @@ class Controlador
         return $this->base->seleccionarDocumentoInstructor($username);
     }
 
+    public function seleccionarDocumentoInstructorArray(String $username)
+    {
+        return $this->base->seleccionarDocumentoInstructorArray($username);
+    }
+
     public function seleccionarNombreInstructor(String $username)
     {
         return $this->base->seleccionarNombreInstructor($username);
@@ -289,10 +298,10 @@ class Controlador
     {
         return $this->base->seleccionarAdmin($username);
     }
-
-    public function seleccionarDocumentoAdmin(String $username)
+s
+    public function seleccionarDocumentoAdminArray(String $username)
     {
-        return $this->base->seleccionarDocumentoAdmin($username);
+        return $this->base->seleccionarDocumentoAdminArray($username);
     }
 
     public function seleccionarNombreAdmin(String $username)
@@ -426,21 +435,21 @@ class Controlador
     }
 
 
-    public function seleccionarDocumentoUsuario($username)
+    public function seleccionarDocumentoUsuarioArray($username)
     {
-        $documento = $this->seleccionarDocumentoAlumno($username);
+        $documento = $this->seleccionarDocumentoAlumnoArray($username);
         if (!empty($documento)) {
             return $documento[0]['documentoAlumno'];
         }
 
 
-        $documento = $this->seleccionarDocumentoInstructor($username);
+        $documento = $this->seleccionarDocumentoInstructorArray($username);
         if (!empty($documento)) {
             return $documento[0]['documentoInstructor'];
         }
 
 
-        $documento = $this->seleccionarDocumentoAdmin($username);
+        $documento = $this->seleccionarDocumentoAdminArray($username);
         if (!empty($documento)) {
             return $documento[0]['documentoAdmin'];
         }

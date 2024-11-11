@@ -830,6 +830,28 @@ class BaseDatos
         return $arreglo;
     }
 
+
+    public function seleccionarDocumentoInstructorArray($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select documentoInstructor from instructor where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+    public function seleccionarDocumentoAlumnoArray($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select documentoAlumno from alumno where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+        public function seleccionarDocumentoAdminArray($username) {
+        $resultadoAlumno = mysqli_query($this->conexion, "select documentoAdmin from administrador where username = '$username' and activo = 1");
+        $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
+        return $arreglo;
+    }
+
+
+
+    //////////////////////////////
+
 public function seleccionarCursoUsuario($usuario)
     {
         $usuario = mysqli_real_escape_string($this->conexion, $usuario);
