@@ -1,5 +1,4 @@
 <?php
-//Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -60,32 +59,49 @@ if ($usuario) {
     $mail = new PHPMailer(true);
     try {
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-        $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host = 'smtp.gmail.com';                     //Set the SMTP server to send through
-        $mail->SMTPAuth = true;                                   //Enable SMTP authentication
-        $mail->Username = 'diamondglorydevelopment2@gmail.com';                     //SMTP username
-        $mail->Password = 'jddo wbzv zxna tujd';                               //SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        $mail->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        $mail->SMTPDebug = SMTP::DEBUG_OFF;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'diamondglorydevelopment2@gmail.com';
+        $mail->Password = 'jddo wbzv zxna tujd';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;
 
-        //Recipients
+        // Recipients
         $mail->setFrom('diamondglorydevelopment2@gmail.com', 'Diamond Glory Development');
-        $mail->addAddress($email);     //Add a recipient from the form
+        $mail->addAddress($email);
 
-        //Contents
-        $mail->isHTML(true);                                  //Set email format to HTML
+        // Content
+        $mail->isHTML(true);
         $mail->Subject = 'Password Reset Request';
         $mail->Body = 'Username: ' . $usuario . '<br>Password: ' . $password;
 
         $mail->send();
-        echo 'Message has been sent';
+        echo '
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            El mensaje ha sido enviado exitosamente.
+
+            <a href="../../../../frontend/html/guestView/spanish/login.html.php"><button type="button" class="btn btn-outline-success">Volver</button></a>
+            </div>
+        ';
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo '
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            No se pudo enviar el mensaje. Error: ' . $mail->ErrorInfo . '
+            <a href="../../../../frontend/html/guestView/spanish/login.html.php"><button type="button" class="btn btn-outline-danger">Volver</button></a>
+        </div>
+        ';
     }
 } else {
-    echo 'No se encontró un usuario con ese correo electrónico';
+    echo '
+    <div class="alert alert-danger alert-dismissible fade show result" role="alert">
+        No se encontró un usuario con ese correo electrónico.
+         <a href="../../../../frontend/html/guestView/spanish/login.html.php"><button type="button" class="btn btn-outline-danger">Volver</button></a>
+    </div>
+    ';
 }
+
 function generar_password()
 {
     $caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
@@ -99,5 +115,4 @@ function generar_password()
     return $password;
 }
 
-header('Location: ../Frontend/html/guestView/spanish/login.html.php');
 ?>

@@ -90,7 +90,7 @@
       </div>
 
       <div class="col-md-6 mb-4">
-        <form id="formContacto" class="contact-form" action="../../../../BackEnd/contacto.php" method="post">
+        <form id="formContacto" class="contact-form" method="post">
           <div class="input-box mb-3">
             <input type="text" class="form-control" required placeholder="Nombre Completo" id="nombre" name="nombre">
           </div>

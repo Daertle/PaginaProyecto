@@ -281,11 +281,11 @@ html, .body2 {
 
 @media (max-width: 768px) {
     .carousel-item {
-        height: 70vh;
+        height: 100vh;
     }
 
     .carousel-item img {
-        height: 70vh;
+        height: 100vh;
     }
 
     .carousel-caption {
@@ -532,6 +532,7 @@ footer .social-icons a {
     background-size: cover !important;
     padding-top: 100px;
   }
+
   
   .uno { 
     width: 420px; 
