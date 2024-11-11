@@ -1,20 +1,29 @@
 <?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos4.php'; ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once "../../../../BackEnd/Gestion de Usuarios/Controlador.php";
 
+$controlador = new Controlador();
+$preguntas = $controlador->obtenerPreguntas();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luxury Driving</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="../../../css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Conducción - Luxury Driving</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/autotest.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
+
 
 <body class="body2">
   <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
@@ -72,13 +81,40 @@
     </div>
   </nav>
 
-  <h1> Test Owner </h1>
+  <div class="test-container">
+      <h1>Test de Conducción Teórico</h1>
+      <p class="instrucciones">
+          ¿Estás listo para poner a prueba tus conocimientos? En esta sección encontrarás una autoevaluación diseñada para ayudarte a prepararte de la mejor manera para el examen teórico de manejo. Esta prueba de teoría te permitirá identificar tus áreas de fortaleza y las áreas en las que necesitas reforzar tus conocimientos.
+      </p>
+      
+      <form id="testForm">
+      <?php
+      if (count($preguntas) > 0) {
+          foreach ($preguntas as $pregunta) {
+              echo "<div class='pregunta'>";
+              echo "<p>" . htmlspecialchars($pregunta['pregunta']) . "</p>";
+              echo "<input type='hidden' name='respuesta_correcta_" . $pregunta['id_pregunta'] . "' value='" . htmlspecialchars($pregunta['respuesta_correcta']) . "'>";
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-  <script src="../../js/script.js"></script>
+              foreach ($pregunta['opciones'] as $opcion) {
+                  $input_id = 'pregunta_' . $pregunta['id_pregunta'] . '_opcion_' . $opcion['id_opcion'];
+                  echo '<div class="custom-radio-group">';
+                  echo '<input type="radio" id="' . $input_id . '" name="pregunta_' . $pregunta['id_pregunta'] . '" value="' . htmlspecialchars($opcion['opcion_texto']) . '">';
+                  echo '<label for="' . $input_id . '">' . htmlspecialchars($opcion['opcion_texto']) . '</label>';
+                  echo '</div>';
+              }
+              echo "</div>";
+          }
+      }
+      ?>
+      <button type="button" class="btn-submit" onclick="evaluarRespuestas()">Enviar Respuestas</button>
+      </form>
+      <h2 id="puntuacion"></h2>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../js/manejoAutoTest.js"></script>
+  <script> 
+
+  </script>
 </body>
-
 </html>

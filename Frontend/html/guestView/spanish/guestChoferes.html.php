@@ -89,7 +89,6 @@
               <p class="chofer-details">Edad: 39 años</p>
               <p class="chofer-details">Experiencia: Con más de tres décadas en las pistas, Lewis ha dejado una marca
                 indeleble en la historia del automovilismo.</p>
-              <button class="btn-disponibilidad">VER DISPONIBILIDAD</button>
 
             </div>
           </div>
@@ -102,7 +101,6 @@
               <p class="chofer-details">Edad: 24 años</p>
               <p class="chofer-details">Experiencia: Max ha trabajado para Luxury Driving desde 2021 y es uno de
                 nuestros instructores más destacados.</p>
-              <button class="btn-disponibilidad">VER DISPONIBILIDAD</button>
             </div>
           </div>
         </div>
@@ -114,7 +112,6 @@
               <p class="chofer-details">Edad: 26 años</p>
               <p class="chofer-details">Experiencia: Charles trabaja para Luxury Driving desde 2019 y es especialista en
                 conducción de precisión.</p>
-              <button class="btn-disponibilidad">VER DISPONIBILIDAD</button>
             </div>
           </div>
         </div>
@@ -126,48 +123,12 @@
               <p class="chofer-details">Edad: 23 años</p>
               <p class="chofer-details">Experiencia: Logan trabaja para Luxury Driving desde 2022 y es nuestro
                 especialista en técnicas de conducción defensiva.</p>
-              <button class="btn-disponibilidad">VER DISPONIBILIDAD</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="availabilityModal" class="modal">
-      <div class="modal-content">
-        <h2 id="modalTitle">DISPONIBILIDAD DE <span id="driverName"></span></h2>
-        <table class="availability-table">
-          <tr>
-            <th>DÍA</th>
-            <th>HORARIO</th>
-          </tr>
-          <tr>
-            <td>LUNES</td>
-            <td>08:00-14:25, 15:45-19:30</td>
-          </tr>
-          <tr>
-            <td>MARTES</td>
-            <td>08:00-13:25, 14:45-19:30</td>
-          </tr>
-          <tr>
-            <td>MIÉRCOLES</td>
-            <td>08:00-11:25, 13:00-18:30</td>
-          </tr>
-          <tr>
-            <td>JUEVES</td>
-            <td>08:00-14:25, 15:45-20:30</td>
-          </tr>
-          <tr>
-            <td>VIERNES</td>
-            <td>09:00-13:30, 15:30-21:00</td>
-          </tr>
-        </table>
-        <div class="modal-footer">
-          <button id="closeModal">VOLVER</button>
-          <button id="viewAgenda">VER AGENDA</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
@@ -189,36 +150,6 @@
       </div>
     </div>
   </footer>
-  <script>
-    // JavaScript para manejar el modal
-    var modal = document.getElementById("availabilityModal");
-    var btns = document.getElementsByClassName("btn-disponibilidad");
-    var closeBtn = document.getElementById("closeModal");
-    var driverNameSpan = document.getElementById("driverName");
-
-    // Abrir el modal
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].onclick = function () {
-        modal.style.display = "block";
-        var driverName = this.parentElement.getElementsByClassName("chofer-name")[0].textContent;
-        driverNameSpan.textContent = driverName;
-        document.body.style.overflow = 'hidden'; // Previene el scroll del body
-      }
-    }
-
-
-    closeBtn.onclick = function () {
-      modal.style.display = "none";
-      document.body.style.overflow = 'auto'; // Restaura el scroll del body
-    }
-
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = 'auto'; // Restaura el scroll del body
-      }
-    }
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -1,3 +1,5 @@
+<?php require_once "../../../../BackEnd/Gestion de Usuarios/verificarpermisos1.php"?>
+
 <?php
 require_once "../../../../BackEnd/Gestion de Usuarios/Controlador.php";
 

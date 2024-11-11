@@ -298,7 +298,12 @@ class Controlador
     {
         return $this->base->seleccionarAdmin($username);
     }
-s
+
+    public function seleccionarDocumentoAdmin(String $username)
+    {
+        return $this->base->seleccionarDocumentoAdmin($username);
+    }
+
     public function seleccionarDocumentoAdminArray(String $username)
     {
         return $this->base->seleccionarDocumentoAdminArray($username);

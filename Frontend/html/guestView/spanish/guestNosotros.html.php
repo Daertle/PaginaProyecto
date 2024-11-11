@@ -133,9 +133,6 @@
       </div>
     </nav>
 
-
-
-
     <h1 class="titulo"> Academia de Choferes Luxurydriving</h1>
 
     <div class="contentNos">

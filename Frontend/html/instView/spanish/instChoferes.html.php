@@ -72,13 +72,80 @@
     </div>
   </nav>
 
-  <h1> Choferes inst </h1>
+  <div class="container choferes-container">
+      <h1 class="arreglo">.</h1>
+      <h1 class="text-white mb-4">NUESTROS CHOFERES</h1>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="chofer-card">
+            <img src="../../../img/lewis-hamilton.jpg" alt="Lewis Hamilton" class="chofer-img">
+            <div class="chofer-info">
+              <h2 class="chofer-name">LEWIS <span class="chofer-name1">HAMILTON</span></h2>
+              <p class="chofer-details">Edad: 39 años</p>
+              <p class="chofer-details">Experiencia: Con más de tres décadas en las pistas, Lewis ha dejado una marca
+                indeleble en la historia del automovilismo.</p>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-  <script src="../../js/script.js"></script>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="chofer-card">
+            <img src="../../../img/chofer1.jpg" alt="Max Verstappen" class="chofer-img">
+            <div class="chofer-info">
+              <h2 class="chofer-name">MAX <span class="chofer-name1">VERSTAPPEN</span></h2>
+              <p class="chofer-details">Edad: 24 años</p>
+              <p class="chofer-details">Experiencia: Max ha trabajado para Luxury Driving desde 2021 y es uno de
+                nuestros instructores más destacados.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="chofer-card">
+            <img src="../../../img/chofer2.jpg" alt="Charles Leclerc" class="chofer-img">
+            <div class="chofer-info">
+              <h2 class="chofer-name">CHARLES <span class="chofer-name1">LECLERC</span></h2>
+              <p class="chofer-details">Edad: 26 años</p>
+              <p class="chofer-details">Experiencia: Charles trabaja para Luxury Driving desde 2019 y es especialista en
+                conducción de precisión.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="chofer-card">
+            <img src="../../../img/chofer3.jpg" alt="Logan Sargeant" class="chofer-img">
+            <div class="chofer-info">
+              <h2 class="chofer-name">LOGAN <span class="chofer-name1">SARGEANT</span></h2>
+              <p class="chofer-details">Edad: 23 años</p>
+              <p class="chofer-details">Experiencia: Logan trabaja para Luxury Driving desde 2022 y es nuestro
+                especialista en técnicas de conducción defensiva.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <ul class="ul1">
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+        </ul>
 
+        <div class="footer-abajo">
+          <a href="#" class="footer-link">Servicios</a>
+          <a href="guestLandingSpanish.html" class="footer-logo">
+            <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+          </a>
+          <a href="#" class="footer-link">Contactanos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
