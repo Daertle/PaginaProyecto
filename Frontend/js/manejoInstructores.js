@@ -199,3 +199,57 @@ function verificarCedula() {
 	});
 	return verifico;
 }
+
+// Función para mostrar/ocultar el campo de texto en el modal de modificar
+function mostrarCampoTexto() {
+    var datoCambiado = document.getElementById("txtDato").value;
+    var campoTextoContainer = document.getElementById("campoTextoContainer");
+
+    if (datoCambiado === "fechaNacimiento" || datoCambiado === "categoriaLibreta" || datoCambiado === "categoriaClase" || datoCambiado === "horarios") {
+        campoTextoContainer.style.display = "none";
+    } else {
+        campoTextoContainer.style.display = "block";
+    }
+}
+
+// Función para mostrar/ocultar el campo de fecha de nacimiento en el modal de modificar
+function mostrarCampoFechaNacimiento() {
+    var datoCambiado = document.getElementById("txtDato").value;
+    var fechaNacimientoInput = document.getElementById("fechaNacimientoContainer");
+
+    if (datoCambiado === "fechaNacimiento") {
+        fechaNacimientoInput.style.display = "block";
+    } else {
+        fechaNacimientoInput.style.display = "none";
+    }
+}
+
+function mostrarCampoHorarios(){
+	var datoCambiado = document.getElementById("txtDato").value;
+	var horariosContainer = document.getElementById("horariosContainer");
+
+	if (datoCambiado === "horarios") {
+		horariosContainer.style.display = "block";
+	} else {
+		horariosContainer.style.display = "none";
+	}
+}
+
+function mostrarCampoClase(){
+	var datoCambiado = document.getElementById("txtDato").value;
+	var claseContainer = document.getElementById("categoriaClaseContainer");
+
+	if (datoCambiado === "categoriaClase") {
+		claseContainer.style.display = "block";
+	} else {
+		claseContainer.style.display = "none";
+	}
+}
+
+// Event listener para el campo txtDato
+document.getElementById("txtDato").addEventListener("change", function() {
+    mostrarCampoTexto();
+    mostrarCampoFechaNacimiento();
+    mostrarCampoClase();
+	mostrarCampoHorarios();	
+});

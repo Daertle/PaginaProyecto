@@ -219,6 +219,17 @@ function mostrarCampoFechaNacimiento() {
     }
 }
 
+function mostrarCampoDocumento(){
+	var datoCambiado = document.getElementById("txtDato").value;
+	var documentoContainer = document.getElementById("documentoContainer");
+
+	if (datoCambiado === "documentoAlumno" || datoCambiado === "documentoInstructor") {
+		documentoContainer.style.display = "block";
+	} else {
+		documentoContainer 	.style.display = "none";
+	}
+}
+
 // Función para mostrar/ocultar el campo de categoría de libreta en el modal de modificar
 function mostrarCampoCategoria() {
     var datoCambiado = document.getElementById("txtDato").value;

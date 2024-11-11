@@ -192,3 +192,32 @@ function agregarInstructor() {
         },
     });
 }
+
+// Función para mostrar/ocultar el campo de texto en el modal de modificar
+function mostrarCampoTexto() {
+    var datoCambiado = document.getElementById("txtDato").value;
+    var campoTextoContainer = document.getElementById("campoTextoContainer");
+
+    if (datoCambiado === "kilometraje") {
+        campoTextoContainer.style.display = "none";
+    } else {
+        campoTextoContainer.style.display = "block";
+    }
+}
+
+function mostrarCampoNumero(){
+	var datoCambiado = document.getElementById("txtDato").value;
+	var numeroContainer = document.getElementById("campoNumeroContainer");
+
+	if (datoCambiado === "kilometraje") {
+		numeroContainer.style.display = "block";
+	} else {
+		numeroContainer.style.display = "none";
+	}
+}
+
+// Event listener para el campo txtDato
+document.getElementById("txtDato").addEventListener("change", function() {
+    mostrarCampoTexto();
+	mostrarCampoNumero();
+});

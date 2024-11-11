@@ -68,7 +68,7 @@ table {
 
 th,
 td {
-  padding: 14px 18px;
+  padding: 7px 9px;
   text-align: left;
   border-bottom: 1px solid #2c2f3f;
 }
@@ -173,6 +173,7 @@ th {
 
 .modal-content {
   background-color:#11121a;
+  color: #fff;
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;

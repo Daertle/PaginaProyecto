@@ -212,3 +212,69 @@ function verificarCedulaInstructor() {
 	return verifico;
 }
 
+// Función para mostrar/ocultar el campo de texto en el modal de modificar
+function mostrarCampoTexto() {
+    var datoCambiado = document.getElementById("txtDato").value;
+    var campoTextoContainer = document.getElementById("campoTextoContainer");
+
+    if (datoCambiado === "fecha" || datoCambiado === "hora" || datoCambiado === "documentoAlumno" || datoCambiado === "documentoInstructor" || datoCambiado === "matricula" || datoCambiado === "precio") {
+        campoTextoContainer.style.display = "none";
+    } else {
+        campoTextoContainer.style.display = "block";
+    }
+}
+
+// Función para mostrar/ocultar el campo de fecha de nacimiento en el modal de modificar
+function mostrarCampoFecha() {
+    var datoCambiado = document.getElementById("txtDato").value;
+    var fechaInput = document.getElementById("fechaContainer");
+
+    if (datoCambiado === "fecha") {
+        fechaInput.style.display = "block";
+    } else {
+        fechaInput.style.display = "none";
+    }
+}
+
+function mostrarCampoDocumento(){
+	var datoCambiado = document.getElementById("txtDato").value;
+	var documentoContainer = document.getElementById("documentoContainer");
+
+	if (datoCambiado === "documentoAlumno" || datoCambiado === "documentoInstructor") {
+		documentoContainer.style.display = "block";
+	} else {
+		documentoContainer 	.style.display = "none";
+	}
+}
+
+function mostrarCampoHora(){
+	var datoCambiado = document.getElementById("txtDato").value;
+	var horaContainer = document.getElementById("horaContainer");
+
+	if (datoCambiado === "hora") {
+		horaContainer.style.display = "block";
+	} else {
+		horaContainer.style.display = "none";
+	}
+}
+
+function mostrarCampoNumero(){
+	var datoCambiado = document.getElementById("txtDato").value;
+	var numeroContainer = document.getElementById("campoNumeroContainer");
+
+	if (datoCambiado === "precio") {
+		numeroContainer.style.display = "block";
+	} else {
+		numeroContainer.style.display = "none";
+	}
+}
+
+// Event listener para el campo txtDato
+document.getElementById("txtDato").addEventListener("change", function() {
+	mostrarCampoNumero();
+    mostrarCampoTexto();
+	mostrarCampoDocumento();
+	mostrarCampoHora();
+	mostrarCampoFecha();
+});
+

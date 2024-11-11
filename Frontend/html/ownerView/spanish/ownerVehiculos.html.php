@@ -238,26 +238,22 @@
                 </div>
             </div>
 
-            <!-- MODAL DE MODIFCACIONES -->
-            <div id="modifModal" class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modificar Vehiculo</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                        <div class="modal-body">
-                            <input type="hidden" id="txtID">
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Dato a Modificar</span>
-                                </div>
+                <!-- MODAL DE MODIFCACIONES -->
+                <div id="modifModal" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modificar usuario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <class="modal-body">
+                                <input type="hidden" id="txtID">
                                 <div class="form-group">
-                                    <select id="txtDato" name="txtDato" class="form-control" placeholder="Dato a Editar">
+                                    <label for="txtDato">Dato a Modificar</label>
+                                    <select id="txtDato" name="txtDato" class="form-control" onchange="mostrarCampoNumero(); mostrarCampoTexto(); mostrarCampoFecha(); mostrarCampoDocumento(); mostrarCampoHora();">
+                                    <option value="" disabled selected> Dato a Seleccionar </option>
                                         <option value="modelo"> Modelo </option>
                                         <option value="motor"> Motor </option>
                                         <option value="combustible"> Combustible </option>
@@ -266,34 +262,32 @@
                                         <option value="kilometraje"> Kilometraje </option>
                                         <option value="categoria"> Categoria </option>
                                     </select>
+                                </div>          
+
+
+                                <div class="form-group" id="campoNumeroContainer" style="display: none;">
+                                    <label for="txtNuevoNumero">Nuevo Dato</label>
+                                    <input type="number" id="txtNuevoNumero" class="form-control" placeholder="Nuevo dato">
+                                </div>
+
+                                <div class="form-group" id="campoTextoContainer" style="display: none;">
+                                    <label for="txtNuevo">Nuevo Dato</label>
+                                    <input type="text" id="txtNuevo" class="form-control" placeholder="Nuevo dato">
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
+                                    <button type="button" class="btn btn-primary" id="btnGuardar" onclick="guardarCambios()">Guardar</button>
                                 </div>
                             </div>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Nuevo Dato</span>
-                                </div>
-                                <input type="text" id="txtNuevo" class="form-control" placeholder="nuevo dato" aria-describedby="basic-addon1">
-                            </div>
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
-                            <div id="btnGuardarCont"></div>
-                            <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
-
     </div>
-
-
     </div>
-
+    </div>
     <div class="row">
-
 </body>
 
 <script>
