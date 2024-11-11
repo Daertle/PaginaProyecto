@@ -810,14 +810,14 @@ class BaseDatos
 
     public function seleccionarPreguntas()
     {
-        $resultado = mysqli_query($this->conexion, "SELECT * FROM TablaPreguntas");
+        $resultado = mysqli_query($this->conexion, "SELECT * FROM tablapreguntas");
         $arreglo = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         return $arreglo;
     }
 
     public function seleccionarAlumnos()
     {
-        $resultadoAlumno = mysqli_query($this->conexion, "SELECT * FROM TablaAlumnos");
+        $resultadoAlumno = mysqli_query($this->conexion, "SELECT * FROM tablaalumnos");
         $arreglo = mysqli_fetch_all($resultadoAlumno, MYSQLI_ASSOC);
         return $arreglo;
     }
@@ -853,21 +853,21 @@ class BaseDatos
 
     public function seleccionarAdministradores()
     {
-        $resultadoAdministrador = mysqli_query($this->conexion, "select * from TablaAdmin");
+        $resultadoAdministrador = mysqli_query($this->conexion, "select * from tablaadmin");
         $arreglo = mysqli_fetch_all($resultadoAdministrador, MYSQLI_ASSOC);
         return $arreglo;
     }
 
     public function seleccionarVehiculos()
     {
-        $resultadoVehiculos = mysqli_query($this->conexion, "select * from TablaVehiculos");
+        $resultadoVehiculos = mysqli_query($this->conexion, "select * from tablavehiculos");
         $arreglo = mysqli_fetch_all($resultadoVehiculos, MYSQLI_ASSOC);
         return $arreglo;
     }
 
     public function seleccionarCursos()
     {
-        $resultadocursos = mysqli_query($this->conexion, "select * from TablaClases");
+        $resultadocursos = mysqli_query($this->conexion, "select * from tablaclases");
         $arreglo = mysqli_fetch_all($resultadocursos, MYSQLI_ASSOC);
         return $arreglo;
     }

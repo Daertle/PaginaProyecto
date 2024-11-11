@@ -82,7 +82,7 @@
           <span>Vehiculos</span>
         </a>
       </li>
-      <li>
+      <li  class="active">
         <a href="adminPF.html.php">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question" viewBox="0 0 16 16">
   <path d="M8.05 9.6c.336 0 .504-.24.554-.627.04-.534.198-.815.847-1.26.673-.475 1.049-1.09 1.049-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.7 1.7 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745"/>
@@ -92,7 +92,7 @@
         </a>
       </li>
      
-      <li  class="active">
+      <li>
         <a href="adminSubirPDF.html.php">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
@@ -110,54 +110,134 @@
       </li>
     </ul>
   </nav>
-
     <div class="adminCont">
 
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div class="container mt-5">
-                                    <div class="table-responsive">
-                                        <h2>Subir Documento PDF</h2>
-                                        <form id="formSubida" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label for="documento" class="form-label">Selecciona un archivo PDF</label>
-                                                <input type="file" class="form-control" id="documento" name="documento" required>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Subir Documento</button>
-                                        </form>
-                                    </div>
-
-                                    <div id="resultado" class="mt-4"></div>
-
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+                                    <h2 class="card-title text-uppercase mb-0"> preguntas del autotest </h2>
+                                    <button type="button" class="btn btn-primary" onclick="mostrarModalAgregar()">
+                                        <i class="fas fa-plus"></i> Añadir pregunta
+                                    </button>
                                 </div>
 
+                                <!-- MODAL DE AÑADIR USUARIO -->
+                                <div id="addModal" class="modal" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Añadir nueva pregunta</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModalAgregar()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
 
-                            </div>
-                            <div class="table-responsive">
-                                <table id="tablaPDF" class="table no-wrap user-table mb-0">
-                                    <thead>
-                                        <tr>
-                                        </tr>
-                                    </thead>
-                                </table>
+                                            <div class="modal-body">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Pregunta </span>
+                                                    </div>
+                                                    <input type="text" id="txtPregunta" class="form-control" placeholder="Nueva Pregunta">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Respuesta </span>
+                                                    </div>
+                                                    <input type="text" id="txtRespuesta" class="form-control" placeholder="Respuesta Correcta">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Opcion 1 </span>
+                                                    </div>
+                                                    <input type="text" id="txtOpcion1" class="form-control" placeholder="Opcion 1">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Opcion 2 </span>
+                                                    </div>
+                                                    <input type="text" id="txtOpcion2" class="form-control" placeholder="Opcion 2">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Opcion 3 </span>
+                                                    </div>
+                                                    <input type="text" id="txtOpcion3" class="form-control" placeholder="Opcion 3">
+                                                </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalAgregar()">Cerrar</button>
+                                                    <button type="button" class="btn btn-primary" onclick="agregarPregunta()">Guardar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="table-responsive">
+                                    <table id="tablaPreguntas" class="table no-wrap user-table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="border-0 text-uppercase font-medium"> Id </th>
+                                                <th scope="col" class="border-0 text-uppercase font-medium"> Pregunta </th>
+                                                <th scope="col" class="border-0 text-uppercase font-medium"> Respuesta </th>
+                                                <th scope="col" class="border-0 text-uppercase font-medium"> Opciones </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- MODAL DE MODIFCACIONES -->
+                <div id="modifModal" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modificar usuario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <input type="hidden" id="txtID">
+                                    
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Nueva Pregunta</span>
+                                    </div>
+                                    <input type="text" id="txtNuevo" class="form-control" placeholder="nueva pregunta" aria-describedby="basic-addon1">
+                                </div>
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
+                                <div id="btnGuardarCont"></div>
+                                <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
 
+    </div>
+
+    <div class="row">
 
 </body>
-
-
-
 
 <script>
     var dropdown = document.getElementsByClassName("dropdown-sidebar");
@@ -181,10 +261,10 @@
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../../../js/outputSubirPDF.js"></script>
+<script type="text/javascript" src="../../../js/manejoPreguntas.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-<script src="../../../js/side.js"></script>
+    <script src="../../../js/side.js"></script>
 
-</html>
+</html> 

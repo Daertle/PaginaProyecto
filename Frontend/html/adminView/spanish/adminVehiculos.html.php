@@ -74,7 +74,7 @@
           <span>Clases</span>
         </a>
       </li>
-      <li>
+      <li  class="active">
         <a href="adminVehiculos.html.php">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
   <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17s3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
@@ -92,7 +92,7 @@
         </a>
       </li>
      
-      <li  class="active">
+      <li>
         <a href="adminSubirPDF.html.php">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
@@ -113,35 +113,109 @@
 
     <div class="adminCont">
 
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div class="container mt-5">
-                                    <div class="table-responsive">
-                                        <h2>Subir Documento PDF</h2>
-                                        <form id="formSubida" method="POST" enctype="multipart/form-data">
-                                            <div class="mb-3">
-                                                <label for="documento" class="form-label">Selecciona un archivo PDF</label>
-                                                <input type="file" class="form-control" id="documento" name="documento" required>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Subir Documento</button>
-                                        </form>
-                                    </div>
-
-                                    <div id="resultado" class="mt-4"></div>
-
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+                                    <h2 class="card-title text-uppercase mb-0"> VEHICULOS </h2>
+                                    <button type="button" class="btn btn-primary" onclick="mostrarModalAgregar()">
+                                        <i class="fas fa-plus"></i> Añadir Vehiculo
+                                    </button>
                                 </div>
 
+                                <!-- MODAL DE AÑADIR VEHICULO -->
+                                <div id="addModal" class="modal" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Añadir nuevo Vehiculo </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModalAgregar()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Matricula </span>
+                                                    </div>
+                                                    <input type="text" id="txtMatricula" class="form-control" placeholder="Número de matricula">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Modelo </span>
+                                                    </div>
+                                                    <input type="text" id="txtModelo" class="form-control" placeholder="Modelo del Vehiculo">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Motor </span>
+                                                    </div>
+                                                    <input type="text" id="txtMotor" class="form-control" placeholder="Motor">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Combustible </span>
+                                                    </div>
+                                                    <input type="text" id="txtCombustible" class="form-control" placeholder="Tipo de Combustible">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Medidas </span>
+                                                    </div>
+                                                    <input type="text" id="txtMedida" class="form-control" placeholder="Medidas del Vehiculo">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Situacion Actual </span>
+                                                    </div>
+                                                    <input type="text" id="txtSituacion" class="form-control" placeholder="Situacion del Vehiculo">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Kilometraje </span>
+                                                    </div>
+                                                    <input type="number" id="txtKilometraje" class="form-control" placeholder="Kilometraje del Vehiculo">
+                                                </div>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"> Categoria </span>
+                                                    </div>
+                                                    <input type="text" id="txtCategoria" class="form-control" placeholder="Categoria del Vehiculo">
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalAgregar()">Cerrar</button>
+                                                <button type="button" class="btn btn-primary" onclick="agregarVehiculo()">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                             <div class="table-responsive">
-                                <table id="tablaPDF" class="table no-wrap user-table mb-0">
+                                <table id="tablaVehiculos" class="table no-wrap user-table mb-0">
                                     <thead>
                                         <tr>
+                                            <th scope="col" class="border-0 text-uppercase font-medium"> Matricula </th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium"> Modelo </th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium"> Motor </th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium"> Combustible </th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium"> Medida </th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium"> Situacion Actual </th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium"> Kilometraje </th>
+                                            <th scope="col" class="border-0 text-uppercase font-medium"> Categoria </th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -150,14 +224,58 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+                <!-- MODAL DE MODIFCACIONES -->
+                <div id="modifModal" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modificar usuario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <class="modal-body">
+                                <input type="hidden" id="txtID">
+                                <div class="form-group">
+                                    <label for="txtDato">Dato a Modificar</label>
+                                    <select id="txtDato" name="txtDato" class="form-control" onchange="mostrarCampoNumero(); mostrarCampoTexto(); mostrarCampoFecha(); mostrarCampoDocumento(); mostrarCampoHora();">
+                                    <option value="" disabled selected> Dato a Seleccionar </option>
+                                        <option value="modelo"> Modelo </option>
+                                        <option value="motor"> Motor </option>
+                                        <option value="combustible"> Combustible </option>
+                                        <option value="medida"> Medida </option>
+                                        <option value="situacionActual"> Situacion Actual </option>
+                                        <option value="kilometraje"> Kilometraje </option>
+                                        <option value="categoria"> Categoria </option>
+                                    </select>
+                                </div>          
 
 
+                                <div class="form-group" id="campoNumeroContainer" style="display: none;">
+                                    <label for="txtNuevoNumero">Nuevo Dato</label>
+                                    <input type="number" id="txtNuevoNumero" class="form-control" placeholder="Nuevo dato">
+                                </div>
 
+                                <div class="form-group" id="campoTextoContainer" style="display: none;">
+                                    <label for="txtNuevo">Nuevo Dato</label>
+                                    <input type="text" id="txtNuevo" class="form-control" placeholder="Nuevo dato">
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
+                                    <button type="button" class="btn btn-primary" id="btnGuardar" onclick="guardarCambios()">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    <div class="row">
 </body>
-
-
-
 
 <script>
     var dropdown = document.getElementsByClassName("dropdown-sidebar");
@@ -181,10 +299,10 @@
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../../../js/outputSubirPDF.js"></script>
+<script type="text/javascript" src="../../../js/manejoVehiculos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-<script src="../../../js/side.js"></script>
 
+    <script src="../../../js/side.js"></script>
 </html>
