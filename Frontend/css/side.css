@@ -10,7 +10,7 @@
 }
 
 #sidebar {
-  box-sizing: border-box;
+  box-sizing: border-box ;
   height: 100vh;
   width: 250px;
   padding: 5px 1em;
@@ -26,31 +26,31 @@
 }
 
 #sidebar.close {
-  padding: 5px;
-  max-width: 800px;
-  min-width: none;
+  padding: 5px ;
+  width: 60px ;
 }
 
 #sidebar ul {
-  list-style: none;
+  list-style: none ; 
 }
 
 #sidebar > ul > li:first-child {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 16px;
+  display: flex ; 
+  justify-content: flex-end ;
+  margin-bottom: 16px ;
 }
 
 #sidebar > ul > li:first-child .logo {
-  font-weight: 600;
+  font-weight: 600 ;
 }
 
 #sidebar ul li.active a {
-  color: var(--marca-color);
+  color: var(--marca-color) ;
 }
 
+
 #sidebar ul li.active a svg {
-  fill: var(--marca-color);
+  fill: var(--marca-color) ;
 }
 
 #sidebar a, 
@@ -138,6 +138,7 @@
   padding-left: 0.51rem;
 }
 
+
 @media(max-width: 800px) {
   #sidebar {
     height: 60px;
@@ -145,7 +146,6 @@
     bottom: 0;
     top: auto;
     left: 0;
-    right: 0; /* Añadido para asegurar que cubre todo el ancho */
     border-right: none;
     border-top: 1px solid var(--linea-color);
     padding: 0;
@@ -153,16 +153,15 @@
 
   #sidebar > ul {
     padding: 0;
-    margin: 0; /* Añadido para eliminar márgenes */
-    width: 100%; /* Añadido para asegurar ancho completo */
-    display: flex; /* Cambiado de grid a flex */
-    overflow-x: auto; /* Cambiado de scroll a auto */
-    -webkit-overflow-scrolling: touch; /* Mejor soporte táctil */
+    display: grid;
+    grid-auto-columns: 60px;
+    grid-auto-flow: column;
+    align-items: center;
+    overflow-x: scroll;
   }
 
   #sidebar ul li {
     height: 100%;
-    flex: 0 0 60px; /* Ancho fijo para cada elemento */
   }
 
   #sidebar ul a, 
@@ -184,43 +183,28 @@
     position: fixed;
     bottom: 60px;
     left: 0;
-    right: 0; /* Añadido para asegurar que cubre todo el ancho */
+    box-sizing: border-box;
+    height: 60px;
     width: 100%;
     background-color: var(--hover-color);
     border-top: 1px solid var(--linea-color);
-    display: block;
-    padding: 0;
-    margin: 0; /* Añadido para eliminar márgenes */
+    display: flex;
+    justify-content: center;
   }
 
   #sidebar ul li .sub-menu.show > div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: auto;
-    padding: 10px;
-    width: 100%; /* Añadido para asegurar ancho completo */
+    overflow-x: auto;
   }
 
   #sidebar ul li .sub-menu.show li {
-    display: flex;
-    height: auto;
-    flex: 1; /* Distribuir el espacio equitativamente */
+    display: inlinea-flex;
   }
 
   #sidebar ul li .sub-menu.show a {
-    width: 100%; /* Asegurar que los enlaces ocupen todo el espacio */
-    height: auto;
-    padding: 10px;
-    display: flex;
-    align-items: center;
+    box-sizing: border-box;
+    padding: 1em;
+    width: auto;
     justify-content: center;
-    gap: 8px;
-  }
-
-  #sidebar ul li .sub-menu.show a span {
-    display: inline;
-    white-space: nowrap;
   }
 
   #sidebar > ul {
@@ -228,9 +212,10 @@
   }
 
   #sidebar .sub-menu > div {
-    padding-left: 0;
+    padding-left: 0.51rem;
   }
 }
+
 
 ::-webkit-scrollbar {
   width: 8px;
