@@ -275,6 +275,11 @@
     animation: aparecer 1s ease-out forwards, desaparecer 1s 3s ease-out forwards;
   }
 
+  .resultIn{
+    opacity: 0;
+    animation: aparecer 1s ease-out forwards;
+  }
+
   @keyframes aparecer {
     0% {
       opacity: 0;

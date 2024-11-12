@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once '../../../../BackEnd/Gestion de Usuarios/Controlador.php';
+include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos1.php';
+
 
 $controla = new Controlador();
 $usuario = $_SESSION['usuario']; 

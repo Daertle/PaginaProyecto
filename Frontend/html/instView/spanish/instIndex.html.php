@@ -17,130 +17,137 @@
 </head>
 
 <body class="body2">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
-    <div class="container">
-      <a href="instIndex.html.php">
-        <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar5"
-        aria-controls="navbar5" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <div style="min-height: 100vh;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+      <div class="container">
+        <a href="instIndex.html.php">
+          <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar5"
+          aria-controls="navbar5" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbar5">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a href="instNosotros.html.php" class="nav-link">Nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a href="instFlota.html.php" class="nav-link">Flota</a>
-          </li>
-          <li class="nav-item">
-            <a href="instClases.html.php" class="nav-link">Clases</a>
-          </li>
-          <li class="nav-item">
-            <a href="instContacto.html.php" class="nav-link">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a href="instChoferes.html.php" class="nav-link">Choferes</a>
-          </li>
-          <li class="nav-item">
-            <a href="instTests.html.php" class="nav-link">Tests</a>
-          </li>
-          <li class="nav-item">
-            <a href="instRequisitos.html.php" class="nav-link">Requisitos</a>
-          </li>
+        <div class="collapse navbar-collapse" id="navbar5">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="instNosotros.html.php" class="nav-link">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a href="instFlota.html.php" class="nav-link">Flota</a>
+            </li>
+            <li class="nav-item">
+              <a href="instClases.html.php" class="nav-link">Clases</a>
+            </li>
+            <li class="nav-item">
+              <a href="instContacto.html.php" class="nav-link">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a href="instChoferes.html.php" class="nav-link">Choferes</a>
+            </li>
+            <li class="nav-item">
+              <a href="instTests.html.php" class="nav-link">Tests</a>
+            </li>
+            <li class="nav-item">
+              <a href="instRequisitos.html.php" class="nav-link">Requisitos</a>
+            </li>
 
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../spanish/instIndex.html.php">Español</a></li>
-              <li><a class="dropdown-item" href="../english/instIndex">Inglés</a></li>
-              <li><a class="dropdown-item" href="../arabe/instIndex">Árabe</a></li>
-            </ul>
-          </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../spanish/instIndex.html.php">Español</a></li>
+                <li><a class="dropdown-item" href="../english/instIndex">Inglés</a></li>
+                <li><a class="dropdown-item" href="../arabe/instIndex">Árabe</a></li>
+              </ul>
+            </li>
 
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../../../../BackEnd/Gestion de Usuarios/logOut.php">Log Out</a></li>
-              <li><a class="dropdown-item" href="../../instView/spanish/instPerfil.html.php">Perfil</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div id="carouselE" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselE" data-bs-slide-to="0" class="active" aria-current="true"
-        aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselE" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselE" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="../../../img/home-2.jpg" class="d-block w-100" alt="" />
-        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-          <div class="text-center mb-3">
-            <span class="text-primary2">Academia</span>
-            <span class="text-primary1">de</span>
-            <span class="text-primary2">Choferes</span> <br>
-            <span class="luxury-driving">Luxury driving</span>
-          </div>
-          <a href="instContacto.html.php" class="btn btn-info">Más Información</a>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../../../../BackEnd/Gestion de Usuarios/logOut.php">Log Out</a></li>
+                <li><a class="dropdown-item" href="../../instView/spanish/instPerfil.html.php">Perfil</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
-      <div class="carousel-item">
-        <img src="../../../img/home-2.jpeg" class="d-block w-100" alt="" />
-        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-          <div class="text-center mb-3">
-            <span class="text-primary2">Academia</span>
-            <span class="text-primary1">de</span>
-            <span class="text-primary2">Choferes</span>
-            <span class="luxury-driving">Luxury driving</span>
-          </div>
-          <a href="instContacto.html" class="btn btn-info">Más Información</a>
-        </div>
+    <div id="carouselE" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselE" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselE" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselE" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
 
-      <div class="carousel-item">
-        <img src="../../../img/home-3.jpeg" class="d-block w-100" alt="" />
-        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-          <div class="text-center mb-3">
-            <span class="text-primary2">Academia</span>
-            <span class="text-primary1">de</span>
-            <span class="text-primary2">Choferes</span>
-            <span class="luxury-driving">Luxury driving</span>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../../../img/home-2.jpg" class="d-block w-100" alt="" />
+          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+            <div class="text-center mb-3">
+              <span class="text-primary2">Academia</span>
+              <span class="text-primary1">de</span>
+              <span class="text-primary2">Choferes</span> <br>
+              <span class="luxury-driving">Luxury driving</span>
+            </div>
+            <a href="instContacto.html.php" class="btn btn-info">Más Información</a>
           </div>
-          <a href="instContacto.html" class="btn btn-info">Más Información</a>
+        </div>
+
+        <div class="carousel-item">
+          <img src="../../../img/home-2.jpeg" class="d-block w-100" alt="" />
+          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+            <div class="text-center mb-3">
+              <span class="text-primary2">Academia</span>
+              <span class="text-primary1">de</span>
+              <span class="text-primary2">Choferes</span>
+              <span class="luxury-driving">Luxury driving</span>
+            </div>
+            <a href="instContacto.html" class="btn btn-info">Más Información</a>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="../../../img/home-3.jpeg" class="d-block w-100" alt="" />
+          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+            <div class="text-center mb-3">
+              <span class="text-primary2">Academia</span>
+              <span class="text-primary1">de</span>
+              <span class="text-primary2">Choferes</span>
+              <span class="luxury-driving">Luxury driving</span>
+            </div>
+            <a href="instContacto.html" class="btn btn-info">Más Información</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
+  <a href="https://wa.me/59894970276?text=%20Quisiera%20más%20información%20sobre%20Luxury%20Driving"
+    class="whatsapp-float" target="_blank" aria-label="Enviar mensaje por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
-        <ul class="ul1">
+        <ul class="ul1 d-flex justify-content-center">
           <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
           <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
           <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
           <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
           <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
         </ul>
-        
-        <div class="footer-abajo">
+
+        <div class="footer-abajo d-flex justify-content-between align-items-center">
           <a href="#" class="footer-link">Servicios</a>
           <a href="instIndex.html.php" class="footer-logo">
             <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
           </a>
           <a href="instContacto.html.php" class="footer-link">Contactanos</a>
         </div>
-      </div>z
+      </div>
     </div>
   </footer>
 
@@ -148,6 +155,17 @@
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
   <script src="../../js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function updateCarouselHeight() {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
+        }
+
+        updateCarouselHeight();
+        window.addEventListener('resize', updateCarouselHeight);
+    });
+  </script>
 </body>
 </html>
 

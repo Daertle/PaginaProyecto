@@ -37,20 +37,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $mail->send();
         echo '
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show result" role="alert">
             El mensaje ha sido enviado exitosamente.
         </div>
         ';
     } catch (Exception $e) {
         echo '
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show result" role="alert">
             No se pudo enviar el mensaje. Error: ' . $mail->ErrorInfo . '
         </div>
         ';
     }
 } else {
     echo '
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show result" role="alert">
         Por favor complete el formulario.
     </div>
     ';

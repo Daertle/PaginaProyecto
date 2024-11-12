@@ -72,129 +72,148 @@
             color: white;
             border: 1px solid white;
         }
+
+        .package-title {
+            font-size: 1.5em; /* Aumenta el tamaño de la fuente del título del paquete */
+            font-weight: bold;
+            padding-left: 40px !important; /* Agrega padding-left al título del paquete */
+        }
+
+        .package-price {
+            font-size: 1.5em; /* Aumenta el tamaño de la fuente del precio */
+            font-weight: bold;
+            text-align: right; /* Alinea el precio a la derecha */
+            display: flex;
+            justify-content: flex-end; /* Asegura que el precio esté alineado a la derecha */
+            padding-right: 40px !important;
+        }
+
+        .package-info {
+            padding-left: 40px; /* Agrega padding-left a la información de cada paquete */
+        }
+
+        
+
     </style>
 </head>
 
-
 <body class="body2">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
-        <div class="container">
-            <a href="adminIndex.html.php">
-                <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar5"
-                aria-controls="navbar5" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbar5">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a href="adminNosotros.html.php" class="nav-link">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="adminFlota.html.php" class="nav-link">Flota</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="adminClases.html.php" class="nav-link">Clases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="adminContacto.html.php" class="nav-link">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="adminChoferes.html.php" class="nav-link">Choferes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="adminTests.html.php" class="nav-link">Tests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="adminRequisitos.html.php" class="nav-link">Requisitos</a>
-                    </li>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+            <div class="container">
+                <a href="../../../../index.html.php">
+                    <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar5"
+                    aria-controls="navbar5" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../spanish/adminIndex.html.php">Español</a></li>
-                            <li><a class="dropdown-item" href="../english/adminIndex">Inglés</a></li>
-                            <li><a class="dropdown-item" href="../arabe/adminIndex">Árabe</a></li>
-                        </ul>
-                    </li>
+                <div class="collapse navbar-collapse" id="navbar5">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="adminNosotros.html.php" class="nav-link">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="adminFlota.html.php" class="nav-link">Flota</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="adminClases.html.php" class="nav-link active">Clases</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="adminContacto.html.php" class="nav-link">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="adminChoferes.html.php" class="nav-link">Choferes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="adminTests.html.php" class="nav-link">Tests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="adminRequisitos.html.php" class="nav-link">Requisitos</a>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../../../../BackEnd/Gestion de Usuarios/logOut.php">Log Out</a></li>
-                            <li><a class="dropdown-item" href="../../adminView/spanish/adminPerfil.html.php">Perfil</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="bi bi-globe"></i>
+                            </a>
 
-    <div class="container">
-            <div class="card">
-                <div class="row g-0 h-100">
-                    <!-- seccionn izquierda con imagen -->
-                    <div class="col-12 col-md-4 left-section">
-                        <img src="../../../img/auto.jpg" alt="Libreta tipo A" class="img-fluid h-100">
-                    </div>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="adminLandingSpanish.html.php">Español</a></li>
+                                <li><a class="dropdown-item" href="../english/adminLandingEnglish.html.php">Inglés</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../english/adminLandingArabic.html.php">Árabe</a>
+                                </li>
+                            </ul>
+                        </li>
 
-                    <!-- seccion derecha -->
-                    <div class="col-12 col-md-8 right-column">
-                        <!-- parte superior derecha dividida en dos columnas -->
-                        <div class="right-upper section h-100">
-                            <div class="row g-0 h-100">
-                                <div class="col-6">
-                                    <p class="p-2 m-0">Paquete - libreta tipo A</p>
-                                </div>
-                                <div class="col-6">
-                                    <p class="p-2 m-0">$12000</p>
-                                </div>
-                            </div>
-                        </div>
+                        <li class="nav-item dropdown">
+                            <a href="login.html.php" class="nav-link dropdown-toggle"><i
+                                    class="bi bi-person-circle"></i></a>
+                        </li>
 
-                        <!-- parte superior derecha dividida en dos columnas -->
-                        <div class="h-100">
-                            <div class="right-lower">
-                                <p class="p-2 m-0">Ideal para personas que desean conducir autos particulares y
-                                    camionetas pequeñas con remolque liviano.
-                                    <br>
-                                    Incluye:
-                                <ul>
-                                    <li>10 clases prácticas de manejo en automóvil.</li>
-                                    <br>
-                                    <li>2 clases teóricas de normas de tránsito y seguridad vial.</li>
-                                    <br>
-                                    <li>Simulacro del examen práctico.</li>
-                                </ul>
-                                </p>
-                                <p class="p-2 m-0">Vehiculos habilitados con este tipo de libreta:
-                                <ul>
-                                    <li>Vehículos hasta 9 pasajeros, incluido el conductor.</li>
-                                    <br>
-                                    <li>Camionetas y vehículos con remolque, con un peso máximo total de hasta 4.000 kg.
-                                    </li>
-                                </ul>
-                                </p>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE
-                                    COMPRA</button>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
+                    </ul>
                 </div>
             </div>
+        </nav>
 
+<div class="container">
+    <div class="card">
+        <div class="row g-0 h-100">
+            <!-- seccionn izquierda con imagen -->
+            <div class="col-12 col-md-4 left-section">
+                <img src="../../../img/auto.jpg" alt="Libreta tipo A" class="img-fluid h-100">
+            </div>
 
+            <!-- seccion derecha -->
+            <div class="col-12 col-md-8 right-column">
+                <!-- parte superior derecha dividida en dos columnas -->
+                <div class="section h-100">
+                    <div class="row g-0 h-100">
+                        <div class="col-6">
+                            <p class="p-2 m-0 package-title">Paquete - libreta tipo A</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="p-2 m-0 package-price">$16000</p>
+                        </div>
+                    </div>
+                </div>
 
-
+                <!-- parte superior derecha dividida en dos columnas -->
+                <div class="h-100">
+                    <div class="right-lower package-info">
+                        <p class="p-2 m-0">Ideal para personas que desean conducir autos particulares y
+                            camionetas pequeñas con remolque liviano.
+                            <br>
+                            Incluye:
+                        <ul>
+                            <li>10 clases prácticas de manejo en automóvil.</li>
+                            <br>
+                            <li>2 clases teóricas de normas de tránsito y seguridad vial.</li>
+                            <br>
+                            <li>Simulacro del examen práctico.</li>
+                        </ul>
+                        </p>
+                        <p class="p-2 m-0">Vehiculos habilitados con este tipo de libreta:
+                        <ul>
+                            <li>Vehículos hasta 9 pasajeros, incluido el conductor.</li>
+                            <br>
+                            <li>Camionetas y vehículos con remolque, con un peso máximo total de hasta 4.000 kg.
+                            </li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div>
+                        <button type="button" target="_" onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra A.pdf')" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
+
         <div class="container">
             <div class="card">
                 <div class="row g-0 h-100">
@@ -206,20 +225,20 @@
                     <!-- seccion derecha -->
                     <div class="col-12 col-md-8 right-column">
                         <!-- parte superior derecha dividida en dos columnas -->
-                        <div class="right-upper section h-100">
+                        <div class="section h-100">
                             <div class="row g-0 h-100">
                                 <div class="col-6">
-                                    <p class="p-2 m-0">Paquete - Libreta tipo B</p>
+                                    <p class="p-2 m-0 package-title">Paquete - Libreta tipo B</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="p-2 m-0">$16.000</p>
+                                    <p class="p-2 m-0 package-price">$20.000</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- parte superior derecha dividida en dos columnas -->
                         <div class="h-100">
-                            <div class="right-lower">
+                        <div class="right-lower package-info">
                                 <p class="p-2 m-0">Ideal para conductores que necesitan manejar vehículos más grandes,
                                     como minibuses o camiones de carga ligera.
                                     <br>
@@ -243,8 +262,7 @@
                                 </p>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE
-                                    COMPRA</button>
+                            <button type="button" target="_" onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra B.pdf')" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
                             </div>
                         </div>
                     </div>
@@ -270,20 +288,20 @@
                     <!-- seccion derecha -->
                     <div class="col-12 col-md-8 right-column">
                         <!-- parte superior derecha dividida en dos columnas -->
-                        <div class="right-upper section h-100">
+                        <div class="section h-100">
                             <div class="row g-0 h-100">
                                 <div class="col-6">
-                                    <p class="p-2 m-0">Paquete - Libreta tipo C</p>
+                                    <p class="p-2 m-0 package-title">Paquete - Libreta tipo C</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="p-2 m-0">$25.000</p>
+                                    <p class="p-2 m-0 package-price">$22.000</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- parte superior derecha dividida en dos columnas -->
                         <div class="h-100">
-                            <div class="right-lower">
+                            <div class="right-lower package-info">
                                 <p class="p-2 m-0">Ideal para personas interesadas en manejar camiones grandes y
                                     transporte de carga de mayor capacidad.
                                     <br>
@@ -308,8 +326,7 @@
                             </div>
 
                             <div>
-                                <button type="button" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE
-                                    COMPRA</button>
+                            <button type="button" target="_" onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra C.pdf')" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
                             </div>
                         </div>
                     </div>
@@ -327,4 +344,4 @@
 
 </body>
 
-</html> 
+</html>

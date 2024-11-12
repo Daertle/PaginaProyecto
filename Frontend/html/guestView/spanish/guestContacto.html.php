@@ -19,7 +19,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
     <div class="container">
-      <a href="index.html.php">
+      <a href="../../../../index.html.php">
         <img src="../../../img/logo.png" alt="Logo" width="120" height="40">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar5"

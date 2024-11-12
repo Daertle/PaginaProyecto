@@ -20,38 +20,38 @@ traerUsuarios().then(dato => {
 });
 
 function filaNueva(infoPersona, pos) {
-    var fila = "<tr id=" + pos + ">"
-        + "<td id='txtDocumento" + pos + "' class='pl-4'>" + infoPersona.documentoInstructor + "</td>"
-        + "<td id='txtUsername" + pos + "'>" + infoPersona.username + "</td>"
-        + "<td id='txtNombre" + pos + "'>" + infoPersona.nombre + "</td>"
-        + "<td id='txtApellido" + pos + "'>" + infoPersona.apellido + "</td>"
-        + "<td id='txtFechaNacimiento" + pos + "'>" + infoPersona.fechaNacimiento + "</td>"
-        + "<td id='txtTelefono" + pos + "'>" + infoPersona.telefono + "</td>"
-        + "<td id='txtEmail" + pos + "'>" + infoPersona.correo + "</td>"  
-        + "<td>"
-        + "<button type='button' id=" + pos + " onclick='eliminar(this.id)' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-trash'></i> </button>"
-        + "<button type='button' onclick='mostrarModal(" + pos + ")' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-edit'></i> </button>"
-        + "</td></tr>";
-    $("#tablaPersonas").append(fila);
+	var fila = "<tr id=" + pos + ">"
+		+ "<td id='txtDocumento" + pos + "' class='pl-4'>" + infoPersona.documentoInstructor + "</td>"
+		+ "<td id='txtUsername" + pos + "'>" + infoPersona.username + "</td>"
+		+ "<td id='txtNombre" + pos + "'>" + infoPersona.nombre + "</td>"
+		+ "<td id='txtApellido" + pos + "'>" + infoPersona.apellido + "</td>"
+		+ "<td id='txtFechaNacimiento" + pos + "'>" + infoPersona.fechaNacimiento + "</td>"
+		+ "<td id='txtTelefono" + pos + "'>" + infoPersona.telefono + "</td>"
+		+ "<td id='txtEmail" + pos + "'>" + infoPersona.correo + "</td>"
+		+ "<td>"
+		+ "<button type='button' id=" + pos + " onclick='eliminar(this.id)' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-trash'></i> </button>"
+		+ "<button type='button' onclick='mostrarModal(" + pos + ")' class='btn btn-outline-info btn-circle btn-lg btn-circle ml-2'><i class='fa fa-edit'></i> </button>"
+		+ "</td></tr>";
+	$("#tablaPersonas").append(fila);
 }
 
 function eliminar(pos) {
 	if (confirm('¿Está seguro de que desea eliminar este instructor?')) {
-	$.ajax({
-		url: '../../../../BackEnd/Gestion de Usuarios/bajaInstructor.php',
-		method: 'POST',
-		data: {
-			dato: datosUsuarios[pos].documentoInstructor
-		},
-		success: function (respuesta) {
-			console.log(respuesta);
-		},
-		error: function (respuesta) {
-			console.log(respuesta);
-		},
-	});
-	$("#" + pos).remove();
-}
+		$.ajax({
+			url: '../../../../BackEnd/Gestion de Usuarios/bajaInstructor.php',
+			method: 'POST',
+			data: {
+				dato: datosUsuarios[pos].documentoInstructor
+			},
+			success: function (respuesta) {
+				console.log(respuesta);
+			},
+			error: function (respuesta) {
+				console.log(respuesta);
+			},
+		});
+		$("#" + pos).remove();
+	}
 }
 
 function guardarCambios(pos) {
@@ -75,32 +75,32 @@ function guardarCambios(pos) {
 	});
 
 	$casos = $('#txtDato').val();
-	
+
 	if ($casos == "nombre") {
 		$("#txtNombre" + pos).html($('#txtNuevo').val());
 	}
 	if ($casos == "apellido") {
 		$("#txtApellido" + pos).html($('#txtNuevo').val());
-	} 
+	}
 	if ($casos == "fechaNacimiento") {
 		$("#txtFechaNacimiento" + pos).html($('#txtNuevo').val());
-	} 
+	}
 	if ($casos == "telefono") {
 		$("#txtTelefono" + pos).html($('#txtNuevo').val());
-	} 
+	}
 	if ($casos == "email") {
 		$("#txtEmail" + pos).html($('#txtNuevo').val());
-	} 
+	}
 	if ($casos == "estado") {
 		$("#txtEstado" + pos).html($('#txtNuevo').val());
-	} 
+	}
 	if ($casos == "fechaInscripcion") {
 		$("#txtFechaInscipción" + pos).html($('#txtNuevo').val());
-	} 
+	}
 	if ($casos == "username") {
 		$("#txtUsername" + pos).html($('#txtNuevo').val());
 	}
-	
+
 	cerrarModal();
 }
 
@@ -125,62 +125,68 @@ window.onclick = function (event) {
 	}
 }
 function mostrarModalAgregar() {
-    $('#addModal').css("display", "block");
+	$('#addModal').css("display", "block");
 }
 
 function cerrarModalAgregar() {
-    $('#addModal').css("display", "none");
+	$('#addModal').css("display", "none");
 }
 
 function agregarInstructor() {
-	
 	let verifica = verificarCedula();
+	let existe = verificarExistencia();
 
-	if (verifica == "false") {
+	if (!verifica) {
 		alert("Esa cedula es Inexistente");
 		return;
 	}
-    $.ajax({
-        url: '../../../../BackEnd/Gestion de Usuarios/altaInstructor.php',
-        method: 'POST',
-        data: {
-            documento: $('#txtNuevoDocumento').val(),
-            username: $('#txtNuevoUsername').val(),
-            nombre: $('#txtNuevoNombre').val(),
-            apellido: $('#txtNuevoApellido').val(),
-            fechaNacimiento: $('#txtNuevaFechaNacimiento').val(),
-            telefono: $('#txtNuevoTelefono').val(),
-            correo: $('#txtNuevoCorreo').val(),
-            password: $('#txtNuevaPassword').val(),
-           
+
+	if (existe) {
+		alert("Ese Usuario ya existe");
+		return;
+	}
+
+	$.ajax({
+		url: '../../../../BackEnd/Gestion de Usuarios/altaInstructor.php',
+		method: 'POST',
+		data: {
+			documento: $('#txtNuevoDocumento').val(),
+			username: $('#txtNuevoUsername').val(),
+			nombre: $('#txtNuevoNombre').val(),
+			apellido: $('#txtNuevoApellido').val(),
+			fechaNacimiento: $('#txtNuevaFechaNacimiento').val(),
+			telefono: $('#txtNuevoTelefono').val(),
+			correo: $('#txtNuevoCorreo').val(),
+			password: $('#txtNuevaPassword').val(),
+
 			claseA: $('#txtClaseA').is(':checked') ? 1 : 0,
 			claseB: $('#txtClaseB').is(':checked') ? 1 : 0,
 			claseC: $('#txtClaseC').is(':checked') ? 1 : 0,
-			
+
 			lunes: $('#txtLunes').is(':checked') ? 1 : 0,
 			martes: $('#txtMartes').is(':checked') ? 1 : 0,
 			miercoles: $('#txtMiercoles').is(':checked') ? 1 : 0,
 			jueves: $('#txtJueves').is(':checked') ? 1 : 0,
 			viernes: $('#txtViernes').is(':checked') ? 1 : 0,
 			sabado: $('#txtSabado').is(':checked') ? 1 : 0,
-        },
-        success: function (respuesta) {
-            console.log(respuesta);
-            // Update the datosUsuarios array and add a new row to the table
-            traerUsuarios().then(dato => {
-                // Clear the table first
-                $("#tablaPersonas").find("tr:gt(0)").remove();
-                datosUsuarios = dato;
-                for (var i = 0; i < dato.length; i++) {
-                    filaNueva(dato[i], i);
-                }
-            });
-            cerrarModalAgregar();
-        },
-        error: function (respuesta) {
-            console.log(respuesta);
-        },
-    });
+		},
+		success: function (respuesta) {
+			console.log(respuesta);
+			// Update the datosUsuarios array and add a new row to the table
+			traerUsuarios().then(dato => {
+				// Clear the table first
+				$("#tablaPersonas").find("tr:gt(0)").remove();
+				datosUsuarios = dato;
+				for (var i = 0; i < dato.length; i++) {
+					filaNueva(dato[i], i);
+				}
+			});
+			cerrarModalAgregar();
+		},
+		error: function (respuesta) {
+			console.log(respuesta);
+		},
+	});
 }
 
 function verificarCedula() {
@@ -200,31 +206,57 @@ function verificarCedula() {
 	return verifico;
 }
 
+function verificarExistencia() {
+    let verifico;
+
+    $.ajax({
+        url: '../../../../BackEnd/Gestion de Usuarios/verificadorExiste.php',
+        method: 'POST',
+        data: {
+            cedula: $('#txtNuevoDocumento').val()
+        },
+        success: function (response) {
+            try {
+                verifico = JSON.parse(response);
+            } catch (e) {
+                console.error("Error parsing JSON response: ", e);
+                verifico = false;
+            }
+        },
+        error: function (response) {
+            console.error("Error in AJAX request: ", response);
+            verifico = false;
+        },
+        async: false
+    });
+    return verifico;
+}
+
 // Función para mostrar/ocultar el campo de texto en el modal de modificar
 function mostrarCampoTexto() {
-    var datoCambiado = document.getElementById("txtDato").value;
-    var campoTextoContainer = document.getElementById("campoTextoContainer");
+	var datoCambiado = document.getElementById("txtDato").value;
+	var campoTextoContainer = document.getElementById("campoTextoContainer");
 
-    if (datoCambiado === "fechaNacimiento" || datoCambiado === "categoriaLibreta" || datoCambiado === "categoriaClase" || datoCambiado === "horarios") {
-        campoTextoContainer.style.display = "none";
-    } else {
-        campoTextoContainer.style.display = "block";
-    }
+	if (datoCambiado === "fechaNacimiento" || datoCambiado === "categoriaLibreta" || datoCambiado === "categoriaClase" || datoCambiado === "horarios") {
+		campoTextoContainer.style.display = "none";
+	} else {
+		campoTextoContainer.style.display = "block";
+	}
 }
 
 // Función para mostrar/ocultar el campo de fecha de nacimiento en el modal de modificar
 function mostrarCampoFechaNacimiento() {
-    var datoCambiado = document.getElementById("txtDato").value;
-    var fechaNacimientoInput = document.getElementById("fechaNacimientoContainer");
+	var datoCambiado = document.getElementById("txtDato").value;
+	var fechaNacimientoInput = document.getElementById("fechaNacimientoContainer");
 
-    if (datoCambiado === "fechaNacimiento") {
-        fechaNacimientoInput.style.display = "block";
-    } else {
-        fechaNacimientoInput.style.display = "none";
-    }
+	if (datoCambiado === "fechaNacimiento") {
+		fechaNacimientoInput.style.display = "block";
+	} else {
+		fechaNacimientoInput.style.display = "none";
+	}
 }
 
-function mostrarCampoHorarios(){
+function mostrarCampoHorarios() {
 	var datoCambiado = document.getElementById("txtDato").value;
 	var horariosContainer = document.getElementById("horariosContainer");
 
@@ -235,7 +267,7 @@ function mostrarCampoHorarios(){
 	}
 }
 
-function mostrarCampoClase(){
+function mostrarCampoClase() {
 	var datoCambiado = document.getElementById("txtDato").value;
 	var claseContainer = document.getElementById("categoriaClaseContainer");
 
@@ -247,9 +279,9 @@ function mostrarCampoClase(){
 }
 
 // Event listener para el campo txtDato
-document.getElementById("txtDato").addEventListener("change", function() {
-    mostrarCampoTexto();
-    mostrarCampoFechaNacimiento();
-    mostrarCampoClase();
-	mostrarCampoHorarios();	
+document.getElementById("txtDato").addEventListener("change", function () {
+	mostrarCampoTexto();
+	mostrarCampoFechaNacimiento();
+	mostrarCampoClase();
+	mostrarCampoHorarios();
 });

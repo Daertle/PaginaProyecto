@@ -79,7 +79,7 @@ if ($usuario) {
 
         $mail->send();
         echo '
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show resultIn" role="alert">
             El mensaje ha sido enviado exitosamente.
 
             <a href="../../../../frontend/html/guestView/spanish/login.html.php"><button type="button" class="btn btn-outline-success">Volver</button></a>
@@ -87,7 +87,7 @@ if ($usuario) {
         ';
     } catch (Exception $e) {
         echo '
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show resultIn" role="alert">
             No se pudo enviar el mensaje. Error: ' . $mail->ErrorInfo . '
             <a href="../../../../frontend/html/guestView/spanish/login.html.php"><button type="button" class="btn btn-outline-danger">Volver</button></a>
         </div>
@@ -95,7 +95,7 @@ if ($usuario) {
     }
 } else {
     echo '
-    <div class="alert alert-danger alert-dismissible fade show result" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show resultIn" role="alert">
         No se encontró un usuario con ese correo electrónico.
          <a href="../../../../frontend/html/guestView/spanish/login.html.php"><button type="button" class="btn btn-outline-danger">Volver</button></a>
     </div>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../../../../BackEnd/Gestion de Usuarios/Controlador.php';
+include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos4.php'; 
 
 $controla = new Controlador();
 $usuario = $_SESSION['usuario']; 
@@ -470,11 +471,10 @@ $datosUsuario = $controla->seleccionarUsuario($usuario);
                             url: '../../../../BackEnd/Gestion de Usuarios/modificarCredenciales.php',
                             method: 'POST',
                             data: {
-                                campo: campoActual,
+                                campo: campoActual, 
                                 valor: nuevoValor
                             },
                             success: function (response) {
-                                // Manejo especial para el campo de contraseña
                                 if (campoActual === 'passwrd') {
                                     document.getElementById(campoActual + 'Value').innerText = '••••••••';
                                 } else {

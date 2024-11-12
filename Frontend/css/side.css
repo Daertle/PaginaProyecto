@@ -183,13 +183,16 @@
     position: fixed;
     bottom: 60px;
     left: 0;
-    box-sizing: border-box;
-    height: 60px;
+    right: 0;
     width: 100%;
-    background-color: var(--hover-color);
+    background-color: var(--base-color);
     border-top: 1px solid var(--linea-color);
-    display: flex;
-    justify-content: center;
+    padding: 0;
+    margin: 0;
+    max-height: auto;
+    overflow-y: visible; /* Cambiado de auto a visible */
+    display: flex; /* Cambiado de block a flex */
+    flex-direction: column; /* Añadido */
   }
 
   #sidebar ul li .sub-menu.show > div {
@@ -197,7 +200,10 @@
   }
 
   #sidebar ul li .sub-menu.show li {
-    display: inlinea-flex;
+    width: 100%;
+    height: auto;
+    flex: none;
+    display: flex; /* Añadido */
   }
 
   #sidebar ul li .sub-menu.show a {

@@ -1,3 +1,5 @@
+<?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos3.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es">
 

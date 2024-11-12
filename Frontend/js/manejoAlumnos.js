@@ -39,48 +39,54 @@ function filaNueva(infoPersona, pos) {
 
 
 function agregarAlumno() {
-	
-	let verifica = verificarCedula();
+    let verifica = verificarCedula();
+    let existe = verificarExistencia();
 
-	if (verifica == "false") {
-		alert("Esa cedula es Inexistente");
-		return;
-	} 
-	$.ajax({
-		url: '../../../../BackEnd/Gestion de Usuarios/altaAlumnos.php',
-		method: 'POST',
-		data: {
-			documento: $('#txtNuevoDocumento').val(),
-			username: $('#txtNuevoUsername').val(),
-			nombre: $('#txtNuevoNombre').val(),
-			apellido: $('#txtNuevoApellido').val(),
-			fechaNacimiento: $('#txtNuevaFechaNacimiento').val(),
-			telefono: $('#txtNuevoTelefono').val(),
-			correo: $('#txtNuevoCorreo').val(),
-			password: $('#txtNuevaPassword').val(),
-			catA: $('#txtNuevoA').val(),
-			catB: $('#txtNuevoB').val(),
-			catC: $('#txtNuevoC').val()
-		},
-		success: function (respuesta) {
-			console.log(respuesta);
+    if (!verifica) {
+        alert("Esa cedula es Inexistente");
+        return;
+    } 
 
-			traerUsuarios().then(dato => {
-				// Clear the table first
-				$("#tablaPersonas").find("tr:gt(0)").remove();
-				datosUsuarios = dato;
-				for (var i = 0; i < dato.length; i++) {
-					filaNueva(dato[i], i);
-				}
-			});
-			cerrarModalAgregar();
-		},
-		error: function (respuesta) {
-			console.log(respuesta);
-			
-		},
-	});
+    if (existe) {
+        alert("Ese Usuario ya existe");
+        return;
+    }
+
+    $.ajax({
+        url: '../../../../BackEnd/Gestion de Usuarios/altaAlumnos.php',
+        method: 'POST',
+        data: {
+            documento: $('#txtNuevoDocumento').val(),
+            username: $('#txtNuevoUsername').val(),
+            nombre: $('#txtNuevoNombre').val(),
+            apellido: $('#txtNuevoApellido').val(),
+            fechaNacimiento: $('#txtNuevaFechaNacimiento').val(),
+            telefono: $('#txtNuevoTelefono').val(),
+            correo: $('#txtNuevoCorreo').val(),
+            password: $('#txtNuevaPassword').val(),
+            catA: $('#txtNuevoA').val(),
+            catB: $('#txtNuevoB').val(),
+            catC: $('#txtNuevoC').val()
+        },
+        success: function (respuesta) {
+            console.log(respuesta);
+
+            traerUsuarios().then(dato => {
+                // Clear the table first
+                $("#tablaPersonas").find("tr:gt(0)").remove();
+                datosUsuarios = dato;
+                for (var i = 0; i < dato.length; i++) {
+                    filaNueva(dato[i], i);
+                }
+            });
+            cerrarModalAgregar();
+        },
+        error: function (respuesta) {
+            console.log(respuesta);
+        },
+    });
 }
+
 function eliminar(pos) {
 	if (confirm('¿Está seguro de que desea eliminar este alumno?')) {
 	$.ajax({
@@ -179,7 +185,7 @@ function cerrarModalAgregar() {
 }
 
 function verificarCedula() {
-	let verifico = false;
+	let verifico;
 
 	$.ajax({
 		url: '../../../../BackEnd/Gestion de Usuarios/verificadorCI.php',
@@ -193,6 +199,32 @@ function verificarCedula() {
 		async: false
 	});
 	return verifico;
+}
+
+function verificarExistencia() {
+    let verifico;
+
+    $.ajax({
+        url: '../../../../BackEnd/Gestion de Usuarios/verificadorExiste.php',
+        method: 'POST',
+        data: {
+            cedula: $('#txtNuevoDocumento').val()
+        },
+        success: function (response) {
+            try {
+                verifico = JSON.parse(response);
+            } catch (e) {
+                console.error("Error parsing JSON response: ", e);
+                verifico = false;
+            }
+        },
+        error: function (response) {
+            console.error("Error in AJAX request: ", response);
+            verifico = false;
+        },
+        async: false
+    });
+    return verifico;
 }
 
 // Función para mostrar/ocultar el campo de texto en el modal de modificar
@@ -217,17 +249,6 @@ function mostrarCampoFechaNacimiento() {
     } else {
         fechaNacimientoInput.style.display = "none";
     }
-}
-
-function mostrarCampoDocumento(){
-	var datoCambiado = document.getElementById("txtDato").value;
-	var documentoContainer = document.getElementById("documentoContainer");
-
-	if (datoCambiado === "documentoAlumno" || datoCambiado === "documentoInstructor") {
-		documentoContainer.style.display = "block";
-	} else {
-		documentoContainer 	.style.display = "none";
-	}
 }
 
 // Función para mostrar/ocultar el campo de categoría de libreta en el modal de modificar

@@ -61,8 +61,9 @@
         .right-lower {
             padding-bottom: 50px;
         }
-        
-            div.col-6, div.right-lower {
+
+        div.col-6,
+        div.right-lower {
             color: white;
             background-color: #0f0f0f;
         }
@@ -72,66 +73,96 @@
             color: white;
             border: 1px solid white;
         }
+
+        .package-title {
+            font-size: 1.5em;
+            /* Aumenta el tamaño de la fuente del título del paquete */
+            font-weight: bold;
+            padding-left: 40px !important;
+            /* Agrega padding-left al título del paquete */
+        }
+
+        .package-price {
+            font-size: 1.5em;
+            /* Aumenta el tamaño de la fuente del precio */
+            font-weight: bold;
+            text-align: right;
+            /* Alinea el precio a la derecha */
+            display: flex;
+            justify-content: flex-end;
+            /* Asegura que el precio esté alineado a la derecha */
+            padding-right: 40px !important;
+        }
+
+        .package-info {
+            padding-left: 40px;
+            /* Agrega padding-left a la información de cada paquete */
+        }
     </style>
 </head>
 
 <body class="body2">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
-        <div class="container">
-            <a href="ownerIndex.html.php">
-                <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar5"
-                aria-controls="navbar5" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+            <div class="container">
+                <a href="../../../../index.html.php">
+                    <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar5"
+                    aria-controls="navbar5" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbar5">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a href="ownerNosotros.html.php" class="nav-link">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="ownerFlota.html.php" class="nav-link">Flota</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="ownerClases.html.php" class="nav-link">Clases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="ownerContacto.html.php" class="nav-link">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="ownerChoferes.html.php" class="nav-link">Choferes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="ownerTests.html.php" class="nav-link">Tests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="ownerRequisitos.html.php" class="nav-link">Requisitos</a>
-                    </li>
+                <div class="collapse navbar-collapse" id="navbar5">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="ownerNosotros.html.php" class="nav-link">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ownerFlota.html.php" class="nav-link">Flota</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ownerClases.html.php" class="nav-link active">Clases</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ownerContacto.html.php" class="nav-link">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ownerChoferes.html.php" class="nav-link">Choferes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ownerTests.html.php" class="nav-link">Tests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ownerRequisitos.html.php" class="nav-link">Requisitos</a>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../spanish/ownerIndex.html.php">Español</a></li>
-                            <li><a class="dropdown-item" href="../english/ownerIndex">Inglés</a></li>
-                            <li><a class="dropdown-item" href="../arabe/ownerIndex">Árabe</a></li>
-                        </ul>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="bi bi-globe"></i>
+                            </a>
 
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../../../../BackEnd//Gestion de Usuarios/logOut.php">Log Out</a></li>
-                            <li><a class="dropdown-item" href="../../ownerView/spanish/ownerPerfil.html.php">Perfil</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="ownerLandingSpanish.html.php">Español</a></li>
+                                <li><a class="dropdown-item" href="../english/ownerLandingEnglish.html.php">Inglés</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../english/ownerLandingArabic.html.php">Árabe</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="login.html.php" class="nav-link dropdown-toggle"><i
+                                    class="bi bi-person-circle"></i></a>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="container">
+        <div class="container">
             <div class="card">
                 <div class="row g-0 h-100">
                     <!-- seccionn izquierda con imagen -->
@@ -142,20 +173,20 @@
                     <!-- seccion derecha -->
                     <div class="col-12 col-md-8 right-column">
                         <!-- parte superior derecha dividida en dos columnas -->
-                        <div class="right-upper section h-100">
+                        <div class="section h-100">
                             <div class="row g-0 h-100">
                                 <div class="col-6">
-                                    <p class="p-2 m-0">Paquete - libreta tipo A</p>
+                                    <p class="p-2 m-0 package-title">Paquete - libreta tipo A</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="p-2 m-0">$12000</p>
+                                    <p class="p-2 m-0 package-price">$16000</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- parte superior derecha dividida en dos columnas -->
                         <div class="h-100">
-                            <div class="right-lower">
+                            <div class="right-lower package-info">
                                 <p class="p-2 m-0">Ideal para personas que desean conducir autos particulares y
                                     camionetas pequeñas con remolque liviano.
                                     <br>
@@ -178,22 +209,16 @@
                                 </p>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE
-                                    COMPRA</button>
+                                <button type="button" target="_"
+                                    onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra A.pdf')"
+                                    class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
-
-
-
-
         </div>
+
         <div class="container">
             <div class="card">
                 <div class="row g-0 h-100">
@@ -205,20 +230,20 @@
                     <!-- seccion derecha -->
                     <div class="col-12 col-md-8 right-column">
                         <!-- parte superior derecha dividida en dos columnas -->
-                        <div class="right-upper section h-100">
+                        <div class="section h-100">
                             <div class="row g-0 h-100">
                                 <div class="col-6">
-                                    <p class="p-2 m-0">Paquete - Libreta tipo B</p>
+                                    <p class="p-2 m-0 package-title">Paquete - Libreta tipo B</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="p-2 m-0">$16.000</p>
+                                    <p class="p-2 m-0 package-price">$20.000</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- parte superior derecha dividida en dos columnas -->
                         <div class="h-100">
-                            <div class="right-lower">
+                            <div class="right-lower package-info">
                                 <p class="p-2 m-0">Ideal para conductores que necesitan manejar vehículos más grandes,
                                     como minibuses o camiones de carga ligera.
                                     <br>
@@ -242,8 +267,9 @@
                                 </p>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE
-                                    COMPRA</button>
+                                <button type="button" target="_"
+                                    onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra B.pdf')"
+                                    class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
                             </div>
                         </div>
                     </div>
@@ -269,20 +295,20 @@
                     <!-- seccion derecha -->
                     <div class="col-12 col-md-8 right-column">
                         <!-- parte superior derecha dividida en dos columnas -->
-                        <div class="right-upper section h-100">
+                        <div class="section h-100">
                             <div class="row g-0 h-100">
                                 <div class="col-6">
-                                    <p class="p-2 m-0">Paquete - Libreta tipo C</p>
+                                    <p class="p-2 m-0 package-title">Paquete - Libreta tipo C</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="p-2 m-0">$25.000</p>
+                                    <p class="p-2 m-0 package-price">$22.000</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- parte superior derecha dividida en dos columnas -->
                         <div class="h-100">
-                            <div class="right-lower">
+                            <div class="right-lower package-info">
                                 <p class="p-2 m-0">Ideal para personas interesadas en manejar camiones grandes y
                                     transporte de carga de mayor capacidad.
                                     <br>
@@ -307,8 +333,9 @@
                             </div>
 
                             <div>
-                                <button type="button" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE
-                                    COMPRA</button>
+                                <button type="button" target="_"
+                                    onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra C.pdf')"
+                                    class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
                             </div>
                         </div>
                     </div>
@@ -318,12 +345,40 @@
 
                 </div>
             </div>
+        </div>
+        </div>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <ul class="ul1">
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-                crossorigin="anonymous"></script>
-            <script src="../../../js/script.js"></script>
+                    <div class="footer-abajo">
+                        <a href="#" class="footer-link">Servicios</a>
+                        <a href="guestLandingSpanish.html" class="footer-logo">
+                            <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+                        </a>
+                        <a href="#" class="footer-link">Contactanos</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+        <script src="../../../js/script.js"></script>
 
 </body>
 
-</html> 
+</html>
