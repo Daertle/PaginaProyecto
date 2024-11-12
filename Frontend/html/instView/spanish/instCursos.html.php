@@ -1,4 +1,4 @@
-<?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos4.php'; ?>
+<?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos2.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

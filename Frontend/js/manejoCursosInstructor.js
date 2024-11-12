@@ -1,22 +1,16 @@
 datosClase = []; //Array global para manejo de cursos
 
-async function traerCursosInstructor() {
-	$.ajax({
-		url: '../../../../BackEnd/Gestion de Usuarios/listarCursosInstructor.php',
-		method: 'POST',
-		data: {
-			usuario: $_POST['txtNombreUsuario'] 	
-		}
-	}).done(function (respuesta) {
-		if (respuesta == "No hay cursos") {
-			alert("No hay cursos registrados");
-		} else {
-			datosClase = JSON.parse(respuesta);
-		}
-	});
+async function traerCursos() {
+	const response = await fetch('../../../../BackEnd/Gestion de Usuarios/listarCursos.php'
+		, {
+			method: 'GET',
+		});
+	// waits until the request completes...
+	const res = await response.json();
+	return res;
 }
 
-traerCursosInstructor().then(dato => {
+traerCursos().then(dato => {
     for (var i = 0; i < dato.length; i++) {
         filaNueva(dato[i], i);
     }
