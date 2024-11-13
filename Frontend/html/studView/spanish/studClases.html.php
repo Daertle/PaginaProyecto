@@ -1,35 +1,19 @@
 <?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos1.php'; ?>
 
-<!DOCTYPE html>
-<html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clases - Luxury Driving</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxury Driving</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        .package-title {
-            font-weight: bold;
-            padding-left: 40px !important;
-        }
-
-        .package-price {
-            font-size: 1.5em;
-            font-weight: bold;
-            text-align: right;
-            display: flex;
-            justify-content: flex-end;
-            padding-right: 40px !important;
-        }
-
-        .package-info {
-            padding-left: 40px;
-        }
-
         .card {
             margin: 20px;
             border: 2px solid black;
@@ -95,11 +79,36 @@
             color: white;
             border: 1px solid white;
         }
+
+        .package-title {
+            font-size: 1.5em;
+            /* Aumenta el tamaño de la fuente del título del paquete */
+            font-weight: bold;
+            padding-left: 40px !important;
+            /* Agrega padding-left al título del paquete */
+        }
+
+        .package-price {
+            font-size: 1.5em;
+            /* Aumenta el tamaño de la fuente del precio */
+            font-weight: bold;
+            text-align: right;
+            /* Alinea el precio a la derecha */
+            display: flex;
+            justify-content: flex-end;
+            /* Asegura que el precio esté alineado a la derecha */
+            padding-right: 40px !important;
+        }
+
+        .package-info {
+            padding-left: 40px;
+            /* Agrega padding-left a la información de cada paquete */
+        }
     </style>
 </head>
 
 <body class="body2">
-    <div class="wrapper-">
+    <div class="wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
             <div class="container">
                 <a href="../../../../index.html.php">
@@ -139,19 +148,17 @@
                                 aria-expanded="false">
                                 <i class="bi bi-globe"></i>
                             </a>
-
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="studLandingSpanish.html.php">Español</a></li>
-                                <li><a class="dropdown-item" href="../english/studLandingEnglish.html.php">Inglés</a>
-                                </li>
-                                <li><a class="dropdown-item" href="../english/studLandingArabic.html.php">Árabe</a>
-                                </li>
-                            </ul>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a href="login.html.php" class="nav-link dropdown-toggle"><i
-                                    class="bi bi-person-circle"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false"><i class="bi bi-person-circle"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"
+                                        href="../../../../BackEnd/Gestion de Usuarios/logOut.php">Log Out</a></li>
+                                <li><a class="dropdown-item"
+                                        href="../../studView/spanish/studPerfil.html.php">Perfil</a></li>
+                            </ul>
                         </li>
 
                     </ul>
@@ -200,8 +207,7 @@
                                 <ul>
                                     <li>Vehículos hasta 9 pasajeros, incluido el conductor.</li>
                                     <br>
-                                    <li>Camionetas y vehículos con remolque, con un peso máximo total de hasta 4.000
-                                        kg.
+                                    <li>Camionetas y vehículos con remolque, con un peso máximo total de hasta 4.000 kg.
                                     </li>
                                 </ul>
                                 </p>
@@ -242,8 +248,7 @@
                         <!-- parte superior derecha dividida en dos columnas -->
                         <div class="h-100">
                             <div class="right-lower package-info">
-                                <p class="p-2 m-0">Ideal para conductores que necesitan manejar vehículos más
-                                    grandes,
+                                <p class="p-2 m-0">Ideal para conductores que necesitan manejar vehículos más grandes,
                                     como minibuses o camiones de carga ligera.
                                     <br>
                                     Incluye:
@@ -345,38 +350,33 @@
                 </div>
             </div>
         </div>
-        <div class="wrapper-footer">
-            <footer class="site-footer">
-                <div class="container">
-                    <div class="footer-content">
-                        <ul class="ul1">
-                            <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f"
-                                        aria-hidden="true"></i></a>
-                            </li>
-                            <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram"
-                                        aria-hidden="true"></i></a>
-                            </li>
-                            <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in"
-                                        aria-hidden="true"></i></a>
-                            </li>
-                            <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                            </li>
-                        </ul>
-
-                        <div class="footer-abajo">
-                            <a href="#" class="footer-link">Servicios</a>
-                            <a href="guestLandingSpanish.html" class="footer-logo">
-                                <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
-                            </a>
-                            <a href="#" class="footer-link">Contactanos</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
     </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <ul class="ul1">
+                    <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+
+                <div class="footer-abajo">
+                    <a href="#" class="footer-link">Servicios</a>
+                    <a href="guestLandingSpanish.html" class="footer-logo">
+                        <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+                    </a>
+                    <a href="#" class="footer-link">Contactanos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

@@ -52,7 +52,7 @@
             <a href="instNosotros.html.php" class="nav-link">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a href="instFlota.html.php" class="nav-link">Flota</a>
+            <a href="instFlota.html.php" class="nav-link active">Flota</a>
           </li>
           <li class="nav-item">
             <a href="instClases.html.php" class="nav-link">Clases</a>
@@ -72,11 +72,6 @@
 
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../spanish/instIndex.html.php">Español</a></li>
-              <li><a class="dropdown-item" href="../english/instIndex">Inglés</a></li>
-              <li><a class="dropdown-item" href="../arabe/instIndex">Árabe</a></li>
-            </ul>
           </li>
 
           <li class="nav-item dropdown">

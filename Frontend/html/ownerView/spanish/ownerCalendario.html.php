@@ -48,15 +48,6 @@ body {
 }
 
 
-.logo {
-    color: var(--text-color);
-    font-size: 1.5em;
-    padding: 20px;
-    text-align: center;
-    background: rgba(255,255,255,0.05);
-}
-
-
 /* Main Content */
 .adminCont {
     margin-left: var(--sidebar-width);
@@ -433,7 +424,7 @@ body {
   <div class="adminCont">
 
     <div class="body3">
-      <h3>Título de la página</h3>
+      <h3>Calendario de clases</h3>
       <div id='calendar'></div>
 
       <!-- Modal -->

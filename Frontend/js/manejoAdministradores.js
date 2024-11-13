@@ -36,14 +36,30 @@ function filaNueva(infoPersona, pos) {
 }
 
 
-function agregarAdministrador() {
+async function agregarAdministrador() {
 
-	let verifica = verificarCedula();
+	let verifica = await verificarCedula();
+	let existe = await verificarExistencia();
+	let existeUsuario = await verificarUsername();
 
-	if (verifica == "false") {
+	console.log("verifica:", verifica); // Log the verifica value
+	console.log("existe:", existe); // Log the existe value
+
+	if (!verifica) {
 		alert("Esa cedula es Inexistente");
 		return;
-	} 
+	}
+
+	if (existe) {
+		alert("Ese Usuario ya existe");
+		return;
+	}
+
+	if (existeUsuario) {
+		alert("Ese Username ya existe");
+		return;
+	}
+
 	$.ajax({
 		url: '../../../../BackEnd/Gestion de Usuarios/altaAdmin.php',
 		method: 'POST',
@@ -96,6 +112,18 @@ function eliminar(pos) {
 }
 
 function guardarCambios(pos) {
+    if ($('#txtDato').val() === "username") {
+        let nuevoUsername = $('#txtNuevo').val();
+        if (nuevoUsername !== datosUsuarios[pos].username) {
+            let existeUsuario = verificarUsername(nuevoUsername);
+            
+            if (existeUsuario) {
+                alert("Ese Username ya existe");
+                return;
+            }
+        }
+    }
+
 	$.ajax({
 		url: '../../../../BackEnd/Gestion de Usuarios/modificarAdministrador.php',
 		method: 'POST',
@@ -173,62 +201,121 @@ function cerrarModalAgregar() {
 	$('#addModal').css("display", "none");
 }
 
-function verificarCedula() {
+async function verificarCedula() {
 	let verifico = false;
 
-	$.ajax({
-		url: '../../../../BackEnd/Gestion de Usuarios/verificadorCI.php',
+	try {
+		const response = await $.ajax({
+			url: '../../../../BackEnd/Gestion de Usuarios/verificadorCI.php',
+			method: 'POST',
+			data: {
+				cedula: $('#txtNuevoDocumento').val()
+			},
+			dataType: 'json' // Especificamos explícitamente que esperamos JSON
+		});
+
+		console.log("Respuesta recibida:", response);
+		verifico = response === true; // Comparación booleana directa
+
+	} catch (error) {
+		console.error("Error en verificarCedula:", error);
+		verifico = false;
+	}
+
+	return verifico;
+}
+
+async function verificarExistencia() {
+	let verifico;
+
+	await $.ajax({
+		url: '../../../../BackEnd/Gestion de Usuarios/verificadorExiste.php',
 		method: 'POST',
 		data: {
 			cedula: $('#txtNuevoDocumento').val()
 		},
 		success: function (response) {
-			verifico = response;
+			try {
+				console.log("verificarExistencia response:", response); // Log the response
+				verifico = JSON.parse(response);
+			} catch (e) {
+				console.error("Error parsing JSON response: ", e);
+				verifico = false;
+			}
 		},
-		async: false
+		error: function () {
+			verifico = false;
+		}
 	});
+
+	return verifico;
+}
+
+async function verificarUsername() {
+	let verifico;
+
+	await $.ajax({
+		url: '../../../../BackEnd/Gestion de Usuarios/verificadorUsuario.php',
+		method: 'POST',
+		data: {
+			username: $('#txtNuevoUsername').val()
+		},
+		success: function (response) {
+			try {
+				console.log("verificarExistencia response:", response); // Log the response
+				verifico = JSON.parse(response);
+			} catch (e) {
+				console.error("Error parsing JSON response: ", e);
+				verifico = false;
+			}
+		},
+		error: function () {
+			verifico = false;
+		}
+	});
+
 	return verifico;
 }
 
 // Función para mostrar/ocultar el campo de texto en el modal de modificar
 function mostrarCampoTexto() {
-    var datoCambiado = document.getElementById("txtDato").value;
-    var campoTextoContainer = document.getElementById("campoTextoContainer");
+	var datoCambiado = document.getElementById("txtDato").value;
+	var campoTextoContainer = document.getElementById("campoTextoContainer");
 
-    if (datoCambiado === "fechaNacimiento" || datoCambiado === "categoriaLibreta") {
-        campoTextoContainer.style.display = "none";
-    } else {
-        campoTextoContainer.style.display = "block";
-    }
+	if (datoCambiado === "fechaNacimiento" || datoCambiado === "categoriaLibreta") {
+		campoTextoContainer.style.display = "none";
+	} else {
+		campoTextoContainer.style.display = "block";
+	}
 }
 
 // Función para mostrar/ocultar el campo de fecha de nacimiento en el modal de modificar
 function mostrarCampoFechaNacimiento() {
-    var datoCambiado = document.getElementById("txtDato").value;
-    var fechaNacimientoInput = document.getElementById("fechaNacimientoContainer");
+	var datoCambiado = document.getElementById("txtDato").value;
+	var fechaNacimientoInput = document.getElementById("fechaNacimientoContainer");
 
-    if (datoCambiado === "fechaNacimiento") {
-        fechaNacimientoInput.style.display = "block";
-    } else {
-        fechaNacimientoInput.style.display = "none";
-    }
+	if (datoCambiado === "fechaNacimiento") {
+		fechaNacimientoInput.style.display = "block";
+	} else {
+		fechaNacimientoInput.style.display = "none";
+	}
 }
 
 // Función para mostrar/ocultar el campo de categoría de libreta en el modal de modificar
 function mostrarCampoCategoria() {
-    var datoCambiado = document.getElementById("txtDato").value;
-    var categoriaLibretaContainer = document.getElementById("categoriaLibretaContainer");
+	var datoCambiado = document.getElementById("txtDato").value;
+	var categoriaLibretaContainer = document.getElementById("categoriaLibretaContainer");
 
-    if (datoCambiado === "categoriaLibreta") {
-        categoriaLibretaContainer.style.display = "block";
-    } else {
-        categoriaLibretaContainer.style.display = "none";
-    }
+	if (datoCambiado === "categoriaLibreta") {
+		categoriaLibretaContainer.style.display = "block";
+	} else {
+		categoriaLibretaContainer.style.display = "none";
+	}
 }
 
 // Event listener para el campo txtDato
-document.getElementById("txtDato").addEventListener("change", function() {
-    mostrarCampoTexto();
-    mostrarCampoFechaNacimiento();
-    mostrarCampoCategoria();
+document.getElementById("txtDato").addEventListener("change", function () {
+	mostrarCampoTexto();
+	mostrarCampoFechaNacimiento();
+	mostrarCampoCategoria();
 });

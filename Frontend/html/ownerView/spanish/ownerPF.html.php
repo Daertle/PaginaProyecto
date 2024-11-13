@@ -140,7 +140,7 @@
                                     </button>
                                 </div>
 
-                                <!-- MODAL DE AÑADIR USUARIO -->
+                                <!-- MODAL DE AÑADIR PREGUNTA -->
                                 <div id="addModal" class="modal" tabindex="-1">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -213,40 +213,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- MODAL DE MODIFCACIONES -->
-                <div id="modifModal" class="modal" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Modificar usuario</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="cerrarModal()">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-
-                            <div class="modal-body">
-                                <input type="hidden" id="txtID">
-                                    
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Nueva Pregunta</span>
-                                    </div>
-                                    <input type="text" id="txtNuevo" class="form-control" placeholder="nueva pregunta" aria-describedby="basic-addon1">
-                                </div>
-
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
-                                <div id="btnGuardarCont"></div>
-                                <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
 
     </div>
 

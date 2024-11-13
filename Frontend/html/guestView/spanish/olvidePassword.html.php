@@ -125,11 +125,6 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                 class="bi bi-globe"></i></a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="index.html.php">Español</a></li>
-              <li><a class="dropdown-item" href="guestLandingEnglish.html.php">Inglés</a></li>
-              <li><a class="dropdown-item" href="guestLandingArabic.html.php">Árabe</a></li>
-            </ul>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i

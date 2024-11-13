@@ -19,8 +19,8 @@
 </head>
 
 <body class="body2">
-  
-<div style="min-height: 100vh;">
+
+  <div style="min-height: 100vh;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
       <div class="container">
         <a href="../../../../index.html.php">
@@ -59,19 +59,12 @@
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-globe"></i>
               </a>
-              
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="guestLandingSpanish.html.php">Español</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingEnglish.html.php">Inglés</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingArabic.html.php">Árabe</a></li>
-              </ul>
             </li>
 
             <li class="nav-item dropdown">
-              <a href="login.html.php" class="nav-link dropdown-toggle"><i
-                  class="bi bi-person-circle"></i></a>
+              <a href="login.html.php" class="nav-link dropdown-toggle"><i class="bi bi-person-circle"></i></a>
             </li>
-          
+
           </ul>
         </div>
       </div>
@@ -128,29 +121,29 @@
         </div>
       </div>
     </div>
-    
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <ul class="ul1">
-          <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-          <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-          <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-          <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
-          <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
-        </ul>
 
-        <div class="footer-abajo">
-          <a href="#" class="footer-link">Servicios</a>
-          <a href="guestLandingSpanish.html" class="footer-logo">
-            <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
-          </a>
-          <a href="#" class="footer-link">Contactanos</a>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <ul class="ul1">
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></a></i></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></a></i></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></a></i></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></a></i></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></a></i></li>
+          </ul>
+
+          <div class="footer-abajo">
+            <a href="#" class="footer-link">Servicios</a>
+            <a href="guestLandingSpanish.html" class="footer-logo">
+              <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+            </a>
+            <a href="#" class="footer-link">Contactanos</a>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once '../../../../BackEnd/Gestion de Usuarios/Controlador.php';
 include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos3.php'; 
 

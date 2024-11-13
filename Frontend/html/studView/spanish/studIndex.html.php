@@ -1,4 +1,4 @@
-<?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos2.php'; ?>
+<?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos1.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,11 +56,6 @@
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                   class="bi bi-globe"></i></a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../spanish/studIndex.html.php">Español</a></li>
-                <li><a class="dropdown-item" href="../english/studIndex">Inglés</a></li>
-                <li><a class="dropdown-item" href="../arabe/studIndex">Árabe</a></li>
-              </ul>
             </li>
 
             <li class="nav-item dropdown">

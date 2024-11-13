@@ -53,11 +53,6 @@
 
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../spanish/adminIndex.html.php">Español</a></li>
-                            <li><a class="dropdown-item" href="../english/adminIndex">Inglés</a></li>
-                            <li><a class="dropdown-item" href="../arabe/adminIndex">Árabe</a></li>
-                        </ul>
                     </li>
 
                     <li class="nav-item dropdown">

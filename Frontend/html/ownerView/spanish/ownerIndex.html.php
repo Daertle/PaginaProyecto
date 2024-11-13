@@ -56,11 +56,6 @@
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                   class="bi bi-globe"></i></a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../spanish/ownerIndex.html.php">Español</a></li>
-                <li><a class="dropdown-item" href="../english/ownerIndex">Inglés</a></li>
-                <li><a class="dropdown-item" href="../arabe/ownerIndex">Árabe</a></li>
-              </ul>
             </li>
 
             <li class="nav-item dropdown">
@@ -138,7 +133,7 @@
         <ul class="ul1">
           <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
           <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-          <li class="li1"><a class="a1" href="#"><i class="fab fa-owneragram" aria-hidden="true"></i></a></li>
+          <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
           <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
           <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
         </ul>

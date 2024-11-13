@@ -28,4 +28,7 @@ if ($verificador == $h) {
     $comprobante = false;    
 }
 }
+error_log("Comprobante: " . json_encode($comprobante));
+header('Content-Type: application/json');
 echo json_encode($comprobante);
+exit;

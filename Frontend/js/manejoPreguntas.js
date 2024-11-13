@@ -34,35 +34,35 @@ function filaNueva(infoPreguntas, pos) {
 
 
 function agregarPregunta() {
-	$.ajax({
-		url: '../../../../BackEnd/Gestion de Usuarios/altaPreguntas.php',
-		method: 'POST',
-		data: {
-			pregunta: $('#txtPregunta').val(),
-			respuesta: $('#txtRespuesta').val(),
-			opcion1: $('#txtOpcion1').val(),
-			opcion2: $('#txtOpcion2').val(),
-			opcion3: $('#txtOpcion3').val(),
-		},
-		success: function (respuesta) {
-			console.log(respuesta);
+    $.ajax({
+        url: '../../../../BackEnd/Gestion de Usuarios/altaPreguntas.php',
+        method: 'POST',
+        data: {
+            pregunta: $('#txtPregunta').val(),
+            respuesta: $('#txtRespuesta').val(),
+            opcion1: $('#txtOpcion1').val(),
+            opcion2: $('#txtOpcion2').val(),
+            opcion3: $('#txtOpcion3').val(),
+        },
+        success: function (respuesta) {
+            console.log(respuesta);
 
-			traerPreguntas().then(dato => {
-				// Clear the table first
-				$("#tablaPreguntas").find("tr:gt(0)").remove();
-				datosPreguntas = dato;
-				for (var i = 0; i < dato.length; i++) {
-					filaNueva(dato[i], i);
-				}
-			});
-			cerrarModalAgregar();
-		},
-		error: function (respuesta) {
-			console.log(respuesta);
-			
-		},
-	});
+            traerPreguntas().then(dato => {
+                // Clear the table first
+                $("#tablaPreguntas").find("tr:gt(0)").remove();
+                datosPreguntas = dato;
+                for (var i = 0; i < dato.length; i++) {
+                    filaNueva(dato[i], i);
+                }
+            });
+            cerrarModalAgregar();
+        },
+        error: function (respuesta) {
+            console.log(respuesta);
+        },
+    });
 }
+
 function eliminar(pos) {
 	if (confirm('¿Está seguro de que desea eliminar este alumno?')) {
 	$.ajax({

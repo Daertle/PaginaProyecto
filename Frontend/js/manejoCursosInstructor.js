@@ -1,7 +1,7 @@
 datosClase = []; //Array global para manejo de cursos
 
 async function traerCursos() {
-	const response = await fetch('../../../../BackEnd/Gestion de Usuarios/listarCursos.php'
+	const response = await fetch('../../../../BackEnd/Gestion de Usuarios/listarCursosInstructor.php'
 		, {
 			method: 'GET',
 		});

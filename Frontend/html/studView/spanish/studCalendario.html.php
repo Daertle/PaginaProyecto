@@ -1,7 +1,9 @@
 <?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos1.php'; ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
   <meta charset="UTF-8" />
@@ -16,6 +18,7 @@
   <link rel="stylesheet" href="../../../css/side.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+
   <style>
      :root {
     --sidebar-width: 280px;
@@ -29,11 +32,13 @@
     --card-bg: #232323;
 }
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -42,13 +47,6 @@ body {
     color: var(--text-color);
 }
 
-.logo {
-    color: var(--text-color);
-    font-size: 1.5em;
-    padding: 20px;
-    text-align: center;
-    background: rgba(255,255,255,0.05);
-}
 
 /* Main Content */
 .adminCont {
@@ -59,9 +57,11 @@ body {
     background: var(--bg-dark);
 }
 
+
 .adminCont.expanded {
     margin-left: 0;
 }
+
 
 .body3 {
     background: var(--card-bg);
@@ -70,6 +70,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     border: 1px solid var(--border-color);
 }
+
 
 /* Calendar Styles */
 #calendar {
@@ -81,37 +82,43 @@ body {
     border: 1px solid var(--border-color);
 }
 
+
 /* Calendar specific overrides */
 .fc {
     background: var(--card-bg);
     color: var(--text-color);
 }
 
-.fc-theme-standard td, 
+
+.fc-theme-standard td,
 .fc-theme-standard th {
     border-color: var(--border-color);
 }
+
 
 .fc-theme-standard .fc-scrollgrid {
     border-color: var(--border-color);
 }
 
+
 .fc-day-today {
     background: rgba(114, 137, 218, 0.15) !important;
 }
+
 
 .fc-button-primary {
     background-color: var(--primary-color) !important;
     border-color: var(--border-color) !important;
 }
 
+
 .fc-button-primary:hover {
     background-color: var(--hover-color) !important;
 }
 
+
 /* Modal Styles */
 .custom-modal {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -121,9 +128,11 @@ body {
     z-index: 2000;
 }
 
+
 .custom-modal.active {
     display: block;
 }
+
 
 .custom-modal-content {
     position: absolute;
@@ -139,6 +148,7 @@ body {
     color: var(--text-color);
 }
 
+
 .custom-close {
     position: absolute;
     right: 15px;
@@ -148,12 +158,21 @@ body {
     color: var(--text-color);
 }
 
+
+.custom-hidden {
+    display: none;
+}
+
+
+
+
 /* Form Styles */
 #eventForm {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
+
 
 #eventForm select,
 #eventForm input {
@@ -165,6 +184,7 @@ body {
     color: var(--text-color);
 }
 
+
 #eventForm button {
     padding: 10px;
     background: var(--primary-color);
@@ -175,9 +195,11 @@ body {
     transition: 0.3s;
 }
 
+
 #eventForm button:hover {
     background: var(--hover-color);
 }
+
 
 /* Toggle Button */
 #toggle-sidebar {
@@ -194,6 +216,7 @@ body {
     display: none;
 }
 
+
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
     #toggle-sidebar {
@@ -201,7 +224,7 @@ body {
     }
 
     #sidebar {
-        margin-left: calc(var(--sidebar-width) * -1);
+        margin-left: calc(var(--sidebar-width) * .);
     }
 
     #sidebar.active {
@@ -256,8 +279,8 @@ body {
     </style>
 </head>
 
-<body class="body2">
-<nav id="sidebar">
+<body>
+    <nav id="sidebar">
     <ul>
       <li>
         <span class="logo">Estudiante</span>
@@ -282,7 +305,7 @@ body {
           <span>Configuracion</span>
         </a>
       </li>
-      <li  class="active">
+      <li class="active">
         <a href="studCalendario.html.php">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4-week" viewBox="0 0 16 16">
   <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
@@ -310,10 +333,11 @@ body {
       </li>
     </ul>
   </nav>
+
   <div class="adminCont">
 
     <div class="body3">
-      <h3>Título de la página</h3>
+      <h3>Calendario de clases</h3>
       <div id='calendar'></div>
 
       <!-- Modal -->
@@ -412,7 +436,7 @@ body {
 </script>
 
 <script src="dist/index.global.min.js"></script>
-<script src="core/locales/pt-br.global.min.js"></script>
+<script src="core/locales/es.global.min.js"></script>
 <script src="../../../js/calendar.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

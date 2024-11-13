@@ -55,6 +55,18 @@ function eliminar(pos) {
 }
 
 function guardarCambios(pos) {
+	if ($('#txtDato').val() === "username") {
+		let nuevoUsername = $('#txtNuevo').val();
+		if (nuevoUsername !== datosUsuarios[pos].username) {
+			let existeUsuario = verificarUsername(nuevoUsername);
+
+			if (existeUsuario) {
+				alert("Ese Username ya existe");
+				return;
+			}
+		}
+	}
+
 	$.ajax({
 		url: '../../../../BackEnd/Gestion de Usuarios/modificarInstructores.php',
 		method: 'POST',
@@ -132,9 +144,13 @@ function cerrarModalAgregar() {
 	$('#addModal').css("display", "none");
 }
 
-function agregarInstructor() {
-	let verifica = verificarCedula();
-	let existe = verificarExistencia();
+async function agregarInstructor() {
+	let verifica = await verificarCedula();
+	let existe = await verificarExistencia();
+	let existeUsuario = await verificarUsername();
+
+	console.log("verifica:", verifica); // Log the verifica value
+	console.log("existe:", existe); // Log the existe value
 
 	if (!verifica) {
 		alert("Esa cedula es Inexistente");
@@ -143,6 +159,11 @@ function agregarInstructor() {
 
 	if (existe) {
 		alert("Ese Usuario ya existe");
+		return;
+	}
+
+	if (existeUsuario) {
+		alert("Ese Username ya existe");
 		return;
 	}
 
@@ -189,47 +210,80 @@ function agregarInstructor() {
 	});
 }
 
-function verificarCedula() {
+async function verificarCedula() {
 	let verifico = false;
 
-	$.ajax({
-		url: '../../../../BackEnd/Gestion de Usuarios/verificadorCI.php',
+	try {
+		const response = await $.ajax({
+			url: '../../../../BackEnd/Gestion de Usuarios/verificadorCI.php',
+			method: 'POST',
+			data: {
+				cedula: $('#txtNuevoDocumento').val()
+			},
+			dataType: 'json' // Especificamos explícitamente que esperamos JSON
+		});
+
+		console.log("Respuesta recibida:", response);
+		verifico = response === true; // Comparación booleana directa
+
+	} catch (error) {
+		console.error("Error en verificarCedula:", error);
+		verifico = false;
+	}
+
+	return verifico;
+}
+
+async function verificarExistencia() {
+	let verifico;
+
+	await $.ajax({
+		url: '../../../../BackEnd/Gestion de Usuarios/verificadorExiste.php',
 		method: 'POST',
 		data: {
 			cedula: $('#txtNuevoDocumento').val()
 		},
 		success: function (response) {
-			verifico = response;
+			try {
+				console.log("verificarExistencia response:", response); // Log the response
+				verifico = JSON.parse(response);
+			} catch (e) {
+				console.error("Error parsing JSON response: ", e);
+				verifico = false;
+			}
 		},
-		async: false
+		error: function () {
+			verifico = false;
+		}
 	});
+
 	return verifico;
 }
 
-function verificarExistencia() {
-    let verifico;
+async function verificarUsername() {
+	let verifico;
 
-    $.ajax({
-        url: '../../../../BackEnd/Gestion de Usuarios/verificadorExiste.php',
-        method: 'POST',
-        data: {
-            cedula: $('#txtNuevoDocumento').val()
-        },
-        success: function (response) {
-            try {
-                verifico = JSON.parse(response);
-            } catch (e) {
-                console.error("Error parsing JSON response: ", e);
-                verifico = false;
-            }
-        },
-        error: function (response) {
-            console.error("Error in AJAX request: ", response);
-            verifico = false;
-        },
-        async: false
-    });
-    return verifico;
+	await $.ajax({
+		url: '../../../../BackEnd/Gestion de Usuarios/verificadorUsuario.php',
+		method: 'POST',
+		data: {
+			username: $('#txtNuevoUsername').val()
+		},
+		success: function (response) {
+			try {
+				console.log("verificarExistencia response:", response); // Log the response
+				verifico = JSON.parse(response);
+			} catch (e) {
+				console.error("Error parsing JSON response: ", e);
+				verifico = false;
+			}
+		},
+		error: function () {
+			verifico = false;
+		}
+	});
+
+	return verifico;
 }
 
 // Función para mostrar/ocultar el campo de texto en el modal de modificar

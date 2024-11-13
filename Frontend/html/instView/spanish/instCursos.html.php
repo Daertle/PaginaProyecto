@@ -200,10 +200,7 @@
                                     <label for="txtDato">Dato a Modificar</label>
                                     <select id="txtDato" name="txtDato" class="form-control" onchange="mostrarCampoNumero(); mostrarCampoTexto(); mostrarCampoFecha(); mostrarCampoDocumento(); mostrarCampoHora();">
                                         <option value="" disabled selected> Dato a Seleccionar </option>
-                                        <option value="documentoAlumno"> Documento Alumno </option>
-                                        <option value="documentoInstructor"> Documento Instructor </option>
                                         <option value="matricula"> Matricula </option>
-                                        <option value="precio"> Precio </option>
                                         <option value="fecha"> Fecha </option>
                                         <option value="hora"> Hora </option>
                                         <option value="tipoLibreta"> Tipo Libreta </option>

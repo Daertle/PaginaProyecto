@@ -50,7 +50,7 @@
 
     .imgNos {
         max-width: 100%;
-        margin: 20px 0;
+        margin:20px;
         order: 2;
         object-fit: cover;
     }
@@ -73,6 +73,7 @@
 .imgNos {
     height: auto;
     object-fit: cover;
+    margin: 3vh;
 }
 
     </style>
@@ -92,7 +93,7 @@
       <div class="collapse navbar-collapse" id="navbar5">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a href="studNosotros.html.php" class="nav-link">Nosotros</a>
+            <a href="studNosotros.html.php" class="nav-link active">Nosotros</a>
           </li>
           <li class="nav-item">
             <a href="studFlota.html.php" class="nav-link">Flota</a>
@@ -115,11 +116,6 @@
 
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../spanish/studIndex.html.php">Español</a></li>
-              <li><a class="dropdown-item" href="../english/studIndex">Inglés</a></li>
-              <li><a class="dropdown-item" href="../arabe/studIndex">Árabe</a></li>
-            </ul>
           </li>
 
           <li class="nav-item dropdown">

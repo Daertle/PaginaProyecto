@@ -18,62 +18,62 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="../../../css/style.css">
 
-    <style>
-        /* Media queries para responsividad */
-        @media (max-width: 992px) {
-    .contentNos {
+  <style>
+    /* Media queries para responsividad */
+    @media (max-width: 992px) {
+      .contentNos {
         padding: 0 4%;
         gap: 30px;
-    }
+      }
 
-    .text-content {
+      .text-content {
         max-width: 55%;
-    }
+      }
 
-    .imgNos {
+      .imgNos {
         max-width: 40%;
+      }
     }
-}
 
-@media (max-width: 768px) {
-    .contentNos {
+    @media (max-width: 768px) {
+      .contentNos {
         flex-direction: column;
         padding: 0 5%;
-    }
+      }
 
-    .text-content {
+      .text-content {
         max-width: 100%;
         order: 1;
-    }
+      }
 
-    .imgNos {
+      .imgNos {
         max-width: 100%;
         margin: 20px 0;
         order: 2;
         object-fit: cover;
-    }
+      }
 
-    .titulo {
+      .titulo {
         font-size: 2rem;
         margin: 100px 5% 40px 5%;
-        text-align: center; /* Cambiado de 'left' a 'center' */
-    }
+        text-align: center;
+        /* Cambiado de 'left' a 'center' */
+      }
 
-    .Subtitulo {
+      .Subtitulo {
         font-size: 1.8rem;
-    }
+      }
 
-    .info {
+      .info {
         font-size: 0.95rem;
+      }
     }
-}
 
-.imgNos {
-    height: auto;
-    object-fit: cover;
-}
-
-    </style>
+    .imgNos {
+      height: auto;
+      object-fit: cover;
+    }
+  </style>
 </head>
 
 <body class="body2">
@@ -116,18 +116,12 @@
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-globe"></i>
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="guestLandingSpanish.html.php">Español</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingEnglish.html.php">Inglés</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingArabic.html.php">Árabe</a></li>
-              </ul>
             </li>
 
             <li class="nav-item dropdown">
-              <a href="login.html.php" class="nav-link dropdown-toggle"><i
-                  class="bi bi-person-circle"></i></a>
+              <a href="login.html.php" class="nav-link dropdown-toggle"><i class="bi bi-person-circle"></i></a>
             </li>
-          
+
           </ul>
         </div>
       </div>

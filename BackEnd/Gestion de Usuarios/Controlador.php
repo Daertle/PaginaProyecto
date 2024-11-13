@@ -68,10 +68,7 @@ class Controlador
     public function altaPregunta(string $pregunta, string $respuesta, array $opciones)
     {
 
-        $this->base->ingresarPregunta(
-            $pregunta,
-            $respuesta
-        );
+        $this->base->ingresarPregunta( $pregunta,$respuesta);
         $this->base->ingresarOpciones($pregunta, $opciones);
     }
 

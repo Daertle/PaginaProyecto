@@ -57,20 +57,10 @@
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                   class="bi bi-globe"></i></a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="guestLandingSpanish.html.php">Español</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingEnglish.html.php">Inglés</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingArabic.html.php">Árabe</a></li>
-              </ul>
             </li>
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                   class="bi bi-person-circle"></i></a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="login.html.php">Log In</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingEnglish.html.php">Inglés</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingArabic.html.php">Árabe</a></li>
-              </ul>
             </li>
           </ul>
         </div>
@@ -116,4 +106,5 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>

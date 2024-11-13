@@ -1,12 +1,18 @@
 <?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos3.php'; ?>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luxury Driving</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         .card {
             margin: 20px;
@@ -61,8 +67,9 @@
         .right-lower {
             padding-bottom: 50px;
         }
-        
-            div.col-6, div.right-lower {
+
+        div.col-6,
+        div.right-lower {
             color: white;
             background-color: #0f0f0f;
         }
@@ -74,26 +81,29 @@
         }
 
         .package-title {
-            font-size: 1.5em; /* Aumenta el tamaño de la fuente del título del paquete */
+            font-size: 1.5em;
+            /* Aumenta el tamaño de la fuente del título del paquete */
             font-weight: bold;
-            padding-left: 40px !important; /* Agrega padding-left al título del paquete */
+            padding-left: 40px !important;
+            /* Agrega padding-left al título del paquete */
         }
 
         .package-price {
-            font-size: 1.5em; /* Aumenta el tamaño de la fuente del precio */
+            font-size: 1.5em;
+            /* Aumenta el tamaño de la fuente del precio */
             font-weight: bold;
-            text-align: right; /* Alinea el precio a la derecha */
+            text-align: right;
+            /* Alinea el precio a la derecha */
             display: flex;
-            justify-content: flex-end; /* Asegura que el precio esté alineado a la derecha */
+            justify-content: flex-end;
+            /* Asegura que el precio esté alineado a la derecha */
             padding-right: 40px !important;
         }
 
         .package-info {
-            padding-left: 40px; /* Agrega padding-left a la información de cada paquete */
+            padding-left: 40px;
+            /* Agrega padding-left a la información de cada paquete */
         }
-
-        
-
     </style>
 </head>
 
@@ -139,19 +149,17 @@
                                 aria-expanded="false">
                                 <i class="bi bi-globe"></i>
                             </a>
-
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="adminLandingSpanish.html.php">Español</a></li>
-                                <li><a class="dropdown-item" href="../english/adminLandingEnglish.html.php">Inglés</a>
-                                </li>
-                                <li><a class="dropdown-item" href="../english/adminLandingArabic.html.php">Árabe</a>
-                                </li>
-                            </ul>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a href="login.html.php" class="nav-link dropdown-toggle"><i
-                                    class="bi bi-person-circle"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false"><i class="bi bi-person-circle"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"
+                                        href="../../../../BackEnd/Gestion de Usuarios/logOut.php">Log Out</a></li>
+                                <li><a class="dropdown-item"
+                                        href="../../adminView/spanish/adminPerfil.html.php">Perfil</a></li>
+                            </ul>
                         </li>
 
                     </ul>
@@ -159,60 +167,62 @@
             </div>
         </nav>
 
-<div class="container">
-    <div class="card">
-        <div class="row g-0 h-100">
-            <!-- seccionn izquierda con imagen -->
-            <div class="col-12 col-md-4 left-section">
-                <img src="../../../img/auto.jpg" alt="Libreta tipo A" class="img-fluid h-100">
-            </div>
-
-            <!-- seccion derecha -->
-            <div class="col-12 col-md-8 right-column">
-                <!-- parte superior derecha dividida en dos columnas -->
-                <div class="section h-100">
-                    <div class="row g-0 h-100">
-                        <div class="col-6">
-                            <p class="p-2 m-0 package-title">Paquete - libreta tipo A</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="p-2 m-0 package-price">$16000</p>
-                        </div>
+        <div class="container">
+            <div class="card">
+                <div class="row g-0 h-100">
+                    <!-- seccionn izquierda con imagen -->
+                    <div class="col-12 col-md-4 left-section">
+                        <img src="../../../img/auto.jpg" alt="Libreta tipo A" class="img-fluid h-100">
                     </div>
-                </div>
 
-                <!-- parte superior derecha dividida en dos columnas -->
-                <div class="h-100">
-                    <div class="right-lower package-info">
-                        <p class="p-2 m-0">Ideal para personas que desean conducir autos particulares y
-                            camionetas pequeñas con remolque liviano.
-                            <br>
-                            Incluye:
-                        <ul>
-                            <li>10 clases prácticas de manejo en automóvil.</li>
-                            <br>
-                            <li>2 clases teóricas de normas de tránsito y seguridad vial.</li>
-                            <br>
-                            <li>Simulacro del examen práctico.</li>
-                        </ul>
-                        </p>
-                        <p class="p-2 m-0">Vehiculos habilitados con este tipo de libreta:
-                        <ul>
-                            <li>Vehículos hasta 9 pasajeros, incluido el conductor.</li>
-                            <br>
-                            <li>Camionetas y vehículos con remolque, con un peso máximo total de hasta 4.000 kg.
-                            </li>
-                        </ul>
-                        </p>
-                    </div>
-                    <div>
-                        <button type="button" target="_" onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra A.pdf')" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
+                    <!-- seccion derecha -->
+                    <div class="col-12 col-md-8 right-column">
+                        <!-- parte superior derecha dividida en dos columnas -->
+                        <div class="section h-100">
+                            <div class="row g-0 h-100">
+                                <div class="col-6">
+                                    <p class="p-2 m-0 package-title">Paquete - libreta tipo A</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="p-2 m-0 package-price">$16000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- parte superior derecha dividida en dos columnas -->
+                        <div class="h-100">
+                            <div class="right-lower package-info">
+                                <p class="p-2 m-0">Ideal para personas que desean conducir autos particulares y
+                                    camionetas pequeñas con remolque liviano.
+                                    <br>
+                                    Incluye:
+                                <ul>
+                                    <li>10 clases prácticas de manejo en automóvil.</li>
+                                    <br>
+                                    <li>2 clases teóricas de normas de tránsito y seguridad vial.</li>
+                                    <br>
+                                    <li>Simulacro del examen práctico.</li>
+                                </ul>
+                                </p>
+                                <p class="p-2 m-0">Vehiculos habilitados con este tipo de libreta:
+                                <ul>
+                                    <li>Vehículos hasta 9 pasajeros, incluido el conductor.</li>
+                                    <br>
+                                    <li>Camionetas y vehículos con remolque, con un peso máximo total de hasta 4.000 kg.
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div>
+                                <button type="button" target="_"
+                                    onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra A.pdf')"
+                                    class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
         <div class="container">
             <div class="card">
@@ -238,7 +248,7 @@
 
                         <!-- parte superior derecha dividida en dos columnas -->
                         <div class="h-100">
-                        <div class="right-lower package-info">
+                            <div class="right-lower package-info">
                                 <p class="p-2 m-0">Ideal para conductores que necesitan manejar vehículos más grandes,
                                     como minibuses o camiones de carga ligera.
                                     <br>
@@ -262,7 +272,9 @@
                                 </p>
                             </div>
                             <div>
-                            <button type="button" target="_" onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra B.pdf')" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
+                                <button type="button" target="_"
+                                    onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra B.pdf')"
+                                    class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
                             </div>
                         </div>
                     </div>
@@ -326,7 +338,9 @@
                             </div>
 
                             <div>
-                            <button type="button" target="_" onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra C.pdf')" class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
+                                <button type="button" target="_"
+                                    onclick="window.open('../../../../BackEnd/pdfOrdenCompras/Orden compra C.pdf')"
+                                    class="btn btn-primary printOrder">IMPRIMIR ORDEN DE COMPRA</button>
                             </div>
                         </div>
                     </div>

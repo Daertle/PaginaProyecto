@@ -52,7 +52,7 @@
             <a href="studNosotros.html.php" class="nav-link">Nosotros</a>
           </li>
           <li class="nav-item">
-            <a href="studFlota.html.php" class="nav-link">Flota</a>
+            <a href="studFlota.html.php" class="nav-link active">Flota</a>
           </li>
           <li class="nav-item">
             <a href="studClases.html.php" class="nav-link">Clases</a>
@@ -72,11 +72,6 @@
 
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../spanish/studIndex.html.php">Español</a></li>
-              <li><a class="dropdown-item" href="../english/studIndex">Inglés</a></li>
-              <li><a class="dropdown-item" href="../arabe/studIndex">Árabe</a></li>
-            </ul>
           </li>
 
           <li class="nav-item dropdown">

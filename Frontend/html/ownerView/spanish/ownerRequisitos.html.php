@@ -49,16 +49,11 @@
                         <a href="ownerTests.html.php" class="nav-link">Tests</a>
                     </li>
                     <li class="nav-item">
-                        <a href="ownerRequisitos.html.php" class="nav-link">Requisitos</a>
+                        <a href="ownerRequisitos.html.php" class="nav-link active">Requisitos</a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../spanish/ownerIndex.html.php">Español</a></li>
-                            <li><a class="dropdown-item" href="../english/ownerIndex">Inglés</a></li>
-                            <li><a class="dropdown-item" href="../arabe/ownerIndex">Árabe</a></li>
-                        </ul>
                     </li>
 
                     <li class="nav-item dropdown">

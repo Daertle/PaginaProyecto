@@ -1,7 +1,7 @@
 <?php
 require_once 'Controlador.php';
 $controla = new Controlador();
-$usuarioCedula = $_POST['cedula'];
+$usuarioUsername = $_POST['username'];
 $comprobante = false;
 
 $alumnos = $controla->traerTablaAlumnos();
@@ -9,21 +9,21 @@ $instructores = $controla->traerTablaInstructores();
 $administradores = $controla->traerTablaAdministradores();
 
 foreach ($alumnos as $alumno) {
-    if ($alumno['documentoAlumno'] == $usuarioCedula) {
+    if ($alumno['username'] == $usuarioUsername) {
         $comprobante = true;
         break;
     }
 }
 
 foreach ($instructores as $instructor) {
-    if ($instructor['documentoInstructor'] == $usuarioCedula) {
+    if ($instructor['username'] == $usuarioUsername) {
         $comprobante = true;
         break;
     }
 }
 
 foreach ($administradores as $administrador) {
-    if ($administrador['documentoAdmin'] == $usuarioCedula) {
+    if ($administrador['username'] == $usuarioUsername) {
         $comprobante = true;
         break;
     }

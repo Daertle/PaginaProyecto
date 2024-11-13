@@ -2,24 +2,25 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login parte css</title>
-<link rel="stylesheet" href="../../../css/login.css">
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<link rel="stylesheet" href="../../../css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login parte css</title>
+  <link rel="stylesheet" href="../../../css/login.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="../../../css/style.css">
 
 </head>
 
 <body class="body1">
-<div style="min-height: 100vh;">
+  <div style="min-height: 100vh;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
       <div class="container">
         <a href="../../../../index.html.php">
@@ -58,64 +59,56 @@
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                   class="bi bi-globe"></i></a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="guestLandingSpanish.html.php">Español</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingEnglish.html.php">Inglés</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingArabic.html.php">Árabe</a></li>
-              </ul>
             </li>
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                   class="bi bi-person-circle"></i></a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="login.html.php">Log In</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingEnglish.html.php">Inglés</a></li>
-                <li><a class="dropdown-item" href="../english/guestLandingArabic.html.php">Árabe</a></li>
-              </ul>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-      <div class="uno">
+    <div class="uno">
 
       <form action="../../../../BackEnd/Gestion de Usuarios/LogIn.php" method="post">
-<h1>Iniciar Sesion</h1>
+        <h1>Iniciar Sesion</h1>
 
-<?php
-session_start();
-if (isset($_SESSION['error_message'])) {
-    echo "<div class='alert alert-danger'>" . $_SESSION['error_message'] . "</div>";
-    unset($_SESSION['error_message']);
-}
-?>
+        <?php
+        session_start();
+        if (isset($_SESSION['error_message'])) {
+          echo "<div class='alert alert-danger'>" . $_SESSION['error_message'] . "</div>";
+          unset($_SESSION['error_message']);
+        }
+        ?>
 
-<div class="input-box">
-    <input type="text" name="txtUsername" id="txtUsername" placeholder="Usuario" required>
-    <i class='bx bxs-user'></i>
-</div>
-<div class="input-box">
-    <input type="password" name="txtPassword" id="txtPassword" placeholder="Contraseña" required>
-    <i class='bx bxs-lock-alt'></i>
-</div>
+        <div class="input-box">
+          <input type="text" name="txtUsername" id="txtUsername" placeholder="Usuario" required>
+          <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" name="txtPassword" id="txtPassword" placeholder="Contraseña" required>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
 
-<div class="olvide">
-<label> <input type="checkbox" id="recordar">Recuerdame</label>
+        <div class="olvide">
+          <label> <input type="checkbox" id="recordar">Recuerdame</label>
 
-<a href="olvidePassword.html.php">Olvidaste la cotraseña?</a>
+          <a href="olvidePassword.html.php">Olvidaste la cotraseña?</a>
 
-</div>
+        </div>
 
-<div class="g-recaptcha" data-sitekey="6LeyN3YqAAAAAHgxkSWvCG2FU4S_O0VyuVsoTEfe" style="display: flex;
+        <div class="g-recaptcha" data-sitekey="6LeyN3YqAAAAAHgxkSWvCG2FU4S_O0VyuVsoTEfe" style="display: flex;
     justify-content: center;
     margin: 20px 0; "></div>
 
-<button type="submit" class="btn">Entrar</button>
+        <button type="submit" class="btn">Entrar</button>
 
 
-</form>
-        
+      </form>
+
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
