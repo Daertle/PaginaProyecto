@@ -59,6 +59,10 @@
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-globe"></i>
               </a>
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../../../../index.html.php">Español</a></li>
+              </ul>
             </li>
 
             <li class="nav-item dropdown">
@@ -126,11 +130,11 @@
       <div class="container">
         <div class="footer-content">
           <ul class="ul1">
-            <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></a></i></li>
-            <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></a></i></li>
-            <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></a></i></li>
-            <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></a></i></li>
-            <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></a></i></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
           </ul>
 
           <div class="footer-abajo">

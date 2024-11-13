@@ -62,6 +62,9 @@ $preguntas = $controlador->obtenerPreguntas();
 
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-globe"></i></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../spanish/instIndex.html.php">Español</a></li>
+            </ul>
           </li>
 
           <li class="nav-item dropdown">
@@ -91,7 +94,7 @@ $preguntas = $controlador->obtenerPreguntas();
               echo "<input type='hidden' name='respuesta_correcta_" . $pregunta['id_pregunta'] . "' value='" . htmlspecialchars($pregunta['respuesta_correcta']) . "'>";
 
               foreach ($pregunta['opciones'] as $opcion) {
-                  $input_id = 'pregunta_' . $pregunta['id_pregunta'] . '_opcion_' . $opcion['opcion_texto'];
+                  $input_id = 'pregunta_' . $pregunta['id_pregunta'] . '_opcion_' . $opcion['id_opcion'];
                   echo '<div class="custom-radio-group">';
                   echo '<input type="radio" id="' . $input_id . '" name="pregunta_' . $pregunta['id_pregunta'] . '" value="' . htmlspecialchars($opcion['opcion_texto']) . '">';
                   echo '<label for="' . $input_id . '">' . htmlspecialchars($opcion['opcion_texto']) . '</label>';

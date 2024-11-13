@@ -9,7 +9,7 @@ $dato = $_POST['campo'];
 $nuevo = $_POST['valor'];
 
 // Obtener el documento del usuario basado en el nombre de usuario
-$documento = $controla->seleccionarDocumentoUsuario($usuario);
+$documento = $controla->seleccionarDocumentoUsuarioArray($usuario);
 
 // Verificar el tipo de usuario y llamar a la función correspondiente
 if ($controla->esAlumno($documento)) {

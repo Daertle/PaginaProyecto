@@ -53,6 +53,9 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
                 class="bi bi-globe"></i></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../../../../index.html.php">Español</a></li>
+            </ul>
           </li>
 
           <<li class="nav-item dropdown">
@@ -193,7 +196,6 @@
     </div>
   </main>
 
-  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>

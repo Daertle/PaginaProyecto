@@ -192,6 +192,11 @@ class Controlador
 
     /* LogIn */
 
+    public function logInDirecto(String $username, String $password)
+    {
+        return $this->base->logueo($username, $password);
+    }
+
     public function logIn(String $username, String $password)
     {
         $usuario = $this->base->logueo($username, $password);

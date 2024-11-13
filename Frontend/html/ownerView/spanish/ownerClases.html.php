@@ -1,18 +1,12 @@
 <?php include '../../../../BackEnd/Gestion de Usuarios/verificarpermisos4.php'; ?>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Driving</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../../../css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         .card {
             margin: 20px;
@@ -148,17 +142,15 @@
                                 aria-expanded="false">
                                 <i class="bi bi-globe"></i>
                             </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="ownerLandingSpanish.html.php">Español</a></li>
+                            </ul>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                                aria-expanded="false"><i class="bi bi-person-circle"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item"
-                                        href="../../../../BackEnd/Gestion de Usuarios/logOut.php">Log Out</a></li>
-                                <li><a class="dropdown-item"
-                                        href="../../ownerView/spanish/ownerPerfil.html.php">Perfil</a></li>
-                            </ul>
+                            <a href="login.html.php" class="nav-link dropdown-toggle"><i
+                                    class="bi bi-person-circle"></i></a>
                         </li>
 
                     </ul>
@@ -350,38 +342,38 @@
                 </div>
             </div>
         </div>
-    </div>
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <ul class="ul1">
-                    <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                    </li>
-                </ul>
+        </div>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <ul class="ul1">
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="li1"><a class="a1" href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
 
-                <div class="footer-abajo">
-                    <a href="#" class="footer-link">Servicios</a>
-                    <a href="guestLandingSpanish.html" class="footer-logo">
-                        <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
-                    </a>
-                    <a href="#" class="footer-link">Contactanos</a>
+                    <div class="footer-abajo">
+                        <a href="#" class="footer-link">Servicios</a>
+                        <a href="guestLandingSpanish.html" class="footer-logo">
+                            <img src="../../../img/logo.png" alt="Logo" width="200" height="67">
+                        </a>
+                        <a href="#" class="footer-link">Contactanos</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script src="../../../js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+        <script src="../../../js/script.js"></script>
 
 </body>
 
